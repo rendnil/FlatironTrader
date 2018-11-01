@@ -21,9 +21,9 @@ class Home extends React.Component{
   render(){
     return(
       <div>
-        <NavBar />
         <Router>
           <React.Fragment>
+          <NavBar />
             <Route exact path = "/" render = {this.homeRender}/>
             <Route exact path = "/trade" render = {()=> <TradeContainer/>}/>
             <Route exact path = "/portfolio" render = {()=> <PortfolioContainer/>}/>
