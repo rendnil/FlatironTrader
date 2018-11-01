@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import Landing from "./Landing"
+import Home from "./Home"
+
 
 class App extends Component {
 
@@ -38,7 +40,7 @@ class App extends Component {
 
     return (
       <div>
-        {this.props.currentUser.username? this.MarketFeed():<Landing />}
+        {this.props.currentUser.username? <Home />:<Landing />}
 
 
       </div>
