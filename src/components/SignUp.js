@@ -1,12 +1,13 @@
 import React from "react"
 import { Container, Header, Form, Button, Checkbox, Message } from 'semantic-ui-react'
-import {loginAction} from "../redux/actions/loginAction"
+import {signupAction} from "../redux/actions/signupAction"
 import { connect } from 'react-redux'
 
-class Login extends React.Component{
+class SignUp extends React.Component{
 
   state = {
     username: "",
+    email: "",
     password: ""
 
   }
@@ -18,7 +19,7 @@ class Login extends React.Component{
   }
 
   handleSubmit = () => {
-    this.props.loginAction(this.state.username, this.state.password)
+    this.props.signupAction(this.state.username, this.state.email, this.state.password)
   }
 
 
@@ -26,17 +27,20 @@ class Login extends React.Component{
     return(<Message
           negative
           header='Error'
-          content='Invalid username and/or password'/>)
+          content='Invalid username, email, and/or password'/>)
   }
 
   render(){
     return(
       <div>
-        <Container style={{textAlign: "center", width: "50%", marginTop:"20%"}}>
+        <Container style={{textAlign: "center", width: "50%", marginTop:"10%"}}>
           <Form onSubmit={this.handleSubmit}>
-          <Header size="large">Login</Header>
+          <Header size="large">Sign Up</Header>
           <Form.Field>
             <input name="username" onChange={this.handleChange} value = {this.state.username} placeholder='Username' />
+          </Form.Field>
+          <Form.Field>
+            <input type="email" name="email" onChange={this.handleChange} value = {this.state.email} placeholder='Email' />
           </Form.Field>
           <Form.Field>
             <input type="password" name="password" onChange={this.handleChange} value = {this.state.password} placeholder='Password' />
@@ -44,8 +48,8 @@ class Login extends React.Component{
 
 
 
-          <Button color="green" type='submit'>Submit</Button>
-          {this.props.currentUser === "Invalid login attempt"? this.loginError():null }
+          <Button color="blue" type='submit'>Submit</Button>
+          {this.props.currentUser === "Invalid sign up attempt"? this.loginError():null }
         </Form>
 
         </Container>
@@ -62,9 +66,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginAction: (username, password) => dispatch(loginAction(username,password))
+    signupAction: (username, email, password) => dispatch(signupAction(username,email, password))
   }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

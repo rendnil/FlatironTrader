@@ -40,9 +40,9 @@ class MarketData extends React.Component {
     console.log("rendered");
 
     return(
-      <div>
+      <React.Fragment>
 
-      </div>
+      </React.Fragment>
     )
   }
 
