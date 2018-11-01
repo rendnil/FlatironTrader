@@ -22,7 +22,7 @@ export function loginAction(username, password){
     .then(r =>r.json())
     .then(data=> {
 
-      console.log(data);
+      
       //debugger
       if (data.message ==="Invalid username or password"){
 

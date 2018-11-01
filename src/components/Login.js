@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Header, Form, Button, Checkbox } from 'semantic-ui-react'
+import { Container, Header, Form, Button, Checkbox, Message } from 'semantic-ui-react'
 import {loginAction} from "../redux/actions/loginAction"
 import { connect } from 'react-redux'
 
@@ -21,11 +21,20 @@ class Login extends React.Component{
     this.props.loginAction(this.state.username, this.state.password)
   }
 
+
+  loginError = () => {
+    return(<Message
+          negative
+          header='Error'
+          content='Invalid username and/or password'
+            />)
+  }
+
   render(){
     return(
       <div>
         <Container style={{textAlign: "center", width: "50%", marginTop:"20%"}}>
-        <Form onSubmit={this.handleSubmit}>
+          <Form onSubmit={this.handleSubmit}>
           <Header size="large">Login</Header>
           <Form.Field>
             <input name="username" onChange={this.handleChange} value = {this.state.username} placeholder='Username' />
@@ -34,13 +43,22 @@ class Login extends React.Component{
             <input type="password" name="password" onChange={this.handleChange} value = {this.state.password} placeholder='Password' />
           </Form.Field>
 
+
+
           <Button type='submit'>Submit</Button>
+          {this.props.currentUser === "Invalid login attempt"? this.loginError():null }
         </Form>
 
         </Container>
       </div>
     )
   }
+}
+
+const mapStateToProps = (state) => {
+  return {
+          currentUser: state.currentUser
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -50,9 +68,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(Login)
-
-//
-// <Form.Field>
-//   <Checkbox label='I agree to the Terms and Conditions' />
-// </Form.Field>
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
