@@ -17,13 +17,21 @@ class MarketData extends React.Component {
     this.props.fetchIEXData()
     this.props.fetchIEXData()
     this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
 
 
-    this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
-    this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
+    //this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
+    //this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
   }
 
   componentWillUnmount() {
+    console.log("unmounted");
     clearInterval(this.iex_interval)
     clearInterval(this.coindesk_interval)
   }

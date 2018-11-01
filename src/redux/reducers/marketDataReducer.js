@@ -23,11 +23,10 @@ export default function (state = {}, action){
       if (state.iexData){
         //need to calc IEX mid price for accuracy
         let iexBitcoin = state.iexData.find((asset)=>{
-          return asset.symbol == "BTCUSDT"
+          return asset.symbol === "BTCUSDT"
         })
 
         let iexBitcoinMid = (iexBitcoin.bidPrice + iexBitcoin.askPrice)/2
-
 
         impliedTetherPrice = coindeskBitcoinPrice/iexBitcoinMid
       }

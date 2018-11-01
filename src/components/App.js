@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import Login from "./Login"
+
 class App extends Component {
   render() {
     console.log(this.props);
@@ -13,6 +15,7 @@ class App extends Component {
 
     return (
       <div>
+        <Login />
         <h1>Coindesk Bitcoin </h1>
         <p> {this.props.marketData.coindeskData} </p>
         <p> </p>
@@ -32,7 +35,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {marketData: state.marketData}
+  return {marketData: state.marketData,
+          currentUser: state.currentUser
+    }
 
 }
 
