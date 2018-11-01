@@ -1,6 +1,7 @@
 import React from "react"
 import {fetchIEXData} from "../redux/actions/iexAction"
 import {fetchCoindeskData} from "../redux/actions/coindeskAction"
+import {fetchAssetData} from "../redux/actions/assetAction"
 import { connect } from 'react-redux'
 
 class MarketData extends React.Component {
@@ -14,6 +15,7 @@ class MarketData extends React.Component {
 
   componentDidMount(){
     console.log("mounted");
+    this.props.fetchAssetData()
     this.props.fetchIEXData()
     this.props.fetchIEXData()
     this.props.fetchCoindeskData()
@@ -26,8 +28,8 @@ class MarketData extends React.Component {
     this.props.fetchCoindeskData()
 
 
-    //this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
-    //this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
+    this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
+    this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
   }
 
   componentWillUnmount() {
@@ -53,7 +55,9 @@ class MarketData extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchIEXData: () => dispatch(fetchIEXData()),
-    fetchCoindeskData: () => dispatch(fetchCoindeskData())
+    fetchCoindeskData: () => dispatch(fetchCoindeskData()),
+    fetchAssetData: () => dispatch(fetchAssetData())
+
   }
 }
 

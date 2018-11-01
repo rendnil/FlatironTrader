@@ -31,7 +31,7 @@ const NavBar = (props) => {
 
     <Menu.Menu position='right'>
         <Menu.Item>
-          <Button primary>Sign Out</Button>
+          <Button color="red">Sign Out</Button>
         </Menu.Item>
     </Menu.Menu>
 

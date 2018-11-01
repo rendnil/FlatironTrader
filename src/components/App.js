@@ -33,7 +33,7 @@ class App extends Component {
 
 
   render() {
-    console.log("render");
+    // console.log("render");
     console.log(this.props);
 
 
@@ -54,7 +54,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {marketData: state.marketData,
-          currentUser: state.currentUser
+          currentUser: state.currentUser,
+          tradeableAssets: state.tradeableAssets
     }
 
 }
