@@ -14,6 +14,8 @@ class MarketData extends React.Component {
 
   componentDidMount(){
     console.log("mounted");
+    this.props.fetchIEXData()
+    this.props.fetchIEXData()
     this.props.fetchCoindeskData()
 
 
