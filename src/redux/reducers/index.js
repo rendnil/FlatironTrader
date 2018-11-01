@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import iexReducer from './iexReducer';
+import marketDataReducer from './marketDataReducer';
+
 
 
 export default combineReducers({
-  iexData: iexReducer
+  marketData: marketDataReducer
 })
