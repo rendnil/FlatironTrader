@@ -1,7 +1,7 @@
 import React from "react"
 import {Container, Table} from "semantic-ui-react"
 import { connect } from 'react-redux'
-
+import {selectAssetAction} from "../redux/actions/selectAssetAction"
 
 class TradeTableRow extends React.Component{
 
@@ -11,22 +11,22 @@ class TradeTableRow extends React.Component{
 
 
 
-  findAsset(state){
-    return state.iexData.find((asset)=>{
-      return asset.symbol === this.props.asset.symbol
-    })
-  }
-
-  tetherConversion(){
-    if(this.props.marketData.tether){
-      return this.props.marketData.tether
-    }else{
-      return 1
-    }
-  }
+  // findAsset(state){
+  //   return state.iexData.find((asset)=>{
+  //     return asset.symbol === this.props.asset.symbol
+  //   })
+  // }
+  //
+  // tetherConversion(){
+  //   if(this.props.marketData.tether){
+  //     return this.props.marketData.tether
+  //   }else{
+  //     return 1
+  //   }
+  // }
 
   handleClick = (event) => {
-
+    this.props.selectAssetAction(this.props.asset, this.props.tether)
   }
 
   render(){
@@ -39,7 +39,7 @@ class TradeTableRow extends React.Component{
     }
 
 
-      console.log(this.props);
+      //console.log(this.props);
       return(
 
         <Table.Row onClick={this.handleClick}>
@@ -54,7 +54,14 @@ class TradeTableRow extends React.Component{
     }
   }
 
+  const mapDispatchToProps = (dispatch) => {
+    return{
+      selectAssetAction: (asset, tether) => {
+        dispatch(selectAssetAction(asset, tether))
+      }
+    }
+  }
 
 
 
-export default TradeTableRow
+export default connect(null, mapDispatchToProps)(TradeTableRow)
