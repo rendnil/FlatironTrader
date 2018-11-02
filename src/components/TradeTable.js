@@ -18,8 +18,29 @@ class TradeTable extends React.Component{
   //     })
   //   })
   // }
+    getAssetData(){
+      let assetData = [ ]
+      if (this.props.marketData.iexData){
+      this.props.tradeableAssets.forEach((tradeableAsset)=>{
+        this.props.marketData.iexData.forEach((iexAsset)=>{
+            if (tradeableAsset.symbol === iexAsset.symbol){
+
+              assetData.push(iexAsset)
+            }
+        })
+
+
+      })
+    }
+    return assetData
+    }
+
+
+
 
   render(){
+    //console.log("trade table", this.props);
+
 
     const headerStyle = {
       textAlign: "center"
@@ -33,15 +54,17 @@ class TradeTable extends React.Component{
         <Table.Row>
           <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>
-          <Table.HeaderCell style={headerStyle}>Bid</Table.HeaderCell>
-          <Table.HeaderCell style={headerStyle}>Ask</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle}>Bid (USD)</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle}>Ask (USD)</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle}>% Change</Table.HeaderCell>
         </Table.Row>
           </Table.Header>
 
         <Table.Body>
-        {this.props.tradeableAssets.map((asset)=>{
-          return <TradeTableRow key={asset.id} asset={asset} />
+        {this.getAssetData().map((asset)=>{
+          return <TradeTableRow
+          key={asset.symbol} asset={asset}
+          tether={this.props.marketData.tether}/>
 
         })}
         </Table.Body>
@@ -53,7 +76,15 @@ class TradeTable extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  return {tradeableAssets: state.tradeableAssets}
+  return {tradeableAssets: state.tradeableAssets,
+          marketData: state.marketData
+          }
 }
 
 export default connect(mapStateToProps)(TradeTable)
+
+
+// {this.props.tradeableAssets.map((asset)=>{
+//   return <TradeTableRow key={asset.id} asset={asset} />
+//
+// })}
