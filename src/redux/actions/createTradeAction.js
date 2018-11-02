@@ -11,13 +11,10 @@ export function createNewTrade(userId, assetId, buy, price, quantity){
     return CreateTradeAdapter.postNewTrade(userId, assetId, buy, price, quantity)
 
      .then(data => {
-      console.log(data)
-  })
+      dispatch({type: "CREATE_NEW_TRADE",
+
+      payload: data})
+    })
+  
 }
 }
-
-
-// dispatch({type: "CREATE_NEW_TRADE",
-//
-//          payload: data})
-// })

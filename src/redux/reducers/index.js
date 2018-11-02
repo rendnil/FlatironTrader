@@ -4,6 +4,7 @@ import loginReducer from './loginReducer'
 import assetReducer from './assetReducer'
 import selectAssetReducer from './selectAssetReducer'
 import tradeReducer from './tradeReducer'
+import newTradeReducer from './newTradeReducer'
 
 
 
@@ -12,5 +13,6 @@ export default combineReducers({
   currentUser: loginReducer,
   tradeableAssets: assetReducer,
   selectedAsset: selectAssetReducer,
-  userTrades: tradeReducer
+  userTrades: tradeReducer,
+  newTrades: newTradeReducer
 })
