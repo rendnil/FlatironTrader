@@ -16,12 +16,23 @@ class TradeForm extends React.Component{
     })
   }
 
+  calcUsdBid(){
+    let bidPrice = this.state.quantity * this.props.selectedAsset.asset.bidPrice * this.props.selectedAsset.tether
+
+    return bidPrice.toPrecision(6)
+  }
+
+  calcUsdOffer(){
+    let askPrice = this.state.quantity * this.props.selectedAsset.asset.askPrice * this.props.selectedAsset.tether
+    return askPrice.toPrecision(6)
+  }
+
   blankFormRender(){
     return(
       <Form.Group>
         <Form.Input label='Asset Name' value='Select Asset' width={4} />
         <Form.Input type="number"label='Quantity' value={1}  width={4} />
-        <Form.Input label='USD Bid/Offer' placeholder='Select Asset' width={5} />
+        <Form.Input label='USD Bid/Offer' value="Select Asset" placeholder='Select Asset' width={5} />
         <Button size="large" color="green">Buy</Button>
         <Button size = "large" color="red">Sell</Button>
       </Form.Group>
@@ -33,7 +44,8 @@ class TradeForm extends React.Component{
       <Form.Group>
         <Form.Input label='Asset Name' value={this.props.selectedAsset.asset.companyName} width={4} />
         <Form.Input onChange={this.handleQuantityChange} type="number"label='Quantity' value={this.state.quantity} placeholder='Enter Quantity' width={4} />
-        <Form.Input label='USD Bid/Offer' placeholder='Select Asset' width={5} />
+        <Form.Input label='Bid Price USD' value={this.calcUsdBid()} placeholder='Select Asset' width={3} />
+        <Form.Input label='Ask Price USD' value={this.calcUsdOffer()} placeholder='Select Asset' width={3} />
         <Button size="large" color="green">Buy</Button>
         <Button size = "large" color="red">Sell</Button>
       </Form.Group>
