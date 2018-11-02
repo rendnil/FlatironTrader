@@ -5,7 +5,7 @@ import {Container, Table} from "semantic-ui-react"
 import TradeTableRow from "./TradeTableRow"
 
 
-class TradeContainer extends React.Component{
+class TradeTable extends React.Component{
   // parseData(state){
   //
   // }
@@ -19,9 +19,11 @@ class TradeContainer extends React.Component{
   //   })
   // }
 
-
   render(){
-    console.log("dijfoaidj", this.props);
+
+    const headerStyle = {
+      textAlign: "center"
+    }
 
     return(
       <div>
@@ -29,19 +31,19 @@ class TradeContainer extends React.Component{
           <Table celled selectable>
           <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Symbol</Table.HeaderCell>
-          <Table.HeaderCell>Name</Table.HeaderCell>
-          <Table.HeaderCell>Bid</Table.HeaderCell>
-          <Table.HeaderCell>Ask</Table.HeaderCell>
-          <Table.HeaderCell>% Change</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle}>Bid</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle}>Ask</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle}>% Change</Table.HeaderCell>
         </Table.Row>
           </Table.Header>
+
         <Table.Body>
         {this.props.tradeableAssets.map((asset)=>{
           return <TradeTableRow key={asset.id} asset={asset} />
 
         })}
-
         </Table.Body>
           </Table>
         </Container>
@@ -54,4 +56,4 @@ const mapStateToProps = (state) => {
   return {tradeableAssets: state.tradeableAssets}
 }
 
-export default connect(mapStateToProps)(TradeContainer)
+export default connect(mapStateToProps)(TradeTable)
