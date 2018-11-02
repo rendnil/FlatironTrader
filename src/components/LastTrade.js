@@ -6,12 +6,13 @@ class LastTrade extends React.Component{
     console.log("last trade", this.props);
 
     if (this.props.newTrades.length >0){
-      
+      let lastThreeTrades = this.props.newTrades.slice(this.props.newTrades.length-3, this.props.newTrades.length)
       return(
         <div>
-        {this.props.newTrades.map((trade)=>{
+        <h3>Executed Trades</h3>
+        {this.props.newTrades.reverse().map((trade)=>{
 
-          return (<p> {trade.asset.name} {trade.price}</p>)
+          return (<p> {trade.asset.name} {trade.price/trade.quantity}</p>)
         })}
 
         </div>

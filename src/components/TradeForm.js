@@ -1,5 +1,5 @@
 import React from "react"
-import {Container, Form, Button,Icon} from "semantic-ui-react"
+import {Container, Form, Button, Icon} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import {createNewTrade} from "../redux/actions/createTradeAction"
 
@@ -90,7 +90,8 @@ class TradeForm extends React.Component{
 
 const mapStateToProps = (state) => {
   return {selectedAsset: state.selectedAsset,
-  currentUser:state.currentUser}
+  currentUser:state.currentUser
+}
 }
 
 const mapDispatchToProps = (dispatch) => {
