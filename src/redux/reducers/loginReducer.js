@@ -1,4 +1,16 @@
-export default function (state = {}, action){
+
+///need to remove this
+const defaultState = {
+  "id": 6,
+       "username": "a",
+       "email": "a@hotmail.com",
+       "trades": [],
+       "net_position": 0,
+       "weighted_price": 0
+}
+
+
+export default function (state = defaultState, action){
 
 
   switch(action.type){

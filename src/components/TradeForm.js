@@ -1,7 +1,7 @@
 import React from "react"
-import {Container, Form, Button} from "semantic-ui-react"
+import {Container, Form, Button,Icon} from "semantic-ui-react"
 import { connect } from 'react-redux'
-
+import {createNewTrade} from "../redux/actions/createTradeAction"
 
 class TradeForm extends React.Component{
 
@@ -27,6 +27,20 @@ class TradeForm extends React.Component{
     return askPrice.toPrecision(6)
   }
 
+  handleBuy =  () => {
+    //userId, assetId, buy, price, quantity
+    //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
+    this.props.createNewTrade(this.props.currentUser.id,
+      this.props.selectedAsset.asset.tradeableAsset_id, true, this.calcUsdOffer(), this.state.quantity)
+  }
+
+  handleSell =  () => {
+    //userId, assetId, buy, price, quantity
+    //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
+    this.props.createNewTrade(this.props.currentUser.id,
+      this.props.selectedAsset.asset.tradeableAsset_id, false, this.calcUsdBid(), this.state.quantity)
+  }
+
   blankFormRender(){
     return(
       <Form.Group>
@@ -46,8 +60,14 @@ class TradeForm extends React.Component{
         <Form.Input onChange={this.handleQuantityChange} type="number"label='Quantity' value={this.state.quantity} placeholder='Enter Quantity' width={4} />
         <Form.Input label='Bid Price USD' value={this.calcUsdBid()} placeholder='Select Asset' width={3} />
         <Form.Input label='Ask Price USD' value={this.calcUsdOffer()} placeholder='Select Asset' width={3} />
-        <Button size="large" color="green">Buy</Button>
-        <Button size = "large" color="red">Sell</Button>
+
+        <Button animated onClick={this.handleBuy} size="large" color="green">
+    <Button.Content visible>Buy</Button.Content>
+    <Button.Content hidden>
+      <Icon name='arrow right' />
+    </Button.Content>
+  </Button>
+        <Button onClick={this.handleSell} size = "large" color="red">Sell</Button>
       </Form.Group>
     )
   }
@@ -69,9 +89,18 @@ class TradeForm extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  return {selectedAsset: state.selectedAsset}
+  return {selectedAsset: state.selectedAsset,
+  currentUser:state.currentUser}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    createNewTrade: (userId, assetId, buy, price, quantity) => {
+      dispatch(createNewTrade(userId, assetId, buy, price, quantity))
+    }
+  }
 }
 
 
 
-export default connect(mapStateToProps)(TradeForm)
+export default connect(mapStateToProps, mapDispatchToProps)(TradeForm)

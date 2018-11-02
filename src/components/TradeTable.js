@@ -25,7 +25,7 @@ class TradeTable extends React.Component{
         this.props.marketData.iexData.forEach((iexAsset)=>{
             if (tradeableAsset.symbol === iexAsset.symbol){
 
-              assetData.push(iexAsset)
+              assetData.push({...iexAsset, tradeableAsset_id: tradeableAsset.id})
             }
         })
 
