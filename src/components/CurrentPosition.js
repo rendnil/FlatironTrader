@@ -22,22 +22,33 @@ class CurrentPosition extends React.Component{
     let userPositionsByAsset = [ ]
     this.getAssets().forEach((asset)=>{
       let assetNetPosition = 0
+      let totalUSD = 0
 
       this.props.userTrades.forEach((trade)=>{
         if (trade.asset.symbol === asset){
           if(trade.buy){
             assetNetPosition += trade.quantity
+            totalUSD += trade.quantity*trade.price
           }else{
             assetNetPosition -= trade.quantity
+            totalUSD -= trade.quantity*trade.price
           }
 
         }
       })
       userPositionsByAsset.push({
         symbol:asset,
-        netPosition:assetNetPosition})
+        netPosition:assetNetPosition,
+        vwap: totalUSD/assetNetPosition})
     })
     return userPositionsByAsset
+  }
+
+  calcPnL(){
+    let userFullAssetInformation = [ ]
+    this.calcAssetPosition().forEach((asset)=>{
+
+    })
   }
 
 
@@ -49,7 +60,7 @@ class CurrentPosition extends React.Component{
       <div>
       <h2>Current Position</h2>
       {this.calcAssetPosition().map((position)=>{
-        return <p> {position.symbol} {position.netPosition} </p>
+        return <p> {position.symbol}--{position.netPosition}--{position.vwap} </p>
       })}
 
       </div>
@@ -58,7 +69,9 @@ class CurrentPosition extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  return {userTrades:state.userTrades}
+  return {userTrades:state.userTrades,
+          marketData: state.marketData
+  }
 }
 
 export default connect(mapStateToProps)(CurrentPosition)

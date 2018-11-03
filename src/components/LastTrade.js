@@ -12,7 +12,7 @@ class LastTrade extends React.Component{
         <h3>Executed Trades</h3>
         {this.props.newTrades.reverse().map((trade)=>{
 
-          return (<p> {trade.asset.name} {trade.price/trade.quantity}</p>)
+          return (<p> {trade.asset.name} {trade.price} {trade.quantity}</p>)
         })}
 
         </div>
