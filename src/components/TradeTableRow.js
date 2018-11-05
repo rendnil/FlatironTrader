@@ -10,28 +10,12 @@ class TradeTableRow extends React.Component{
   }
 
 
-
-  // findAsset(state){
-  //   return state.iexData.find((asset)=>{
-  //     return asset.symbol === this.props.asset.symbol
-  //   })
-  // }
-  //
-  // tetherConversion(){
-  //   if(this.props.marketData.tether){
-  //     return this.props.marketData.tether
-  //   }else{
-  //     return 1
-  //   }
-  // }
-
   handleClick = (event) => {
     this.props.selectAssetAction(this.props.asset, this.props.tether)
   }
 
   render(){
-    //console.log("row render",this.props.asset.name);
-    //console.log(this.props.marketData);
+
 
     const textStyle = {
       textAlign: "center",
@@ -39,7 +23,7 @@ class TradeTableRow extends React.Component{
     }
 
 
-      //console.log(this.props);
+    
       return(
 
         <Table.Row onClick={this.handleClick}>

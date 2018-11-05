@@ -13,7 +13,7 @@ class CurrentPositionTableRow extends React.Component{
 
 
   render(){
-    console.log("position row", this.props);
+
 
     const textStyle = {
       textAlign: "center",
@@ -21,7 +21,7 @@ class CurrentPositionTableRow extends React.Component{
     }
 
 
-      //console.log(this.props);
+
       return(
 
         <Table.Row>
