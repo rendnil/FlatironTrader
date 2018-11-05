@@ -24,7 +24,7 @@ class CurrentPositionTable extends React.Component{
           <Table celled selectable>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell  colspan={4} textAlign="right" > Total PnL: {this.calculateTotalPnL().toLocaleString()} </Table.HeaderCell>
+                <Table.HeaderCell colSpan={4} textAlign="right" > Total PnL: {this.calculateTotalPnL().toLocaleString()} </Table.HeaderCell>
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>

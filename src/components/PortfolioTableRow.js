@@ -1,7 +1,6 @@
 import React from "react"
 import {Container, Table} from "semantic-ui-react"
-import { connect } from 'react-redux'
-import {selectAssetAction} from "../redux/actions/selectAssetAction"
+
 
 class PortfolioTableRow extends React.Component{
 
@@ -50,7 +49,7 @@ class PortfolioTableRow extends React.Component{
           <Table.Cell style={textStyle}>{this.props.trade.asset.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.trade.asset.name}</Table.Cell>
           <Table.Cell style={textStyle}>{this.determineBuyOrSell(this.props.trade)}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.trade.price}</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.trade.price.toLocaleString()}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.trade.quantity}</Table.Cell>
           </Table.Row>
 
