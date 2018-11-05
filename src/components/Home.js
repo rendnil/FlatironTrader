@@ -2,7 +2,7 @@ import React from "react"
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from "./NavBar"
 import TradePage from "./TradePage"
-import PortfolioContainer from "./PortfolioContainer"
+import PortfolioPage from "./PortfolioPage"
 
 
 class Home extends React.Component{
@@ -26,7 +26,7 @@ class Home extends React.Component{
           <NavBar />
             <Route exact path = "/" render = {this.homeRender}/>
             <Route exact path = "/trade" render = {()=> <TradePage/>}/>
-            <Route exact path = "/portfolio" render = {()=> <PortfolioContainer/>}/>
+            <Route exact path = "/portfolio" render = {()=> <PortfolioPage/>}/>
           </React.Fragment>
         </Router>
 
