@@ -46,7 +46,7 @@ class PortfolioTableRow extends React.Component{
       //console.log(this.props);
       return(
 
-        <Table.Row onClick={this.handleClick}>
+        <Table.Row>
           <Table.Cell style={textStyle}>{this.props.trade.asset.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.trade.asset.name}</Table.Cell>
           <Table.Cell style={textStyle}>{this.determineBuyOrSell(this.props.trade)}</Table.Cell>
