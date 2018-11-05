@@ -17,13 +17,13 @@ class TradeForm extends React.Component{
   }
 
   calcUsdBid(){
-    let bidPrice = this.state.quantity * this.props.selectedAsset.asset.bidPrice * this.props.selectedAsset.tether
+    let bidPrice = this.props.selectedAsset.asset.bidPrice * this.props.selectedAsset.tether
 
     return bidPrice.toPrecision(6)
   }
 
   calcUsdOffer(){
-    let askPrice = this.state.quantity * this.props.selectedAsset.asset.askPrice * this.props.selectedAsset.tether
+    let askPrice = this.props.selectedAsset.asset.askPrice * this.props.selectedAsset.tether
     return askPrice.toPrecision(6)
   }
 
@@ -31,14 +31,14 @@ class TradeForm extends React.Component{
     //userId, assetId, buy, price, quantity
     //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
     this.props.createNewTrade(this.props.currentUser.id,
-      this.props.selectedAsset.asset.tradeableAsset_id, true, this.calcUsdOffer()/this.state.quantity, this.state.quantity)
+      this.props.selectedAsset.asset.tradeableAsset_id, true, this.calcUsdOffer(), this.state.quantity)
   }
 
   handleSell =  () => {
     //userId, assetId, buy, price, quantity
     //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
     this.props.createNewTrade(this.props.currentUser.id,
-      this.props.selectedAsset.asset.tradeableAsset_id, false, this.calcUsdBid()/this.state.quantity, this.state.quantity)
+      this.props.selectedAsset.asset.tradeableAsset_id, false, this.calcUsdBid(), this.state.quantity)
   }
 
   blankFormRender(){
