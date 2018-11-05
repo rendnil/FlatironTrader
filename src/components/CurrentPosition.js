@@ -44,7 +44,27 @@ class CurrentPosition extends React.Component{
     return userPositionsByAsset
   }
 
+//iterate over the market data and only return assets where we have a position
+  relevantMarketData(){
+    if (this.props.marketData.iexData){
+
+    let relevantMarketData = [ ]
+    this.calcAssetPosition().forEach((asset)=>{
+      this.props.marketData.iexData.forEach((marketAsset)=>{
+        if (marketAsset.symbol=== asset.symbol){
+          let marketAssetObj = {symbol: marketAsset.symbol, price: this.props.marketData.tether*(marketAsset.bidPrice+marketAsset.askPrice)/2}
+          relevantMarketData.push(marketAssetObj)
+        }
+      })
+
+    })
+    return relevantMarketData
+  }
+
+  }
+
   calcPnL(){
+
     let userFullAssetInformation = [ ]
     this.calcAssetPosition().forEach((asset)=>{
 
@@ -56,6 +76,8 @@ class CurrentPosition extends React.Component{
     console.log("props", this.props);
     console.log("user assets", this.getAssets());
     console.log("user assets", this.calcAssetPosition());
+    console.log("relevantMarketData", this.relevantMarketData());
+    console.log("calc PnL", this.calcPnL());
     return(
       <div>
       <h2>Current Position</h2>

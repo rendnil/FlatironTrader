@@ -5,14 +5,7 @@ const MARKET_NEWS = "https://api.iextrading.com/1.0/stock/market/news"
 
 export default class IEXDataAdapter{
   static getCrypto(){
-    
     return fetch(`${IEX_API_ENDPOINT}${CRYPTO_ENDPOINT}`)
     .then(r => r.json())
-    //.then(data => data)
-
-
   }
-
-
-
 }
