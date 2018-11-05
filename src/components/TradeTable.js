@@ -39,6 +39,8 @@ class TradeTable extends React.Component{
       <div>
         <Container>
           <Table celled selectable>
+        
+
           <Table.Header>
         <Table.Row>
           <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>

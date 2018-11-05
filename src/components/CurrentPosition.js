@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from 'react-redux'
 import {Segment} from "semantic-ui-react"
+import CurrentPositionTable from "./CurrentPositionTable"
 
 
 class CurrentPosition extends React.Component{
@@ -81,13 +82,15 @@ class CurrentPosition extends React.Component{
 
       return(
         <Segment>
-        <div>
-        <h2>Current Position</h2>
-        {this.relevantMarketData().map((position)=>{
-          return <p> {position.symbol}--{position.netPosition}--{position.vwap}---PnL: {position.netPosition*(position.price - position.vwap)}</p>
-        })}
 
-        </div>
+        <h2>Current Position</h2>
+        <CurrentPositionTable positions={this.relevantMarketData()}/>
+
+        {/*this.relevantMarketData().map((position)=>{
+          return <p> {position.symbol}--{position.netPosition}--{position.vwap}---PnL: {position.netPosition*(position.price - position.vwap)}</p>
+        })*/}
+
+
         </Segment>
       )
     }else{
