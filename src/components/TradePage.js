@@ -13,8 +13,8 @@ class TradePage extends React.Component{
       <Container>
         <TradeTable />
         <TradeForm />
-        <LastTrade />
         <CurrentPosition />
+        <LastTrade />
       </Container>
       </div>
     )

@@ -6,18 +6,7 @@ import TradeTableRow from "./TradeTableRow"
 
 
 class TradeTable extends React.Component{
-  // parseData(state){
-  //
-  // }
-  //
-  // findAssetData(state){
-  //
-  //   this.props.tradeableAssets.map((tradeableAsset)=>{
-  //     return state.find((asset)=>{
-  //       return asset.symbol === tradeableAsset.symbol
-  //     })
-  //   })
-  // }
+
     getAssetData(){
       let assetData = [ ]
       if (this.props.marketData.iexData){
@@ -82,9 +71,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(TradeTable)
-
-
-// {this.props.tradeableAssets.map((asset)=>{
-//   return <TradeTableRow key={asset.id} asset={asset} />
-//
-// })}

@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 
 class CurrentPosition extends React.Component{
 
+  ////////////////////////
+  ///these pnl and asset position methods need to be revamped
+  ///////////////////////////
 
   getAssets(){
 
@@ -45,6 +48,7 @@ class CurrentPosition extends React.Component{
   }
 
 //iterate over the market data and only return assets where we have a position
+//right now this is constructing the entire position array that you can use to calc pnl
   relevantMarketData(){
     if (this.props.marketData.iexData){
 
@@ -52,7 +56,8 @@ class CurrentPosition extends React.Component{
     this.calcAssetPosition().forEach((asset)=>{
       this.props.marketData.iexData.forEach((marketAsset)=>{
         if (marketAsset.symbol=== asset.symbol){
-          let marketAssetObj = {symbol: marketAsset.symbol, price: this.props.marketData.tether*(marketAsset.bidPrice+marketAsset.askPrice)/2}
+          let livePrice = this.props.marketData.tether*(marketAsset.bidPrice+marketAsset.askPrice)/2
+          let marketAssetObj = {symbol: marketAsset.symbol, price: livePrice, netPosition:asset.netPosition, vwap: asset.vwap}
           relevantMarketData.push(marketAssetObj)
         }
       })
@@ -63,30 +68,29 @@ class CurrentPosition extends React.Component{
 
   }
 
-  calcPnL(){
-
-    let userFullAssetInformation = [ ]
-    this.calcAssetPosition().forEach((asset)=>{
-
-    })
-  }
-
+/////////////////////////////////////////////////////////////
 
   render(){
-    console.log("props", this.props);
-    console.log("user assets", this.getAssets());
-    console.log("user assets", this.calcAssetPosition());
-    console.log("relevantMarketData", this.relevantMarketData());
-    console.log("calc PnL", this.calcPnL());
-    return(
-      <div>
-      <h2>Current Position</h2>
-      {this.calcAssetPosition().map((position)=>{
-        return <p> {position.symbol}--{position.netPosition}--{position.vwap} </p>
-      })}
+    if(this.props.marketData.iexData){
 
-      </div>
-    )
+      // console.log("props", this.props);
+      // console.log("user assets", this.getAssets());
+      // console.log("user assets", this.calcAssetPosition());
+      // console.log("relevantMarketData", this.relevantMarketData());
+
+      return(
+        <div>
+        <h2>Current Position</h2>
+        {this.relevantMarketData().map((position)=>{
+          return <p> {position.symbol}--{position.netPosition}--{position.vwap}---PnL: {position.netPosition*(position.price - position.vwap)}</p>
+        })}
+
+        </div>
+      )
+    }else{
+      return null
+    }
+
   }
 }
 
