@@ -2,6 +2,7 @@ import React from "react"
 import {fetchIEXData} from "../redux/actions/iexAction"
 import {fetchCoindeskData} from "../redux/actions/coindeskAction"
 import {fetchAssetData} from "../redux/actions/assetAction"
+import {fetchNews} from "../redux/actions/newsAction"
 import { connect } from 'react-redux'
 
 import { ActionCable } from 'react-actioncable-provider';
@@ -17,6 +18,7 @@ class MarketData extends React.Component {
 
   componentDidMount(){
     console.log("mounted");
+    this.props.fetchNews()
     this.props.fetchAssetData()
     this.props.fetchIEXData()
     this.props.fetchIEXData()
@@ -66,7 +68,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchIEXData: () => dispatch(fetchIEXData()),
     fetchCoindeskData: () => dispatch(fetchCoindeskData()),
-    fetchAssetData: () => dispatch(fetchAssetData())
+    fetchAssetData: () => dispatch(fetchAssetData()),
+    fetchNews: () => dispatch(fetchNews())
 
   }
 }

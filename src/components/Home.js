@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from "./NavBar"
 import TradePage from "./TradePage"
 import PortfolioPage from "./PortfolioPage"
+import NewsPage from "./NewsPage"
 
 
 class Home extends React.Component{
@@ -10,6 +11,7 @@ class Home extends React.Component{
   homeRender(){
     return(
       <h1>
+
       This is the home page
       </h1>
 
@@ -24,7 +26,7 @@ class Home extends React.Component{
         <Router>
           <React.Fragment>
           <NavBar />
-            <Route exact path = "/" render = {this.homeRender}/>
+            <Route exact path = "/" render = {()=> <NewsPage/>}/>
             <Route exact path = "/trade" render = {()=> <TradePage/>}/>
             <Route exact path = "/portfolio" render = {()=> <PortfolioPage/>}/>
           </React.Fragment>
