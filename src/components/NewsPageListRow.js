@@ -1,33 +1,27 @@
 import React from "react"
 
-import {Segment, Container, List, Image} from "semantic-ui-react"
+import {Segment, List, Image} from "semantic-ui-react"
 
 
-export default class NewsPageListRow extends React.Component{
-  render(){
+ const NewsPageListRow = ({article}) =>{
 
     return(
-
         <List.Item>
-        <Segment>
-        <List.Header>{this.props.article.headline}</List.Header>
-        <List.Content>
+          <Segment>
+            <List.Header>{article.headline}</List.Header>
+            <List.Content>
 
-          <List.Description>
-            {this.props.article.summary}
-          </List.Description>
-          <List.Header>
-            Source: {this.props.article.source}
-          </List.Header>
+              <List.Description>
+                {article.summary}
+              </List.Description>
+              <List.Header>
+                Source: {article.source}
+              </List.Header>
 
-        </List.Content>
-        </Segment>
+            </List.Content>
+          </Segment>
       </List.Item>
-
-
-
-
     )
-  }
-
 }
+
+export default NewsPageListRow

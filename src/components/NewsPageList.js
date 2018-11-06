@@ -14,7 +14,6 @@ class NewsPageList extends React.Component{
           key= {idx}
           article = {article}/>
         })}
-
       </List>
 
     )
