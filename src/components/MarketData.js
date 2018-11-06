@@ -17,21 +17,21 @@ class MarketData extends React.Component {
 
   componentDidMount(){
     console.log("mounted");
-    // this.props.fetchAssetData()
-    // this.props.fetchIEXData()
-    // this.props.fetchIEXData()
-    // this.props.fetchCoindeskData()
-    // this.props.fetchCoindeskData()
-    // this.props.fetchCoindeskData()
-    // this.props.fetchCoindeskData()
-    // this.props.fetchCoindeskData()
-    // this.props.fetchCoindeskData()
-    // this.props.fetchCoindeskData()
-    // this.props.fetchCoindeskData()
-    //
-    //
-    // this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
-    // this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
+    this.props.fetchAssetData()
+    this.props.fetchIEXData()
+    this.props.fetchIEXData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+    this.props.fetchCoindeskData()
+
+
+    this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
+    this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
   }
 
   componentWillUnmount() {
@@ -46,13 +46,13 @@ class MarketData extends React.Component {
 
     return(
       <React.Fragment>
-      <ActionCable
+    {/*  <ActionCable
         channel={{ channel: 'MarketdataChannel' }}
         onReceived={(data)=>{
 
           console.log(dataCount, data)
           dataCount++}}
-      />
+      />*/}
 
       </React.Fragment>
     )

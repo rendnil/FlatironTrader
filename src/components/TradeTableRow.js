@@ -23,7 +23,7 @@ class TradeTableRow extends React.Component{
     }
 
 
-    
+    //console.log(this.props);
       return(
 
         <Table.Row onClick={this.handleClick}>

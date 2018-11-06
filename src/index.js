@@ -12,22 +12,17 @@ import { ActionCableProvider } from 'react-actioncable-provider';
 
 ReactDOM.render(
 
-  <ActionCableProvider url={'ws://localhost:3002/cable'}>
+
   <Provider store = {store}>
     <React.Fragment>
       <MarketData />
       <App />
     </React.Fragment>
-  </Provider>
-  </ActionCableProvider>
-
-
-
-
-
-  , document.getElementById('root'));
+  </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// {/*<ActionCableProvider url={'ws://localhost:3002/cable'}>*/}
