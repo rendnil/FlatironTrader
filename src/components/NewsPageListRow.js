@@ -7,7 +7,7 @@ import {Segment, List, Image} from "semantic-ui-react"
 
     return(
         <List.Item>
-          <Segment>
+          <Segment color="green">
             <List.Header>{article.headline}</List.Header>
             <List.Content>
 

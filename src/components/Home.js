@@ -4,6 +4,7 @@ import NavBar from "./NavBar"
 import TradePage from "./TradePage"
 import PortfolioPage from "./PortfolioPage"
 import NewsPage from "./NewsPage"
+import ChartPage from "./ChartPage"
 
 
 class Home extends React.Component{
@@ -27,6 +28,7 @@ class Home extends React.Component{
           <React.Fragment>
           <NavBar />
             <Route exact path = "/" render = {()=> <NewsPage/>}/>
+            <Route exact path = "/charts" render = {()=> <ChartPage/>}/>
             <Route exact path = "/trade" render = {()=> <TradePage/>}/>
             <Route exact path = "/portfolio" render = {()=> <PortfolioPage/>}/>
           </React.Fragment>
