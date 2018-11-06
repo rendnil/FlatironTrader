@@ -7,17 +7,23 @@ export default class NewsPageListRow extends React.Component{
   render(){
 
     return(
-      <Segment>
-      <List.Item>
 
-      <List.Header>{this.props.article.headline}</List.Header>
-   <List.Content>
-     <List.Description>
-        {this.props.article.summary}
-     </List.Description>
-   </List.Content>
- </List.Item>
- </Segment>
+        <List.Item>
+        <Segment>
+        <List.Header>{this.props.article.headline}</List.Header>
+        <List.Content>
+
+          <List.Description>
+            {this.props.article.summary}
+          </List.Description>
+          <List.Header>
+            Source: {this.props.article.source}
+          </List.Header>
+
+        </List.Content>
+        </Segment>
+      </List.Item>
+
 
 
 
