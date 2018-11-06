@@ -1,21 +1,19 @@
 import React from "react"
-import { connect } from 'react-redux'
+import NewsPageList from "./NewsPageList"
+import {Container} from "semantic-ui-react"
 
-class NewsPage extends React.Component{
+
+export default class NewsPage extends React.Component{
   render(){
-    console.log(this.props);
+
     return(
-      <div>
-
-
-      </div>
+      <React.Fragment>
+        <Container>
+          <h2>Latest News</h2>
+          <NewsPageList />
+        </Container>
+      </React.Fragment>
     )
   }
 
 }
-
-const mapStateToProps = (state) => {
-  return {news: state.news}
-}
-
-export default connect(mapStateToProps)(NewsPage)
