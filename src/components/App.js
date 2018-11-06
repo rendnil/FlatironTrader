@@ -40,9 +40,9 @@ class App extends Component {
 
     return (
       <div>
-        {this.props.currentUser.username? <Home />:<Landing />}
-        {/*<Home />
-          NEED TO REENABLE THIS
+
+        <Home />
+          {/*NEED TO REENABLE THIS
           {this.props.currentUser.username? <Home />:<Landing />}
 
 

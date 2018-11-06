@@ -4,6 +4,8 @@ import {fetchCoindeskData} from "../redux/actions/coindeskAction"
 import {fetchAssetData} from "../redux/actions/assetAction"
 import { connect } from 'react-redux'
 
+import { ActionCable } from 'react-actioncable-provider';
+
 class MarketData extends React.Component {
 
   constructor(props){
@@ -15,21 +17,21 @@ class MarketData extends React.Component {
 
   componentDidMount(){
     console.log("mounted");
-    this.props.fetchAssetData()
-    this.props.fetchIEXData()
-    this.props.fetchIEXData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-
-
-    this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
-    this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
+    // this.props.fetchAssetData()
+    // this.props.fetchIEXData()
+    // this.props.fetchIEXData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    //
+    //
+    // this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
+    // this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
   }
 
   componentWillUnmount() {
@@ -39,10 +41,18 @@ class MarketData extends React.Component {
   }
 
   render(){
+    let dataCount = 1
     console.log("rendered");
 
     return(
       <React.Fragment>
+      <ActionCable
+        channel={{ channel: 'MarketdataChannel' }}
+        onReceived={(data)=>{
+
+          console.log(dataCount, data)
+          dataCount++}}
+      />
 
       </React.Fragment>
     )
