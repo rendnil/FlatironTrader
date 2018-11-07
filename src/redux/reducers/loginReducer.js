@@ -1,12 +1,281 @@
 
 // /need to remove this
 const defaultState = {
-        "id": 1,
-       "username": "a",
-       "email": "a@hotmail.com",
-       "trades": [{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":5000.0,"quantity":1.0,"created_at":"2018-11-05T14:31:58.040Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":5050.0,"quantity":1.0,"created_at":"2018-11-05T14:31:58.064Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":false,"price":5000.0,"quantity":3.0,"created_at":"2018-11-05T14:31:58.071Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.077Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":7000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.084Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":8000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.091Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":2000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.099Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":3000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.106Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":5000.0,"quantity":5.0,"created_at":"2018-11-05T14:31:58.114Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":6000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.121Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":6000.0,"quantity":7.0,"created_at":"2018-11-05T14:31:58.127Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":6000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.134Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":7000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.140Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":8000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.147Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":2000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.153Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":3000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.159Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":5000.0,"quantity":5.0,"created_at":"2018-11-05T14:31:58.165Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":6000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.172Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":6000.0,"quantity":7.0,"created_at":"2018-11-05T14:31:58.179Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":true,"price":6000.0,"quantity":10.0,"created_at":"2018-11-05T14:31:58.189Z"},{"asset":{"id":7,"symbol":"ETHUSDT","name":"Ethereum","created_at":"2018-11-05T14:31:57.961Z","updated_at":"2018-11-05T14:31:57.961Z"},"buy":false,"price":210.187,"quantity":1.0,"created_at":"2018-11-05T14:33:45.707Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6432.15,"quantity":10.0,"created_at":"2018-11-05T14:33:58.326Z"},{"asset":{"id":8,"symbol":"BCCUSDT","name":"Bitcoin Cash","created_at":"2018-11-05T14:31:57.969Z","updated_at":"2018-11-05T14:31:57.969Z"},"buy":true,"price":574.98,"quantity":10.0,"created_at":"2018-11-05T14:34:04.492Z"},{"asset":{"id":8,"symbol":"BCCUSDT","name":"Bitcoin Cash","created_at":"2018-11-05T14:31:57.969Z","updated_at":"2018-11-05T14:31:57.969Z"},"buy":true,"price":575.238,"quantity":10.0,"created_at":"2018-11-05T14:34:25.725Z"},{"asset":{"id":8,"symbol":"BCCUSDT","name":"Bitcoin Cash","created_at":"2018-11-05T14:31:57.969Z","updated_at":"2018-11-05T14:31:57.969Z"},"buy":true,"price":575.238,"quantity":10.0,"created_at":"2018-11-05T14:34:33.804Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1.0,"created_at":"2018-11-05T15:03:35.757Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1.0,"created_at":"2018-11-05T15:03:37.885Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1.0,"created_at":"2018-11-05T15:03:38.535Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1.0,"created_at":"2018-11-05T15:03:38.916Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1.0,"created_at":"2018-11-05T15:03:39.352Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1.0,"created_at":"2018-11-05T15:03:39.659Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1.0,"created_at":"2018-11-05T15:03:39.892Z"},{"asset":{"id":6,"symbol":"BTCUSDT","name":"Bitcoin","created_at":"2018-11-05T14:31:57.953Z","updated_at":"2018-11-05T14:31:57.953Z"},"buy":true,"price":6421.93,"quantity":1000.0,"created_at":"2018-11-05T15:03:48.384Z"},{"asset":{"id":10,"symbol":"LTCUSDT","name":"Litecoin","created_at":"2018-11-05T14:31:57.979Z","updated_at":"2018-11-05T14:31:57.979Z"},"buy":true,"price":53.4359,"quantity":1.0,"created_at":"2018-11-05T15:06:29.135Z"},{"asset":{"id":10,"symbol":"LTCUSDT","name":"Litecoin","created_at":"2018-11-05T14:31:57.979Z","updated_at":"2018-11-05T14:31:57.979Z"},"buy":true,"price":53.4165,"quantity":1.0,"created_at":"2018-11-05T15:07:22.544Z"},{"asset":{"id":10,"symbol":"LTCUSDT","name":"Litecoin","created_at":"2018-11-05T14:31:57.979Z","updated_at":"2018-11-05T14:31:57.979Z"},"buy":true,"price":53.4165,"quantity":1.0,"created_at":"2018-11-05T15:07:26.758Z"}],
-       "net_position": 0,
-       "weighted_price": 0
+  id: 1,
+username: "a",
+email: "a@hotmail.com",
+trades: [
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 5000,
+quantity: 1,
+created_at: "2018-11-07T23:15:28.817Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 5050,
+quantity: 1,
+created_at: "2018-11-07T23:15:28.825Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: false,
+price: 5000,
+quantity: 3,
+created_at: "2018-11-07T23:15:28.832Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 6000,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.840Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 7000,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.854Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 8000,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.861Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 2000,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.868Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 3000,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.874Z"
+},
+{
+asset: {
+id: 36,
+symbol: "BTC",
+name: "Bitcoin",
+created_at: "2018-11-07T23:15:28.692Z",
+updated_at: "2018-11-07T23:15:28.692Z"
+},
+buy: true,
+price: 5000,
+quantity: 5,
+created_at: "2018-11-07T23:15:28.881Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 200,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.888Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 200,
+quantity: 7,
+created_at: "2018-11-07T23:15:28.895Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 200,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.903Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 220,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.911Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 230,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.918Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 199,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.925Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 201,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.932Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 202,
+quantity: 5,
+created_at: "2018-11-07T23:15:28.939Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 200,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.945Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 200,
+quantity: 7,
+created_at: "2018-11-07T23:15:28.952Z"
+},
+{
+asset: {
+id: 37,
+symbol: "ETH",
+name: "Ethereum",
+created_at: "2018-11-07T23:15:28.701Z",
+updated_at: "2018-11-07T23:15:28.701Z"
+},
+buy: true,
+price: 200,
+quantity: 10,
+created_at: "2018-11-07T23:15:28.958Z"
+}
+],
+positions: {
+BTC: {
+net_position: 54,
+weighted_price: 5186.111111111111
+},
+ETH: {
+net_position: 99,
+weighted_price: 205.15151515151516
+}
+}
 }
 // const defaultState={}
 

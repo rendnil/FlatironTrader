@@ -27,7 +27,9 @@ class TradePage extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-          marketData: state.marketData
+          marketData: state.marketData,
+          currentUser:state.currentUser
+
           }
 }
 

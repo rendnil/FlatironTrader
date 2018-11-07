@@ -61,7 +61,7 @@ class TradeForm extends React.Component{
         <Form.Input label='Bid Price USD' value={this.calcUsdBid()} placeholder='Select Asset' width={3} />
         <Form.Input label='Ask Price USD' value={this.calcUsdOffer()} placeholder='Select Asset' width={3} />
 
-        <Button animated onClick={this.handleBuy} size="large" color="green">
+        <Button onClick={this.handleBuy} size="large" color="green">
     <Button.Content visible>Buy</Button.Content>
     <Button.Content hidden>
       <Icon name='arrow right' />
