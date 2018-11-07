@@ -28,7 +28,7 @@ class TradeTable extends React.Component{
 
 
   render(){
-    //console.log("trade table", this.props);
+    console.log("trade table", this.props);
 
 
     const headerStyle = {
@@ -68,7 +68,8 @@ class TradeTable extends React.Component{
 
 const mapStateToProps = (state) => {
   return {tradeableAssets: state.tradeableAssets,
-          marketData: state.marketData
+          marketData: state.marketData,
+          bitcoin: state.bitcoin
           }
 }
 

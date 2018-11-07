@@ -6,6 +6,7 @@ import selectAssetReducer from './selectAssetReducer'
 import tradeReducer from './tradeReducer'
 import newTradeReducer from './newTradeReducer'
 import newsReducer from './newsReducer'
+import bitcoinReducer from './bitcoinReducer'
 
 
 
@@ -16,5 +17,6 @@ export default combineReducers({
   selectedAsset: selectAssetReducer,
   userTrades: tradeReducer,
   newTrades: newTradeReducer,
-  news: newsReducer
+  news: newsReducer,
+  bitcoin: bitcoinReducer
 })

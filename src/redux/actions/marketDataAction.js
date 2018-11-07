@@ -10,33 +10,33 @@
 export function fetchMarketData(message){
 //check asset symbol and whether is a buy or a sell
   let price
-  console.log("in the action", message)
+  //console.log("in the action", message)
   let parsedMessage = message.split("~")
 
   if (parsedMessage[2]==="BTC" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
     price = parsedMessage[5]
-    console.log("here", price);
+
     return {type: "BITCOIN_UPDATE", payload:price}
 
   }else if (parsedMessage[2]==="ETH" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
     price = parsedMessage[5]
-    console.log("here", price);
-    return {type: "BITCOIN_UPDATE", payload:price}
+
+    return {type: "ETHEREUM_UPDATE", payload:price}
 
   }else if (parsedMessage[2]==="BCH" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
     price = parsedMessage[5]
-    console.log("here", price);
-    return {type: "BITCOIN_UPDATE", payload:price}
+
+    return {type: "BITCOINCASH_UPDATE", payload:price}
 
   }else if (parsedMessage[2]==="XRP" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
     price = parsedMessage[5]
-    console.log("here", price);
-    return {type: "BITCOIN_UPDATE", payload:price}
+
+    return {type: "RIPPLE_UPDATE", payload:price}
 
   }else if (parsedMessage[2]==="LTC" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
     price = parsedMessage[5]
-    console.log("here", price);
-    return {type: "BITCOIN_UPDATE", payload:price}
+
+    return {type: "LITECOIN_UPDATE", payload:price}
   }else{
     return {type:"ahhh"}
   }
