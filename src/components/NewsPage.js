@@ -5,6 +5,7 @@ import {Container} from "semantic-ui-react"
 
 export default class NewsPage extends React.Component{
   render(){
+    console.log("render news");
 
     return(
       <React.Fragment>

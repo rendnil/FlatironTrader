@@ -8,6 +8,7 @@ import {Container, Table} from "semantic-ui-react"
 
 class TradePage extends React.Component{
   render(){
+    console.log("render trade page");
     return(
       <div>
       <Container>

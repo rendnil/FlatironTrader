@@ -1,11 +1,38 @@
 import React from "react"
 import {Line} from 'react-chartjs-2';
 
-
+const API_ENDPOINT = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2011-01-01&end=2018-11-05"
 
 class ChartPage extends React.Component{
 
+  state = {
+    rawData:[ ]
+  }
+
+
+  // componentDidMount(){
+  //   fetch(API_ENDPOINT)
+  //   .then(r=>r.json())
+  //   .then(data => {
+  //     this.setState({rawData:data})})
+  // }
+
+  // constructDataSet(rawData){
+  //   let dataSet = { }
+  //   let labels = [ ]
+  //   let data = [ ]
+  //
+  //   for( let key in rawData.bpi){
+  //     labels.push(key)
+  //     data.push(rawData.bpi[key])
+  //   }
+  //   dataSet.labels = labels
+  //   dataSet.data = data
+  //   return dataSet
+  // }
+
   render(){
+    console.log("render");
     return(
       <React.Fragment>
       <Line data={{
