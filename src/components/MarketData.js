@@ -5,7 +5,8 @@ import {fetchAssetData} from "../redux/actions/assetAction"
 import {fetchNews} from "../redux/actions/newsAction"
 import { connect } from 'react-redux'
 
-import { ActionCable } from 'react-actioncable-provider';
+
+import io from 'socket.io-client';
 
 class MarketData extends React.Component {
 
@@ -18,22 +19,38 @@ class MarketData extends React.Component {
 
   componentDidMount(){
     console.log("mounted");
-    this.props.fetchNews()
-    this.props.fetchAssetData()
-    this.props.fetchIEXData()
-    this.props.fetchIEXData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
-    this.props.fetchCoindeskData()
+    //var currentPrice = {};
+   const socket = io.connect('https://streamer.cryptocompare.com/');
+//Format: {SubscriptionId}~{ExchangeName}~{FromSymbol}~{ToSymbol}
+//Use SubscriptionId 0 for TRADE, 2 for CURRENT, 5 for CURRENTAGG eg use key '5~CCCAGG~BTC~USD' to get aggregated data from the CCCAGG exchange
+//Full Volume Format: 11~{FromSymbol} eg use '11~BTC' to get the full volume of BTC against all coin pairs
+//For aggregate quote updates use CCCAGG ags market
+const subscription = ['5~CCCAGG~BTC~USD', '5~CCCAGG~ETH~USD','5~CCCAGG~BCH~USD','5~CCCAGG~XRP~USD','5~CCCAGG~LTC~USD'];
+socket.emit('SubAdd', { subs: subscription });
+socket.on("m", function(message) {
+  console.log(message);
+})
 
 
-    this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
-    this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
+
+
+
+    // this.props.fetchNews()
+    // this.props.fetchAssetData()
+    // this.props.fetchIEXData()
+    // this.props.fetchIEXData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    // this.props.fetchCoindeskData()
+    //
+    //
+    // this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
+    // this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
   }
 
   componentWillUnmount() {
@@ -48,13 +65,7 @@ class MarketData extends React.Component {
 
     return(
       <React.Fragment>
-    {/*  <ActionCable
-        channel={{ channel: 'MarketdataChannel' }}
-        onReceived={(data)=>{
 
-          console.log(dataCount, data)
-          dataCount++}}
-      />*/}
 
       </React.Fragment>
     )
