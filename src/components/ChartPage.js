@@ -1,46 +1,56 @@
 import React from "react"
 import {Line} from 'react-chartjs-2';
 
-const API_ENDPOINT = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2011-01-01&end=2018-11-05"
+const API_ENDPOINT = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2016-01-01&end=2018-11-05"
 
 class ChartPage extends React.Component{
 
   state = {
-    rawData:[ ]
+    rawData:[ ],
+    dataLabels: [],
+    dataValues: [ ]
   }
 
 
-  // componentDidMount(){
-  //   fetch(API_ENDPOINT)
-  //   .then(r=>r.json())
-  //   .then(data => {
-  //     this.setState({rawData:data})})
-  // }
+  componentDidMount(){
+    fetch(API_ENDPOINT)
+    .then(r=>r.json())
+    .then(data => {
+      this.constructDataSet(data)})
+  }
 
-  // constructDataSet(rawData){
-  //   let dataSet = { }
-  //   let labels = [ ]
-  //   let data = [ ]
-  //
-  //   for( let key in rawData.bpi){
-  //     labels.push(key)
-  //     data.push(rawData.bpi[key])
-  //   }
-  //   dataSet.labels = labels
-  //   dataSet.data = data
-  //   return dataSet
-  // }
+  constructDataSet(rawData){
+    let dataSet = { }
+    let labels = [ ]
+    let data = [ ]
+
+    for( let key in rawData.bpi){
+      labels.push(key)
+      data.push(rawData.bpi[key])
+    }
+      this.setState({
+        dataLabels:labels,
+        dataValues: data
+      })
+  }
+
+
 
   render(){
     console.log("render");
+
+    const chartData = {
+      labels: this.state.dataLabels,
+      datasets:[
+        {data:this.state.dataValues}
+      ]
+    }
+    console.log(chartData);
+
+
     return(
       <React.Fragment>
-      <Line data={{
-        labels: [1,2,3,4,5],
-        datasets:[
-          {data:[100,200,300,400,500]}
-        ]
-      }} />
+      <Line data={chartData} />
       </React.Fragment>
     )
   }
