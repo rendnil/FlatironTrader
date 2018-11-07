@@ -1,5 +1,7 @@
 import React from "react"
 import {Line} from 'react-chartjs-2';
+import {Grid} from 'semantic-ui-react'
+
 
 const API_ENDPOINT = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2016-01-01&end=2018-11-05"
 
@@ -42,7 +44,14 @@ class ChartPage extends React.Component{
     const chartData = {
       labels: this.state.dataLabels,
       datasets:[
-        {data:this.state.dataValues}
+        {
+          label: "Bitcoin Price",
+          borderColor: 'rgba(75,192,192,1)',
+          fill: false,
+          pointBorderColor: 'rgba(75,192,192,1)',
+          backgroundColor: 'rgba(75,192,192,1)',
+          data:this.state.dataValues
+        }
       ]
     }
     console.log(chartData);
@@ -50,7 +59,18 @@ class ChartPage extends React.Component{
 
     return(
       <React.Fragment>
-      <Line data={chartData} />
+      <Grid>
+  <Grid.Row columns={2}>
+    <Grid.Column>
+
+    <Line data={chartData} />
+    </Grid.Column>
+    <Grid.Column>
+
+    <Line data={chartData} />
+    </Grid.Column>
+    </Grid.Row>
+    </Grid>
       </React.Fragment>
     )
   }
