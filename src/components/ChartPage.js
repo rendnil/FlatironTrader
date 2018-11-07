@@ -67,7 +67,7 @@ class ChartPage extends React.Component{
     </Grid.Column>
     <Grid.Column>
 
-    <Line data={chartData} />
+    
     </Grid.Column>
     </Grid.Row>
     </Grid>
