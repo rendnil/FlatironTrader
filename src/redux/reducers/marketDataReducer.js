@@ -1,5 +1,12 @@
 
-const defaultState= { }
+const defaultState= {
+  "BTC":{name:"Bitcoin"},
+  "ETH":{name:"Ethereum"},
+  "BCH":{name:"Bitcoin Cash"},
+  "XRP":{name:"Ripple"},
+  "LTC":{name:"Litecoin"}
+
+ }
 
 
 export default function (state = defaultState, action){

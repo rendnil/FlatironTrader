@@ -28,7 +28,7 @@ class TradeTable extends React.Component{
 
 
   render(){
-    console.log("trade table", this.props);
+    //console.log("trade table", this.props);
 
 
     const headerStyle = {
@@ -45,8 +45,7 @@ class TradeTable extends React.Component{
         <Table.Row>
           <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>
-          <Table.HeaderCell style={headerStyle}>Bid (USD)</Table.HeaderCell>
-          <Table.HeaderCell style={headerStyle}>Ask (USD)</Table.HeaderCell>
+          <Table.HeaderCell style={headerStyle}>Price (USD)</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle}>% Change</Table.HeaderCell>
         </Table.Row>
           </Table.Header>

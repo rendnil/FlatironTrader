@@ -4,11 +4,12 @@ import TradeForm from "./TradeForm"
 import LastTradeContainer from "./LastTradeContainer"
 import CurrentPosition from "./CurrentPosition"
 import {Container, Table} from "semantic-ui-react"
+import { connect } from 'react-redux'
 
 
 class TradePage extends React.Component{
   render(){
-    console.log("render trade page");
+    console.log("render trade page", this.props);
     return(
       <div>
       <Container>
@@ -24,4 +25,10 @@ class TradePage extends React.Component{
 
 }
 
-export default TradePage
+const mapStateToProps = (state) => {
+  return {
+          marketData: state.marketData
+          }
+}
+
+export default connect(mapStateToProps)(TradePage)
