@@ -8,7 +8,7 @@ import MarketData from "./components/MarketData"
 import { Provider } from 'react-redux';
 import store from "./redux/store"
 
-import { ActionCableProvider } from 'react-actioncable-provider';
+
 
 ReactDOM.render(
 
@@ -24,5 +24,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-// {/*<ActionCableProvider url={'ws://localhost:3002/cable'}>*/}
