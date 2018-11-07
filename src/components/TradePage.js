@@ -13,7 +13,7 @@ class TradePage extends React.Component{
     return(
       <div>
       <Container>
-        <TradeTable />
+        <TradeTable marketData={this.props.marketData}/>
         <TradeForm />
         <CurrentPosition />
         <LastTradeContainer />

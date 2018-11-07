@@ -28,10 +28,10 @@ class TradeTableRow extends React.Component{
 
         <Table.Row onClick={this.handleClick}>
           <Table.Cell style={textStyle}>{this.props.asset.symbol}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.asset.companyName}</Table.Cell>
-          <Table.Cell style={textStyle}>{(this.props.asset.bidPrice*this.props.tether).toPrecision(6)}</Table.Cell>
-          <Table.Cell style={textStyle}>{(this.props.asset.askPrice*this.props.tether).toPrecision(6)}</Table.Cell>
-          <Table.Cell style={textStyle}>{((this.props.asset.changePercent)*100).toPrecision(3)}%</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.asset.name}</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
+          
+          <Table.Cell style={textStyle}></Table.Cell>
           </Table.Row>
 
         )
