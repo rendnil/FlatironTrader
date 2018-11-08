@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from 'react-redux'
 import {Container, Table, Segment} from "semantic-ui-react"
+import PortfolioVal from "../valuation/PortfolioVal"
 
 import PortfolioTableRow from "./PortfolioTableRow"
 
@@ -9,32 +10,37 @@ class PortfolioTable extends React.Component{
 
 /////////////////////////
 ///these are suitable for full portfolio valuation
-    calcTradePnL(){
-      let pnl
-      let tradesWithPnL = []
-      this.props.userTrades.forEach((trade)=>{
-        this.props.marketData.forEach((asset)=>{
-          if (asset.symbol===trade.asset.symbol){
-            if (trade.buy){
-              pnl = ((asset.livePrice - trade.price)*trade.quantity)
+    calcTradePnL(trades, marketData){
+      return PortfolioVal.calcTradeLevelPnL(this.props.userTrades, this.props.marketData)
 
-            }else{
-              pnl = (asset.livePrice - trade.price)*(-trade.quantity)
-            }
-            tradesWithPnL.push({...trade, pnl:pnl})
-          }
-        })
-      })
-      return tradesWithPnL
+
+      // let pnl
+      // let tradesWithPnL = []
+      // this.props.userTrades.forEach((trade)=>{
+      //   this.props.marketData.forEach((asset)=>{
+      //     if (asset.symbol===trade.asset.symbol){
+      //       if (trade.buy){
+      //         pnl = ((asset.livePrice - trade.price)*trade.quantity)
+      //
+      //       }else{
+      //         pnl = (asset.livePrice - trade.price)*(-trade.quantity)
+      //       }
+      //       tradesWithPnL.push({...trade, pnl:pnl})
+      //     }
+      //   })
+      // })
+      // return tradesWithPnL
 
     }
 
     calcPortfolioPnL(){
-      if (this.calcTradePnL()){
-      return this.calcTradePnL().reduce((acc,cv)=>{
-        return (acc + cv.pnl)
-      },0)
-    }
+      return PortfolioVal.calcPortfolioPnL(this.props.userTrades, this.props.marketData)
+
+    //   if (this.calcTradePnL(this.props.userTrades, this.props.marketData)){
+    //   return this.calcTradePnL(this.props.userTrades, this.props.marketData).reduce((acc,cv)=>{
+    //     return (acc + cv.pnl)
+    //   },0)
+    // }
   }
 
 //////////////////////////////////////////////////////

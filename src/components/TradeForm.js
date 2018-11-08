@@ -48,7 +48,7 @@ class TradeForm extends React.Component{
       <Form.Group>
         <Form.Input label='Asset Name' value={this.props.selectedAsset.name} width={4} />
         <Form.Input onChange={this.handleQuantityChange} type="number"label='Quantity' value={this.state.quantity} placeholder='Enter Quantity' width={4} />
-        <Form.Input label='USD Price' value={this.props.selectedAsset.livePrice} placeholder='Select Asset' width={3} />
+        <Form.Input label='USD Price' value={this.props.selectedAsset.livePrice} placeholder='Select Asset' width={5} />
 
 
         <Button onClick={this.handleBuy} size="large" color="green">Buy</Button>
