@@ -18,11 +18,11 @@ class ChartPage extends React.Component{
 
     componentDidMount(){
       this.props.fetchHistoricalData("BTC")
-      // this.props.fetchHistoricalData("ETH")
-      // this.props.fetchHistoricalData("LTC")
-      // ///need to delay these last two to avoid overloading
-      // setTimeout(()=>this.props.fetchHistoricalData("XRP"),500)
-      // setTimeout(()=>this.props.fetchHistoricalData("BCH"),1000)
+      this.props.fetchHistoricalData("ETH")
+      this.props.fetchHistoricalData("LTC")
+      ///need to delay these last two to avoid overloading
+      setTimeout(()=>this.props.fetchHistoricalData("XRP"),500)
+      setTimeout(()=>this.props.fetchHistoricalData("BCH"),1000)
 
 
     }
@@ -103,19 +103,19 @@ if (symbolDataSet){
               {<Line data={ChartBuilder.constructChartObj(this.props.btcHistoricalData,"Bitcoin",'rgba(75,192,192,1)')} />}
             </Grid.Column>
             <Grid.Column>
-              // {<Line data={ChartBuilder.constructChartObj(this.props.ethHistoricalData,"Ethereum",'rgba(75,192,192,1)')} />}
+              {<Line data={ChartBuilder.constructChartObj(this.props.ethHistoricalData,"Ethereum",'rgba(75,192,192,1)')} />}
             </Grid.Column>
           </Grid.Row>
 
         <Grid.Row columns={3}>
           <Grid.Column>
-            // {<Line data={ChartBuilder.constructChartObj(this.props.bchHistoricalData,"Bitcoin Cash",'rgba(75,192,192,1)')} />}
+            {<Line data={ChartBuilder.constructChartObj(this.props.bchHistoricalData,"Bitcoin Cash",'rgba(75,192,192,1)')} />}
           </Grid.Column>
           <Grid.Column>
-            // {<Line data={ChartBuilder.constructChartObj(this.props.ltcHistoricalData,"Litecoin",'rgba(75,192,192,1)')} />}
+            {<Line data={ChartBuilder.constructChartObj(this.props.ltcHistoricalData,"Litecoin",'rgba(75,192,192,1)')} />}
           </Grid.Column>
           <Grid.Column>
-            // {<Line data={ChartBuilder.constructChartObj(this.props.xrpHistoricalData,"Ripple",'rgba(75,192,192,1)')} />}
+            {<Line data={ChartBuilder.constructChartObj(this.props.xrpHistoricalData,"Ripple",'rgba(75,192,192,1)')} />}
           </Grid.Column>
         </Grid.Row>
       </Grid>
