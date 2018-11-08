@@ -27,7 +27,7 @@ export default function (state = defaultState, action){
     case "ETHEREUM_PRICE_UPDATE":
     return state.map((asset)=>{
       if (asset.symbol === "ETH"){
-        return {...asset, livePrice:parseInt(action.payload)}
+        return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
       }else{
         return asset
       }
@@ -37,7 +37,7 @@ export default function (state = defaultState, action){
     case "BITCOINCASH_PRICE_UPDATE":
     return state.map((asset)=>{
       if (asset.symbol === "BCH"){
-        return {...asset, livePrice:parseInt(action.payload)}
+        return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
       }else{
         return asset
       }
@@ -47,7 +47,7 @@ export default function (state = defaultState, action){
 
     return state.map((asset)=>{
       if (asset.symbol === "XRP"){
-        return {...asset, livePrice:parseInt(action.payload)}
+        return {...asset, livePrice:parseFloat(action.payload).toFixed(3)}
       }else{
         return asset
       }
@@ -57,7 +57,7 @@ export default function (state = defaultState, action){
 
     return state.map((asset)=>{
       if (asset.symbol === "LTC"){
-        return {...asset, livePrice:parseInt(action.payload)}
+        return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
       }else{
         return asset
       }

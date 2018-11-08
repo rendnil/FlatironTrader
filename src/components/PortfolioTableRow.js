@@ -18,7 +18,7 @@ class PortfolioTableRow extends React.Component{
     }
 
 
-      
+
       return(
 
         <Table.Row>
