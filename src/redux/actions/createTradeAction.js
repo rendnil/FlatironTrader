@@ -11,6 +11,7 @@ export function createNewTrade(userId, symbol, buy, price, quantity){
     return createTradeAdapter.postNewTrade(userId, symbol, buy, price, quantity)
 
      .then(data => {
+       console.log("this what we get back",data)
       dispatch({type: "CREATE_NEW_TRADE",
 
       payload: data})

@@ -32,7 +32,7 @@ class CurrentPositionTable extends React.Component{
 
   render(){
 
-    //console.log(this.calcAssetPnL());
+    console.log("try position table", this.props);
     const headerStyle = {
       textAlign: "center"
     }

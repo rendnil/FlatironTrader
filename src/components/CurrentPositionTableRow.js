@@ -22,6 +22,7 @@ class CurrentPositionTableRow extends React.Component{
 
 
 
+    console.log("new props", this.props)
       return(
 
         <Table.Row>
