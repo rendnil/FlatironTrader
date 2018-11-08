@@ -39,7 +39,7 @@ calcPortfolioPnL(){
 
   render(){
 
-    console.log("try position table", this.props);
+    //console.log("try position table", this.props);
     const headerStyle = {
       textAlign: "center"
     }
@@ -54,9 +54,9 @@ calcPortfolioPnL(){
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
-                <Table.HeaderCell style={headerStyle}>Position</Table.HeaderCell>
+                <Table.HeaderCell style={headerStyle}>Net Position</Table.HeaderCell>
                 <Table.HeaderCell style={headerStyle}>Weighted Price</Table.HeaderCell>
-              {/*  <Table.HeaderCell style={headerStyle}>PnL</Table.HeaderCell> */}
+
               </Table.Row>
             </Table.Header>
 

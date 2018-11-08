@@ -9,7 +9,7 @@ class CurrentPosition extends React.Component{
 
 
   render(){
-    console.log("current position", this.props);
+  //  console.log("current position", this.props);
     // if(this.props.marketData.iexData){
 
       // console.log("props", this.props);
