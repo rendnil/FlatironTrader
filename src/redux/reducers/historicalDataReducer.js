@@ -5,6 +5,9 @@ export default function (state = {}, action){
     case "FETCH_BTC_DATA":
       return {...state, "BTC":action.payload}
 
+    case "FETCH_ETH_DATA":
+        return {...state, "ETH":action.payload}
+
     default:
 
     return state

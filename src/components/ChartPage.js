@@ -119,8 +119,21 @@ if (symbolDataSet){
     </Grid.Column>
     <Grid.Column>
 
+    {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.ethHistoricalData),"ETH",'rgba(75,192,192,1)')} />}
 
     </Grid.Column>
+    </Grid.Row>
+
+    <Grid.Row columns={3}>
+    <Grid.Column>
+      {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.ethHistoricalData),"ETH",'rgba(75,192,192,1)')} />}
+      </Grid.Column>
+      <Grid.Column>
+        {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.ethHistoricalData),"ETH",'rgba(75,192,192,1)')} />}
+        </Grid.Column>
+<Grid.Column>
+          {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.ethHistoricalData),"ETH",'rgba(75,192,192,1)')} />}
+</Grid.Column>
     </Grid.Row>
     </Grid>
       </React.Fragment>
@@ -134,7 +147,10 @@ if (symbolDataSet){
 
 
 const mapStateToProps = (state) => {
-  return {btcHistoricalData: state.historicalData["BTC"]}
+  return {
+    btcHistoricalData: state.historicalData["BTC"],
+    ethHistoricalData: state.historicalData["ETH"]
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
