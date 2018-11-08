@@ -16,37 +16,27 @@ class TradeForm extends React.Component{
     })
   }
 
-  calcUsdBid(){
-    let bidPrice = this.props.selectedAsset.asset.bidPrice * this.props.selectedAsset.tether
 
-    return bidPrice.toPrecision(6)
+
+  handleBuy =  () => {
+    //userId, symbol, buy, price, quantity
+    this.props.createNewTrade(this.props.currentUser.id,
+      this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, this.state.quantity)
   }
 
-  calcUsdOffer(){
-    let askPrice = this.props.selectedAsset.asset.askPrice * this.props.selectedAsset.tether
-    return askPrice.toPrecision(6)
+  handleSell =  () => {
+    //userId, symbol, buy, price, quantity
+
+    this.props.createNewTrade(this.props.currentUser.id,
+      this.props.selectedAsset.symbol, false, this.props.selectedAsset.livePrice, this.state.quantity)
   }
-
-  // handleBuy =  () => {
-  //   //userId, assetId, buy, price, quantity
-  //   //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
-  //   this.props.createNewTrade(this.props.currentUser.id,
-  //     this.props.selectedAsset.asset.tradeableAsset_id, true, this.calcUsdOffer(), this.state.quantity)
-  // }
-
-  // handleSell =  () => {
-  //   //userId, assetId, buy, price, quantity
-  //   //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
-  //   this.props.createNewTrade(this.props.currentUser.id,
-  //     this.props.selectedAsset.asset.tradeableAsset_id, false, this.calcUsdBid(), this.state.quantity)
-  // }
 
   blankFormRender(){
     return(
       <Form.Group>
         <Form.Input label='Asset Name' value='Select Asset' width={4} />
         <Form.Input type="number"label='Quantity' value={1}  width={4} />
-        <Form.Input label='USD Bid/Offer' value="Select Asset" placeholder='Select Asset' width={5} />
+        <Form.Input label='USD Price' value="Select Asset" placeholder='Select Asset' width={5} />
         <Button size="large" color="green">Buy</Button>
         <Button size = "large" color="red">Sell</Button>
       </Form.Group>
@@ -58,15 +48,15 @@ class TradeForm extends React.Component{
       <Form.Group>
         <Form.Input label='Asset Name' value={this.props.selectedAsset.name} width={4} />
         <Form.Input onChange={this.handleQuantityChange} type="number"label='Quantity' value={this.state.quantity} placeholder='Enter Quantity' width={4} />
-        <Form.Input label='Bid Price USD' value={this.calcUsdBid()} placeholder='Select Asset' width={3} />
-        <Form.Input label='Ask Price USD' value={this.calcUsdOffer()} placeholder='Select Asset' width={3} />
+        <Form.Input label='USD Price' value={this.props.selectedAsset.livePrice} placeholder='Select Asset' width={3} />
 
-        <Button onClick={this.handleBuy} size="large" color="green">
-    <Button.Content visible>Buy</Button.Content>
+
+        <Button onClick={this.handleBuy} size="large" color="green">Buy</Button>
+    {/*<Button.Content visible>Buy</Button.Content>
     <Button.Content hidden>
       <Icon name='arrow right' />
     </Button.Content>
-  </Button>
+  </Button>*/}
         <Button onClick={this.handleSell} size = "large" color="red">Sell</Button>
       </Form.Group>
     )

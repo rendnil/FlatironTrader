@@ -1,7 +1,7 @@
 const CREATE_TRADE_API_ENDPOINT = "http://localhost:3001/api/v1/trades"
 
 export default class createTradeAdapter{
-  static postNewTrade(userId, assetId, buy, price, quantity){
+  static postNewTrade(userId, symbol, buy, price, quantity){
 
     return fetch(`${CREATE_TRADE_API_ENDPOINT}`,{
       method: "POST",
@@ -12,7 +12,7 @@ export default class createTradeAdapter{
       body: JSON.stringify({
         trade:{
           user_id: userId,
-          asset_id: assetId,
+          symbol: symbol,
           buy: buy,
           price: price,
           quantity: quantity
