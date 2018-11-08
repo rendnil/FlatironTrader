@@ -5,9 +5,32 @@ import {selectAssetAction} from "../redux/actions/selectAssetAction"
 
 class TradeTableRow extends React.Component{
 
+  state={
+    isActive: false
+  }
+
   componentDidUpdate(previousProps){
+    ///check for price changes and make the cell active 
+    if (previousProps.asset.livePrice !== this.props.asset.livePrice){
+
+
+      this.setState({
+        isActive: true
+      })
+
+      setTimeout(()=>this.setState({
+        isActive: false
+      }),1000)
+
+
+    }
+  }
+
+  checkPriceChange = () =>{
 
   }
+
+
 
 
   handleClick = (event) => {
@@ -36,13 +59,14 @@ class TradeTableRow extends React.Component{
     }
 
 
+
     //console.log("trade table row",this.props);
 
       return(
         <Table.Row onClick={this.handleClick}>
           <Table.Cell style={textStyle}>{this.props.asset.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.asset.name}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
+          <Table.Cell active={this.state.isActive} style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
           <Table.Cell style={textStyle}>{(this.calcPercentChange()*100).toLocaleString()}%</Table.Cell>
           </Table.Row>
 
