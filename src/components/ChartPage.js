@@ -1,6 +1,8 @@
 import React from "react"
 import {Line} from 'react-chartjs-2';
 import {Grid} from 'semantic-ui-react'
+import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
+import { connect } from 'react-redux'
 
 
 const API_ENDPOINT = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2016-01-01&end=2018-11-05"
@@ -13,48 +15,52 @@ class ChartPage extends React.Component{
     dataValues: [ ]
   }
 
-
-  componentDidMount(){
-    fetch(API_ENDPOINT)
-    .then(r=>r.json())
-    .then(data => {
-      this.constructDataSet(data)})
-  }
-
-  constructDataSet(rawData){
-    let dataSet = { }
-    let labels = [ ]
-    let data = [ ]
-
-    for( let key in rawData.bpi){
-      labels.push(key)
-      data.push(rawData.bpi[key])
+    componentDidMount(){
+      this.props.fetchHistoricalData("BTC")
     }
-      this.setState({
-        dataLabels:labels,
-        dataValues: data
-      })
-  }
+
+
+  // componentDidMount(){
+  //   fetch(API_ENDPOINT)
+  //   .then(r=>r.json())
+  //   .then(data => {
+  //     this.constructDataSet(data)})
+  // }
+  //
+  // constructDataSet(rawData){
+  //   let dataSet = { }
+  //   let labels = [ ]
+  //   let data = [ ]
+  //
+  //   for( let key in rawData.bpi){
+  //     labels.push(key)
+  //     data.push(rawData.bpi[key])
+  //   }
+  //     this.setState({
+  //       dataLabels:labels,
+  //       dataValues: data
+  //     })
+  // }
 
 
 
   render(){
-    console.log("render");
+    console.log("render chart page", this.props);
 
-    const chartData = {
-      labels: this.state.dataLabels,
-      datasets:[
-        {
-          label: "Bitcoin Price",
-          borderColor: 'rgba(75,192,192,1)',
-          fill: false,
-          pointBorderColor: 'rgba(75,192,192,1)',
-          backgroundColor: 'rgba(75,192,192,1)',
-          data:this.state.dataValues
-        }
-      ]
-    }
-    console.log(chartData);
+    // const chartData = {
+    //   labels: this.state.dataLabels,
+    //   datasets:[
+    //     {
+    //       label: "Bitcoin Price",
+    //       borderColor: 'rgba(75,192,192,1)',
+    //       fill: false,
+    //       pointBorderColor: 'rgba(75,192,192,1)',
+    //       backgroundColor: 'rgba(75,192,192,1)',
+    //       data:this.state.dataValues
+    //     }
+    //   ]
+    // }
+    // console.log(chartData);
 
 
     return(
@@ -63,7 +69,7 @@ class ChartPage extends React.Component{
   <Grid.Row columns={2}>
     <Grid.Column>
 
-    <Line data={chartData} />
+    {/*<Line data={chartData} />*/}
     </Grid.Column>
     <Grid.Column>
 
@@ -78,7 +84,17 @@ class ChartPage extends React.Component{
 
 }
 
-export default ChartPage
+const mapStateToProps = (state) => {
+  return {historicalData: state.historicalData}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchHistoricalData: (symbol) => dispatch(fetchHistoricalData(symbol)),
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ChartPage)
+
 
 // const data = {
 //   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

@@ -7,6 +7,7 @@ import tradeReducer from './tradeReducer'
 import newTradeReducer from './newTradeReducer'
 import newsReducer from './newsReducer'
 import bitcoinReducer from './bitcoinReducer'
+import historicalDataReducer from './historicalDataReducer'
 
 
 
@@ -18,5 +19,6 @@ export default combineReducers({
   userTrades: tradeReducer,
   newTrades: newTradeReducer,
   news: newsReducer,
-  bitcoin: bitcoinReducer
+  bitcoin: bitcoinReducer,
+  historicalData: historicalDataReducer
 })
