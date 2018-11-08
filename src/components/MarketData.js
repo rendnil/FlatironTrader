@@ -93,10 +93,10 @@ socket.on("m", this.handleMessage)
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchIEXData: () => dispatch(fetchIEXData()),
-    fetchCoindeskData: () => dispatch(fetchCoindeskData()),
-    fetchAssetData: () => dispatch(fetchAssetData()),
-    fetchNews: () => dispatch(fetchNews()),
+    // fetchIEXData: () => dispatch(fetchIEXData()),
+    // fetchCoindeskData: () => dispatch(fetchCoindeskData()),
+    // fetchAssetData: () => dispatch(fetchAssetData()),
+    // fetchNews: () => dispatch(fetchNews()),
     fetchMarketData: (message)=> dispatch(fetchMarketData(message))
 
   }
