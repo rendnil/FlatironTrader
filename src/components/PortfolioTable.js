@@ -7,22 +7,20 @@ import PortfolioTableRow from "./PortfolioTableRow"
 
 class PortfolioTable extends React.Component{
 
-    // getAssetData(){
-    //   let assetData = [ ]
-    //   if (this.props.marketData.iexData){
-    //   this.props.tradeableAssets.forEach((tradeableAsset)=>{
-    //     this.props.marketData.iexData.forEach((iexAsset)=>{
-    //         if (tradeableAsset.symbol === iexAsset.symbol){
-    //
-    //           assetData.push({...iexAsset, tradeableAsset_id: tradeableAsset.id})
-    //         }
-    //     })
-    //
-    //
-    //   })
-    // }
-    // return assetData
-    // }
+    calcTradePnL(){
+
+      let tradesWithPnL = []
+      this.props.userTrades.forEach((trade)=>{
+        this.props.marketData.forEach((asset)=>{
+          if (asset.symbol===trade.asset.symbol){
+            trade.pnl = (asset.livePrice - trade.price)*trade.quantity
+            tradesWithPnL.push(trade)
+          }
+        })
+      })
+      return tradesWithPnL
+
+    }
 
 
 
@@ -53,7 +51,7 @@ class PortfolioTable extends React.Component{
           </Table.Header>
 
         <Table.Body>
-        {this.props.userTrades.map((trade, idx)=> {
+        {this.calcTradePnL().map((trade, idx)=> {
           return <PortfolioTableRow
           key={idx}
           trade = {trade} />

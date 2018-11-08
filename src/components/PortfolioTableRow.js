@@ -51,6 +51,7 @@ class PortfolioTableRow extends React.Component{
           <Table.Cell style={textStyle}>{this.determineBuyOrSell(this.props.trade)}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.trade.price.toLocaleString()}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.trade.quantity}</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.trade.pnl.toLocaleString()}</Table.Cell>
           </Table.Row>
 
         )
