@@ -57,3 +57,18 @@ if (symbolDataSet){
 
 
 }//end class
+
+
+//  const chartData = {
+//   labels: this.constructChartData(this.props.btcHistoricalData).dataLabels,
+//   datasets:[
+//     {
+//       label: "Bitcoin Price",
+//       borderColor: 'rgba(75,192,192,1)',
+//       fill: false,
+//       pointBorderColor: 'rgba(75,192,192,1)',
+//       backgroundColor: 'rgba(75,192,192,1)',
+//       data:this.constructChartData(this.props.btcHistoricalData).dataValues
+//     }
+//   ]
+// }
