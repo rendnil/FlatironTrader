@@ -14,7 +14,7 @@ export function fetchHistoricalData(symbol){
        console.log("in the action ", data);
        dispatch({type: `FETCH_${symbol}_DATA`,
 
-                payload: data})
+                payload: data.Data})
      })
   }
 }

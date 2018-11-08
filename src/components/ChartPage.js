@@ -4,7 +4,7 @@ import {Grid} from 'semantic-ui-react'
 import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
 
-
+const startDateCode = 1483315200 ///Jan 1 2017
 const API_ENDPOINT = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2016-01-01&end=2018-11-05"
 
 class ChartPage extends React.Component{
@@ -17,6 +17,8 @@ class ChartPage extends React.Component{
 
     componentDidMount(){
       this.props.fetchHistoricalData("BTC")
+      this.props.fetchHistoricalData("ETH")
+
     }
 
 
@@ -42,13 +44,58 @@ class ChartPage extends React.Component{
   //     })
   // }
 
+  constructChartDataSet(symbolDataSet){
+      let dataSet = { }
+       let labels = [ ]
+       let data = [ ]
+if (symbolDataSet){
+      symbolDataSet.forEach((day)=>{
+
+        if (day.time>startDateCode){ //check the date
+
+        labels.push(this.dateFormat(day.time))
+        data.push(day.close)
+      }})
+
+      dataSet = {dataLabels:labels,
+      dataValues:data}
+      return dataSet
+
+    }
+
+
+  }
+
+  dateFormat(rawDate){
+    let fullDate = new Date(rawDate*1000)
+
+    return `${fullDate.getMonth()+1}/${fullDate.getDate()}/${fullDate.getFullYear()}`
+  }
+
+  constructChartObj(dataSet, label, color){
+    return {
+      labels: dataSet.dataLabels,
+      datasets:[
+        {
+          label: label,
+          borderColor: color,
+          fill: false,
+          pointBorderColor: color,
+          backgroundColor: color,
+          data:dataSet.dataValues
+        }
+      ]
+    }
+  }
 
 
   render(){
+    if (this.props.btcHistoricalData){
     console.log("render chart page", this.props);
+    //console.log(this.constructChartData(this.props.btcHistoricalData));
 
-    // const chartData = {
-    //   labels: this.state.dataLabels,
+    //  const chartData = {
+    //   labels: this.constructChartData(this.props.btcHistoricalData).dataLabels,
     //   datasets:[
     //     {
     //       label: "Bitcoin Price",
@@ -56,11 +103,11 @@ class ChartPage extends React.Component{
     //       fill: false,
     //       pointBorderColor: 'rgba(75,192,192,1)',
     //       backgroundColor: 'rgba(75,192,192,1)',
-    //       data:this.state.dataValues
+    //       data:this.constructChartData(this.props.btcHistoricalData).dataValues
     //     }
     //   ]
     // }
-    // console.log(chartData);
+    //console.log(chartData);
 
 
     return(
@@ -68,8 +115,7 @@ class ChartPage extends React.Component{
       <Grid>
   <Grid.Row columns={2}>
     <Grid.Column>
-
-    {/*<Line data={chartData} />*/}
+    {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.btcHistoricalData),"BTC",'rgba(75,192,192,1)')} />}
     </Grid.Column>
     <Grid.Column>
 
@@ -80,12 +126,15 @@ class ChartPage extends React.Component{
       </React.Fragment>
     )
   }
-
-
+  else{
+    return null
+}
+}
 }
 
+
 const mapStateToProps = (state) => {
-  return {historicalData: state.historicalData}
+  return {btcHistoricalData: state.historicalData["BTC"]}
 }
 
 const mapDispatchToProps = (dispatch) => {
