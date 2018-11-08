@@ -3,9 +3,10 @@ import {Line} from 'react-chartjs-2';
 import {Grid, Container} from 'semantic-ui-react'
 import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
+import ChartBuilder from "../parsers/ChartBuilder"
 
 const startDateCode = 1483315200 ///Jan 1 2017
-const API_ENDPOINT = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2016-01-01&end=2018-11-05"
+
 
 class ChartPage extends React.Component{
 
@@ -17,11 +18,11 @@ class ChartPage extends React.Component{
 
     componentDidMount(){
       this.props.fetchHistoricalData("BTC")
-      this.props.fetchHistoricalData("ETH")
-      this.props.fetchHistoricalData("LTC")
-      ///need to delay these last two to avoid overloading
-      setTimeout(()=>this.props.fetchHistoricalData("XRP"),500)
-      setTimeout(()=>this.props.fetchHistoricalData("BCH"),1000)
+      // this.props.fetchHistoricalData("ETH")
+      // this.props.fetchHistoricalData("LTC")
+      // ///need to delay these last two to avoid overloading
+      // setTimeout(()=>this.props.fetchHistoricalData("XRP"),500)
+      // setTimeout(()=>this.props.fetchHistoricalData("BCH"),1000)
 
 
     }
@@ -99,22 +100,22 @@ if (symbolDataSet){
         <Grid>
           <Grid.Row columns={2}>
             <Grid.Column>
-              {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.btcHistoricalData),"BTC",'rgba(75,192,192,1)')} />}
+              {<Line data={ChartBuilder.constructChartObj(this.props.btcHistoricalData,"Bitcoin",'rgba(75,192,192,1)')} />}
             </Grid.Column>
             <Grid.Column>
-              {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.ethHistoricalData),"ETH",'rgba(75,192,192,1)')} />}
+              // {<Line data={ChartBuilder.constructChartObj(this.props.ethHistoricalData,"Ethereum",'rgba(75,192,192,1)')} />}
             </Grid.Column>
           </Grid.Row>
 
         <Grid.Row columns={3}>
           <Grid.Column>
-            {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.bchHistoricalData),"BCH",'rgba(75,192,192,1)')} />}
+            // {<Line data={ChartBuilder.constructChartObj(this.props.bchHistoricalData,"Bitcoin Cash",'rgba(75,192,192,1)')} />}
           </Grid.Column>
           <Grid.Column>
-            {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.ltcHistoricalData),"LTC",'rgba(75,192,192,1)')} />}
+            // {<Line data={ChartBuilder.constructChartObj(this.props.ltcHistoricalData,"Litecoin",'rgba(75,192,192,1)')} />}
           </Grid.Column>
           <Grid.Column>
-            {<Line data={this.constructChartObj(this.constructChartDataSet(this.props.xrpHistoricalData),"XRP",'rgba(75,192,192,1)')} />}
+            // {<Line data={ChartBuilder.constructChartObj(this.props.xrpHistoricalData,"Ripple",'rgba(75,192,192,1)')} />}
           </Grid.Column>
         </Grid.Row>
       </Grid>
