@@ -1,5 +1,5 @@
 ///class used to value construct chart datasets
-const startDateCode = 1483315200 ///Jan 1 2017
+const startDateCode = 1514845424 ///Jan 1 2018
 
 export default class ChartBuilder {
 

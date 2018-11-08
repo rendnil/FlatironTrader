@@ -36,7 +36,7 @@ class TradeTableRow extends React.Component{
     }
 
 
-    console.log("trade table row",this.props);
+    //console.log("trade table row",this.props);
 
       return(
         <Table.Row onClick={this.handleClick}>
