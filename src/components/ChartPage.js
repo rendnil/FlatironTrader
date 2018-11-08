@@ -20,9 +20,11 @@ class ChartPage extends React.Component{
       this.props.fetchHistoricalData("BTC")
       this.props.fetchHistoricalData("ETH")
       this.props.fetchHistoricalData("LTC")
+      this.props.fetchHistoricalData("XRP")
+      this.props.fetchHistoricalData("BCH")
       ///need to delay these last two to avoid overloading
-      setTimeout(()=>this.props.fetchHistoricalData("XRP"),500)
-      setTimeout(()=>this.props.fetchHistoricalData("BCH"),1000)
+      //setTimeout(()=>this.props.fetchHistoricalData("XRP"),500)
+      //setTimeout(()=>this.props.fetchHistoricalData("BCH"),1000)
 
 
     }
