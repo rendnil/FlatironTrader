@@ -29,7 +29,8 @@ const mapStateToProps = (state) => {
   return {
           marketData: state.marketData,
           currentUser:state.currentUser,
-          baseMarketData: state.baseMarketData
+          baseMarketData: state.baseMarketData,
+
 
           }
 }

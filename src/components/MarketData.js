@@ -5,6 +5,7 @@ import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
 import {fetchMarketData} from "../redux/actions/marketDataAction"
 import {fetchBaseMarketData} from "../redux/actions/baseMarketDataAction"
+import {fetchUsers} from "../redux/actions/usersAction"
 
 import io from 'socket.io-client';
 
@@ -40,6 +41,7 @@ class MarketData extends React.Component {
   this.props.fetchHistoricalData("BCH")
 
   this.props.fetchBaseMarketData()
+  this.props.fetchUsers()
 
 
   }
@@ -74,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchMarketData: (message)=> dispatch(fetchMarketData(message)),
     fetchHistoricalData: (symbol) => dispatch(fetchHistoricalData(symbol)),
-    fetchBaseMarketData: ()=> dispatch(fetchBaseMarketData())
+    fetchBaseMarketData: ()=> dispatch(fetchBaseMarketData()),
+    fetchUsers: ()=> dispatch(fetchUsers())
 
   }
 }

@@ -9,6 +9,7 @@ import newsReducer from './newsReducer'
 import bitcoinReducer from './bitcoinReducer'
 import historicalDataReducer from './historicalDataReducer'
 import baseMarketDataReducer from './baseMarketDataReducer'
+import usersReducer from './usersReducer'
 
 
 
@@ -22,5 +23,6 @@ export default combineReducers({
   news: newsReducer,
   bitcoin: bitcoinReducer,
   historicalData: historicalDataReducer,
-  baseMarketData: baseMarketDataReducer
+  baseMarketData: baseMarketDataReducer,
+  users: usersReducer
 })

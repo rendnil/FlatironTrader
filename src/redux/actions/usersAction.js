@@ -1,7 +1,5 @@
 import UserAdapter from "../../apis/UserAdapter"
 
-
-
 export function fetchUsers(){
 
   return (dispatch) =>{
@@ -11,7 +9,7 @@ export function fetchUsers(){
     return UserAdapter.fetchUsers()
 
      .then(data => {
-       console.log("in users", data)
+       
        dispatch({type: "FETCH_USERS_DATA",
 
                 payload: data})
