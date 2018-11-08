@@ -1,26 +1,19 @@
 import React from "react"
-import {fetchIEXData} from "../redux/actions/iexAction"
-import {fetchCoindeskData} from "../redux/actions/coindeskAction"
-import {fetchAssetData} from "../redux/actions/assetAction"
-import {fetchNews} from "../redux/actions/newsAction"
+
+import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
+
 import { connect } from 'react-redux'
 import {fetchMarketData} from "../redux/actions/marketDataAction"
 
-
 import io from 'socket.io-client';
+
+let socket = null
+
 
 class MarketData extends React.Component {
 
-  constructor(props){
-    super(props)
-    this.iex_interval = null
-    this.coindesk_interval = null
-  }
 
   handleMessage = (message)=>{
-    //console.log(message);
-    //let parseMessage = message.split("~")
-    //console.log(parseMessage);
     this.props.fetchMarketData(message)
   }
 
@@ -28,7 +21,9 @@ class MarketData extends React.Component {
   componentDidMount(){
    //  console.log("mounted");
    //
-   const socket = io.connect('https://streamer.cryptocompare.com/');
+
+   socket = io.connect('https://streamer.cryptocompare.com/');
+
 
 
 //Format: {SubscriptionId}~{ExchangeName}~{FromSymbol}~{ToSymbol}
@@ -41,36 +36,27 @@ const subscription = ['5~CCCAGG~BTC~USD', '5~CCCAGG~ETH~USD','5~CCCAGG~BCH~USD',
 socket.emit('SubAdd', { subs: subscription });
 socket.on("m", this.handleMessage)
 
-
-// this.props.fetchNews()
-// this.props.fetchAssetData()
-// this.props.fetchIEXData()
-// this.props.fetchIEXData()
-// this.props.fetchCoindeskData()
-// this.props.fetchCoindeskData()
-// this.props.fetchCoindeskData()
-// this.props.fetchCoindeskData()
-// this.props.fetchCoindeskData()
-// this.props.fetchCoindeskData()
-// this.props.fetchCoindeskData()
-// this.props.fetchCoindeskData()
-//
-//
-// this.iex_interval = setInterval(this.props.fetchIEXData, 1000)
-// this.coindesk_interval = setInterval(this.props.fetchCoindeskData, 10000)
-//
-
+///fetch historical data only once instead of on each "Chart Page render"
+this.props.fetchHistoricalData("BTC")
+this.props.fetchHistoricalData("ETH")
+this.props.fetchHistoricalData("LTC")
+this.props.fetchHistoricalData("XRP")
+this.props.fetchHistoricalData("BCH")
+//setTimeout(this.testClose, 10000)
 
 }
 
 
 
-
+  testClose = () =>{
+    socket.close()
+  }
 
 
 
   componentWillUnmount() {
     console.log("unmounted");
+    //socket.close()
     //clearInterval(this.iex_interval)
     //clearInterval(this.coindesk_interval)
   }
@@ -78,6 +64,7 @@ socket.on("m", this.handleMessage)
   render(){
     let dataCount = 1
     console.log("rendered");
+
 
     return(
       <React.Fragment>
@@ -93,11 +80,8 @@ socket.on("m", this.handleMessage)
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // fetchIEXData: () => dispatch(fetchIEXData()),
-    // fetchCoindeskData: () => dispatch(fetchCoindeskData()),
-    // fetchAssetData: () => dispatch(fetchAssetData()),
-    // fetchNews: () => dispatch(fetchNews()),
-    fetchMarketData: (message)=> dispatch(fetchMarketData(message))
+    fetchMarketData: (message)=> dispatch(fetchMarketData(message)),
+    fetchHistoricalData: (symbol) => dispatch(fetchHistoricalData(symbol))
 
   }
 }
