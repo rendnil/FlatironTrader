@@ -43,6 +43,12 @@ const NavBar = (props) => {
       </NavLink>
     </Menu.Item>
 
+    <Menu.Item>
+      <NavLink to = "/leaderboard">
+      Leaderboard
+      </NavLink>
+    </Menu.Item>
+
     <Menu.Menu position='right'>
         <Menu.Item>
           <Button color="red">Sign Out</Button>
