@@ -1,7 +1,7 @@
-export function selectAssetAction(asset, tether){
+export function selectAssetAction(asset){
   console.log("IN THE ACTION")
 
-  return {type:"SELECT_ASSET", payload: {asset:asset, tether: tether}}
+  return {type:"SELECT_ASSET", payload: asset}
 
 
 

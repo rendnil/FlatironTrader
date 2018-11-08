@@ -13,8 +13,9 @@ class PortfolioTable extends React.Component{
       this.props.userTrades.forEach((trade)=>{
         this.props.marketData.forEach((asset)=>{
           if (asset.symbol===trade.asset.symbol){
-            trade.pnl = (asset.livePrice - trade.price)*trade.quantity
-            tradesWithPnL.push(trade)
+            let pnl = (asset.livePrice - trade.price)*trade.quantity
+            tradesWithPnL.push({...trade, pnl:pnl})
+
           }
         })
       })
@@ -26,7 +27,7 @@ class PortfolioTable extends React.Component{
 
 
   render(){
-    console.log("trade table", this.props);
+    console.log("did I mutate this", this.props);
 
 
     const headerStyle = {

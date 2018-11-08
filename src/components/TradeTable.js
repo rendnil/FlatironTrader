@@ -28,7 +28,7 @@ class TradeTable extends React.Component{
 
 
   render(){
-    console.log("trade table", this.props);
+    //console.log("trade table", this.props);
 
 
     const headerStyle = {

@@ -11,7 +11,7 @@ class TradeTableRow extends React.Component{
 
 
   handleClick = (event) => {
-    this.props.selectAssetAction(this.props.asset, this.props.tether)
+    this.props.selectAssetAction(this.props.asset)
   }
 
   render(){
@@ -23,14 +23,14 @@ class TradeTableRow extends React.Component{
     }
 
 
-    //console.log(this.props);
+    console.log("trade table row",this.props);
       return(
 
         <Table.Row onClick={this.handleClick}>
           <Table.Cell style={textStyle}>{this.props.asset.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.asset.name}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
-          
+
           <Table.Cell style={textStyle}></Table.Cell>
           </Table.Row>
 

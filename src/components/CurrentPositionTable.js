@@ -11,8 +11,8 @@ class CurrentPositionTable extends React.Component{
     this.props.positions.forEach((position)=>{
       this.props.marketData.forEach((asset)=>{
         if (asset.symbol===position.symbol){
-          position.pnl = (asset.livePrice - position.weighted_price)*position.net_position
-          positionsWithPnL.push(position)
+          let pnl = (asset.livePrice - position.weighted_price)*position.net_position
+          positionsWithPnL.push({...position, pnl:pnl} )
         }
       })
     })
@@ -31,8 +31,8 @@ class CurrentPositionTable extends React.Component{
 
 
   render(){
-    console.log("table", this.props);
-    console.log(this.calcAssetPnL());
+
+    //console.log(this.calcAssetPnL());
     const headerStyle = {
       textAlign: "center"
     }

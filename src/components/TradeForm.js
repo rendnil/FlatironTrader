@@ -27,19 +27,19 @@ class TradeForm extends React.Component{
     return askPrice.toPrecision(6)
   }
 
-  handleBuy =  () => {
-    //userId, assetId, buy, price, quantity
-    //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
-    this.props.createNewTrade(this.props.currentUser.id,
-      this.props.selectedAsset.asset.tradeableAsset_id, true, this.calcUsdOffer(), this.state.quantity)
-  }
+  // handleBuy =  () => {
+  //   //userId, assetId, buy, price, quantity
+  //   //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
+  //   this.props.createNewTrade(this.props.currentUser.id,
+  //     this.props.selectedAsset.asset.tradeableAsset_id, true, this.calcUsdOffer(), this.state.quantity)
+  // }
 
-  handleSell =  () => {
-    //userId, assetId, buy, price, quantity
-    //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
-    this.props.createNewTrade(this.props.currentUser.id,
-      this.props.selectedAsset.asset.tradeableAsset_id, false, this.calcUsdBid(), this.state.quantity)
-  }
+  // handleSell =  () => {
+  //   //userId, assetId, buy, price, quantity
+  //   //counterinituive to the uninitiated, but you actually buy from the offer side in real trading
+  //   this.props.createNewTrade(this.props.currentUser.id,
+  //     this.props.selectedAsset.asset.tradeableAsset_id, false, this.calcUsdBid(), this.state.quantity)
+  // }
 
   blankFormRender(){
     return(
@@ -56,7 +56,7 @@ class TradeForm extends React.Component{
   selectedAssetFormRender(){
     return(
       <Form.Group>
-        <Form.Input label='Asset Name' value={this.props.selectedAsset.asset.companyName} width={4} />
+        <Form.Input label='Asset Name' value={this.props.selectedAsset.name} width={4} />
         <Form.Input onChange={this.handleQuantityChange} type="number"label='Quantity' value={this.state.quantity} placeholder='Enter Quantity' width={4} />
         <Form.Input label='Bid Price USD' value={this.calcUsdBid()} placeholder='Select Asset' width={3} />
         <Form.Input label='Ask Price USD' value={this.calcUsdOffer()} placeholder='Select Asset' width={3} />
