@@ -17,6 +17,13 @@ const NavBar = (props) => {
        </Menu.Item>
 
     <Menu.Item>
+      <NavLink  to = "/charts"
+      style={{textDecoration: "none"}}>
+      Charts
+      </NavLink>
+    </Menu.Item>
+
+    <Menu.Item>
       <NavLink  to = "/trade"
       style={{textDecoration: "none"}}>
       Trade
