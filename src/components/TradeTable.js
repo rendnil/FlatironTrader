@@ -55,6 +55,7 @@ class TradeTable extends React.Component{
           return (
             <TradeTableRow key={asset.name}
             asset={asset}
+            baseMarketData = {this.props.baseMarketData}
             />
           )
         })}

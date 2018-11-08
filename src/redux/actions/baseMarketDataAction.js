@@ -12,9 +12,9 @@ export function fetchBaseMarketData(symbol){
 
      .then(data => {
        console.log("in the action ", data);
-       dispatch({type: `hey`,
+       dispatch({type: `FETCH_BASE_MARKET_DATA`,
 
-                payload: data.Data})
+                payload: data.RAW})
      })
   }
 }

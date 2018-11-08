@@ -9,11 +9,11 @@ import { connect } from 'react-redux'
 
 class TradePage extends React.Component{
   render(){
-   //console.log("render trade page", this.props);
+   console.log("render trade page", this.props);
     return(
       <div>
       <Container>
-        <TradeTable marketData={this.props.marketData}/>
+        <TradeTable baseMarketData={this.props.baseMarketData} marketData={this.props.marketData}/>
         <TradeForm />
         <CurrentPosition />
         <LastTradeContainer />
@@ -28,7 +28,8 @@ class TradePage extends React.Component{
 const mapStateToProps = (state) => {
   return {
           marketData: state.marketData,
-          currentUser:state.currentUser
+          currentUser:state.currentUser,
+          baseMarketData: state.baseMarketData
 
           }
 }
