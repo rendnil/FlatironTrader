@@ -7,6 +7,8 @@ import PortfolioTableRow from "./PortfolioTableRow"
 
 class PortfolioTable extends React.Component{
 
+/////////////////////////
+///these are suitable for full portfolio valuation
     calcTradePnL(){
       let pnl
       let tradesWithPnL = []
@@ -35,13 +37,13 @@ class PortfolioTable extends React.Component{
     }
   }
 
-
+//////////////////////////////////////////////////////
 
 
 
 
   render(){
-    console.log("did I mutate this", this.props);
+    //console.log("did I mutate this", this.props);
 
 
     const headerStyle = {
@@ -52,9 +54,12 @@ class PortfolioTable extends React.Component{
       <div>
         <Container>
         <Segment>
-        <h2>All Trades {this.calcPortfolioPnL().toLocaleString()}</h2>
+        <h2>All Trades </h2>
           <Table celled selectable>
           <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell colSpan={6} textAlign="right" > Total PnL:{this.calcPortfolioPnL().toLocaleString()}  </Table.HeaderCell>
+          </Table.Row>
         <Table.Row>
           <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>

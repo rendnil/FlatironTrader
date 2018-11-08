@@ -5,8 +5,10 @@ import CurrentPositionTableRow from "./CurrentPositionTableRow"
 
 class CurrentPositionTable extends React.Component{
 
+  ////
+  ///these calculations are ONLY FOR ASSETS THAT HAVE A NET POSITION
+  /////
   calcAssetPnL(){
-
     let positionsWithPnL = []
     this.props.positions.forEach((position)=>{
       this.props.marketData.forEach((asset)=>{
@@ -28,7 +30,7 @@ class CurrentPositionTable extends React.Component{
   }
 }
 
-
+//////////////////////////////////////////////////////////
 
   render(){
 
@@ -43,13 +45,13 @@ class CurrentPositionTable extends React.Component{
           <Table celled selectable>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell colSpan={4} textAlign="right" > Total PnL:{this.calcPortfolioPnL().toLocaleString()}  </Table.HeaderCell>
+                <Table.HeaderCell colSpan={4} textAlign="right" > {/*this.calcPortfolioPnL().toLocaleString()*/}  </Table.HeaderCell>
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
                 <Table.HeaderCell style={headerStyle}>Position</Table.HeaderCell>
                 <Table.HeaderCell style={headerStyle}>Weighted Price</Table.HeaderCell>
-                <Table.HeaderCell style={headerStyle}>PnL</Table.HeaderCell>
+              {/*  <Table.HeaderCell style={headerStyle}>PnL</Table.HeaderCell> */}
               </Table.Row>
             </Table.Header>
 
