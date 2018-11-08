@@ -21,7 +21,7 @@ class CurrentPosition extends React.Component{
         <Segment>
 
         <h2>Current Position</h2>
-        <CurrentPositionTable marketData={this.props.marketData} positions={this.props.currentUser.positions}/>
+        <CurrentPositionTable marketData={this.props.marketData} trades={this.props.currentUser.trades} positions={this.props.currentUser.positions}/>
 
         {/*this.relevantMarketData().map((position)=>{
           return <p> {position.symbol}--{position.netPosition}--{position.vwap}---PnL: {position.netPosition*(position.price - position.vwap)}</p>
