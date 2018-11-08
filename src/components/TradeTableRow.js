@@ -6,20 +6,22 @@ import {selectAssetAction} from "../redux/actions/selectAssetAction"
 class TradeTableRow extends React.Component{
 
   state={
-    isActive: false
+    cellsSelected: false,
+    priceChange: false
+
   }
 
   componentDidUpdate(previousProps){
-    ///check for price changes and make the cell active 
+    ///check for price changes and make the cell active
     if (previousProps.asset.livePrice !== this.props.asset.livePrice){
 
 
       this.setState({
-        isActive: true
+        priceChange: true
       })
 
       setTimeout(()=>this.setState({
-        isActive: false
+        priceChange: false
       }),1000)
 
 
@@ -34,6 +36,9 @@ class TradeTableRow extends React.Component{
 
 
   handleClick = (event) => {
+    this.setState({
+      cellsSelected: !this.state.cellsSelected
+    })
     this.props.selectAssetAction(this.props.asset)
   }
 
@@ -63,10 +68,10 @@ class TradeTableRow extends React.Component{
     //console.log("trade table row",this.props);
 
       return(
-        <Table.Row onClick={this.handleClick}>
+        <Table.Row active={this.state.cellsSelected} onClick={this.handleClick}>
           <Table.Cell style={textStyle}>{this.props.asset.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.asset.name}</Table.Cell>
-          <Table.Cell active={this.state.isActive} style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
+          <Table.Cell active={this.state.priceChange} style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
           <Table.Cell style={textStyle}>{(this.calcPercentChange()*100).toLocaleString()}%</Table.Cell>
           </Table.Row>
 
