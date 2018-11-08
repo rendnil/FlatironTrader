@@ -16,7 +16,7 @@ export default function (state = defaultState, action){
     case "BITCOIN_PRICE_UPDATE":
        return state.map((asset)=>{
          if (asset.symbol === "BTC"){
-           return {...asset, livePrice:parseInt(action.payload)}
+           return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
          }else{
            return asset
          }
