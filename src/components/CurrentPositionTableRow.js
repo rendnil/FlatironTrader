@@ -26,9 +26,9 @@ class CurrentPositionTableRow extends React.Component{
 
         <Table.Row>
           <Table.Cell style={textStyle}>{this.props.position.symbol}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.position.netPosition}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.position.vwap.toLocaleString()}</Table.Cell>
-          <Table.Cell style={textStyle}>{(this.props.position.netPosition*(this.props.position.price - this.props.position.vwap)).toLocaleString()}</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.position.net_position}</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.position.weighted_price.toLocaleString()}</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.position.pnl.toLocaleString()}</Table.Cell>
 
           </Table.Row>
 

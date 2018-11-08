@@ -266,16 +266,18 @@ quantity: 10,
 created_at: "2018-11-07T23:15:28.958Z"
 }
 ],
-positions: {
-BTC: {
+positions: [
+{
+symbol: "BTC",
 net_position: 54,
 weighted_price: 5186.111111111111
 },
-ETH: {
+{
+symbol: "ETH",
 net_position: 99,
 weighted_price: 205.15151515151516
 }
-}
+]
 }
 // const defaultState={}
 
