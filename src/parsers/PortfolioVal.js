@@ -8,7 +8,7 @@ export default class PortfolioVal {
   static calcTradeLevelPnL(trades, marketData){
     let pnl
     let tradesWithPnL = []
-      console.log("val", trades, marketData);
+      
       trades.forEach((trade)=>{
         marketData.forEach((asset)=>{
           //check if the market data corresponds to the correct asset
