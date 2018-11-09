@@ -1,17 +1,28 @@
 import React from "react"
+import LeaderboardList from "./LeaderboardList"
+import {Container} from "semantic-ui-react"
+import { connect } from 'react-redux'
 
 
 class LeaderboardPage extends React.Component{
 
   render(){
     return(
-      <React.Fragment>
-      hey
-      </React.Fragment>
+
+        <Container>
+          <LeaderboardList users={this.props.users} />
+        </Container>
+
     )
   }
 
 
 }
 
-export default LeaderboardPage
+const mapStateToProps = (state) => {
+  return{
+    users: state.users
+  }
+}
+
+export default connect(mapStateToProps)(LeaderboardPage)

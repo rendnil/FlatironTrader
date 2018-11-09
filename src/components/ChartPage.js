@@ -23,9 +23,9 @@ class ChartPage extends React.Component{
 
 
 
-
+    ///need to make sure everything is loaded
   render(){
-    if (this.props.bchHistoricalData){
+    if (this.props.bchHistoricalData&&this.props.btcHistoricalData&&this.props.ltcHistoricalData&&this.props.ethHistoricalData&&this.props.xrpHistoricalData){
     console.log("render chart page", this.props);
 
 
