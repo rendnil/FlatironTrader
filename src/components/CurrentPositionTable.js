@@ -6,36 +6,10 @@ import PortfolioVal from "../parsers/PortfolioVal"
 
 class CurrentPositionTable extends React.Component{
 
-  ////
-  ///these calculations are ONLY FOR ASSETS THAT HAVE A NET POSITION
-  /////
-//   calcAssetPnL(){
-//     let positionsWithPnL = []
-//     this.props.positions.forEach((position)=>{
-//       this.props.marketData.forEach((asset)=>{
-//         if (asset.symbol===position.symbol){
-//           let pnl = (asset.livePrice - position.weighted_price)*position.net_position
-//           positionsWithPnL.push({...position, pnl:pnl} )
-//         }
-//       })
-//     })
-//     return positionsWithPnL
-//
-//   }
-//
-//   calcPortfolioPnL(){
-//     if (this.calcAssetPnL()){
-//     return this.calcAssetPnL().reduce((acc,cv)=>{
-//       return (acc + cv.pnl)
-//     },0)
-//   }
-// }
 
-//////////////////////////////////////////////////////////
-
-calcPortfolioPnL(){
-  return PortfolioVal.calcPortfolioPnL(this.props.trades, this.props.marketData)
-}
+  calcPortfolioPnL(){
+    return PortfolioVal.calcPortfolioPnL(this.props.trades, this.props.marketData)
+  }
 
   render(){
 

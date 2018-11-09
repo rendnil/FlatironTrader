@@ -9,8 +9,9 @@ class LeaderboardPage extends React.Component{
   render(){
     return(
 
-        <Container>
-          <LeaderboardList users={this.props.users} />
+        <Container textAlign="center">
+          <LeaderboardList users={this.props.users}
+          marketData={this.props.marketData} />
         </Container>
 
     )
@@ -21,7 +22,9 @@ class LeaderboardPage extends React.Component{
 
 const mapStateToProps = (state) => {
   return{
-    users: state.users
+    users: state.users,
+    marketData: state.marketData
+
   }
 }
 

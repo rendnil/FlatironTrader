@@ -8,6 +8,7 @@ export default class PortfolioVal {
   static calcTradeLevelPnL(trades, marketData){
     let pnl
     let tradesWithPnL = []
+      console.log("val", trades, marketData);
       trades.forEach((trade)=>{
         marketData.forEach((asset)=>{
           //check if the market data corresponds to the correct asset
@@ -30,7 +31,7 @@ export default class PortfolioVal {
   static calcPortfolioPnL(trades, marketData){
     if (this.calcTradeLevelPnL(trades, marketData)){
 
-    //sum the pnls for each trade   
+    //sum the pnls for each trade
     return this.calcTradeLevelPnL(trades, marketData).reduce((acc,cv)=>{
       return (acc + cv.pnl)
     },0)

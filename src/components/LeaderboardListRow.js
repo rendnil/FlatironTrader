@@ -1,25 +1,27 @@
 import React from "react"
 
 import {Segment, List} from "semantic-ui-react"
+import PortfolioVal from "../parsers/PortfolioVal"
 
 
- const LeaderboardListRow = ({user}) =>{
+
+ const LeaderboardListRow = (props) =>{
+
 
     return(
-
         <List.Item>
           <Segment >
             <List.Header>
-            {user.username}
+            {props.user.username}
             </List.Header>
 
-            <List.Content>
+            <List.Content floated="right">
 
               <List.Description>
-
+              {PortfolioVal.calcPortfolioPnL(props.user.trades, props.marketData).toLocaleString()}
               </List.Description>
               <List.Header>
-                
+
               </List.Header>
 
             </List.Content>
