@@ -11,7 +11,7 @@ class LeaderboardPage extends React.Component{
     return(
 
         <Container textAlign="center">
-          <MarketDataTicker marketData={this.props.marketData}/>
+          <MarketDataTicker/>
           <LeaderboardList users={this.props.users}
           marketData={this.props.marketData} />
         </Container>

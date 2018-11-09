@@ -1,6 +1,7 @@
 import React from "react"
 import {List, Grid} from "semantic-ui-react"
 import MarketDataTickerDetail from "./MarketDataTickerDetail"
+import { connect } from 'react-redux'
 
 
 class MarketDataTicker extends React.Component{
@@ -23,8 +24,12 @@ class MarketDataTicker extends React.Component{
 
 
 }
+const mapStateToProps = (state) => {
+  return{
+    marketData: state.marketData
+  }
+}
 
 
 
-
-export default MarketDataTicker
+export default connect(mapStateToProps)(MarketDataTicker)
