@@ -7,29 +7,55 @@ class TradeTableRow extends React.Component{
 
   state={
     cellsSelected: false,
-    priceChange: false
+    priceChange: false,
+    positiveChange: false,
+    negativeChange: false
 
   }
 
+  // componentDidUpdate(previousProps){
+  //   ///check for price changes and make the cell active
+  //   if (previousProps.asset.livePrice !== this.props.asset.livePrice){
+  //
+  //
+  //     this.setState({
+  //       priceChange: true
+  //     })
+  //
+  //     setTimeout(()=>this.setState({
+  //       priceChange: false
+  //     }),1000)
+  //
+  //
+  //   }
+  // }
+
   componentDidUpdate(previousProps){
     ///check for price changes and make the cell active
-    if (previousProps.asset.livePrice !== this.props.asset.livePrice){
+    if (previousProps.asset.livePrice < this.props.asset.livePrice){
 
 
       this.setState({
-        priceChange: true
+        positiveChange: true
       })
 
-      setTimeout(()=>this.setState({
-        priceChange: false
-      }),1000)
+      this.revertColor()
 
+
+    }else if (previousProps.asset.livePrice > this.props.asset.livePrice) {
+      this.setState({
+        negativeChange: true
+      })
+    this.revertColor()
 
     }
   }
 
-  checkPriceChange = () =>{
-
+  revertColor(){
+    setTimeout(()=>this.setState({
+      positiveChange: false,
+      negativeChange: false
+    }),4000)
   }
 
 
@@ -71,8 +97,8 @@ class TradeTableRow extends React.Component{
         <Table.Row active={this.state.cellsSelected} onClick={this.handleClick}>
           <Table.Cell style={textStyle}>{this.props.asset.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.asset.name}</Table.Cell>
-          <Table.Cell active={this.state.priceChange} style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
-          <Table.Cell style={textStyle}>{(this.calcPercentChange()*100).toLocaleString()}%</Table.Cell>
+          <Table.Cell positive={this.state.positiveChange} negative={this.state.negativeChange} style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
+          <Table.Cell style={textStyle} >{(this.calcPercentChange()*100).toLocaleString()}%</Table.Cell>
           </Table.Row>
 
         )

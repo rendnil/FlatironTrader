@@ -4,6 +4,9 @@ import LeaderboardListRow from "./LeaderboardListRow"
 
 class LeaderboardList extends React.Component {
 
+
+
+
   render(){
     console.log("leaderboard props", this.props);
 
