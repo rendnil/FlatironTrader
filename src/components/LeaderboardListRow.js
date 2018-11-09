@@ -18,7 +18,7 @@ import PortfolioVal from "../parsers/PortfolioVal"
             <List.Content floated="right">
 
               <List.Description>
-              {PortfolioVal.calcPortfolioPnL(props.user.trades, props.marketData).toLocaleString()}
+              PnL: {PortfolioVal.calcPortfolioPnL(props.user.trades, props.marketData).toLocaleString()}
               </List.Description>
               <List.Header>
 
