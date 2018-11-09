@@ -4,6 +4,7 @@ import {Statistic,Header, Grid, Container,Segment} from 'semantic-ui-react'
 import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
 import ChartBuilder from "../parsers/ChartBuilder"
+import MarketDataTicker from "./MarketDataTicker"
 
 const startDateCode = 1483315200 ///Jan 1 2017
 
@@ -31,7 +32,7 @@ class ChartPage extends React.Component{
 
     return(
       <Container>
-        <h1>Market Data</h1>
+        <MarketDataTicker />
         <Grid>
           <Grid.Row columns={2}>
 
