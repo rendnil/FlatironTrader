@@ -5,6 +5,9 @@ export default function (state = [], action){
     case "FETCH_USERS_DATA":
       return action.payload
 
+    case "LOGIN_USER":
+      return [...state, action.payload.user]
+
 
     default:
 

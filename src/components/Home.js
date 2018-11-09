@@ -16,7 +16,7 @@ class Home extends React.Component{
       <div>
         <Router>
           <React.Fragment>
-          <NavBar />
+            <NavBar />
             <Route exact path = "/" render = {()=> <NewsPage/>}/>
             <Route exact path = "/charts" render = {()=> <ChartPage/>}/>
             <Route exact path = "/trade" render = {()=> <TradePage/>}/>

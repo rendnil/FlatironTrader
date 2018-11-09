@@ -10,13 +10,14 @@ class LeaderboardList extends React.Component {
 
     console.log("leaderboard props", this.props);
 
+
     return(
 
 
       <Grid centered>
         <Grid.Row>
           <Grid.Column width={10}>
-            <Table celled textAlign='center'>
+            <Table compact celled textAlign='center'>
 
               <Table.Header>
                 <Table.Row>
@@ -26,19 +27,15 @@ class LeaderboardList extends React.Component {
                 </Table.Row>
               </Table.Header>
 
-
-
-
-              <Table.Body>
-              {PortfolioVal.sortUsersByPnL(this.props.users, this.props.marketData).map((user, idx)=>{
-                return (
-                  <LeaderboardListRow idx={idx} key={user.id} user={user}/>
-                )
-              })}
-              </Table.Body>
+                <Table.Body>
+                  {PortfolioVal.sortUsersByPnL(this.props.users, this.props.marketData).map((user, idx)=>{
+                    return (
+                      <LeaderboardListRow idx={idx} key={user.id} user={user}/>
+                    )
+                  })}
+                </Table.Body>
             </Table>
           </Grid.Column>
-
         </Grid.Row>
       </Grid>
 

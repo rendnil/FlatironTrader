@@ -7,25 +7,6 @@ import TradeTableRow from "./TradeTableRow"
 
 class TradeTable extends React.Component{
 
-    // getAssetData(){
-    //   let assetData = [ ]
-    //   if (this.props.marketData.iexData){
-    //   this.props.tradeableAssets.forEach((tradeableAsset)=>{
-    //     this.props.marketData.iexData.forEach((iexAsset)=>{
-    //         if (tradeableAsset.symbol === iexAsset.symbol){
-    //
-    //           assetData.push({...iexAsset, tradeableAsset_id: tradeableAsset.id})
-    //         }
-    //     })
-    //
-    //
-    //   })
-    // }
-    // return assetData
-    // }
-
-
-
 
   render(){
     //console.log("trade table", this.props);
@@ -39,7 +20,6 @@ class TradeTable extends React.Component{
       <div>
         <Container>
           <Table celled selectable>
-
 
           <Table.Header>
         <Table.Row>

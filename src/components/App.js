@@ -5,7 +5,7 @@ import Landing from "./Landing"
 import Home from "./Home"
 
 
-export default class App extends Component {
+class App extends Component {
 
 
   render() {
@@ -13,12 +13,26 @@ export default class App extends Component {
     return (
       <div>
 
-        <Home />
-          {/*NEED TO REENABLE THIS
+        {/*<Home /> */}
+
           {this.props.currentUser.username? <Home />:<Landing />}
-          */}
+
 
       </div>
     );
   }
 }
+
+
+
+const mapStateToProps = (state) => {
+  return {
+          currentUser: state.currentUser
+
+    }
+
+}
+
+
+
+export default connect(mapStateToProps)(App)

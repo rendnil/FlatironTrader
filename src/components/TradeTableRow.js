@@ -67,7 +67,7 @@ class TradeTableRow extends React.Component{
     this.interval = setTimeout(()=>this.setState({
       positiveChange: false,
       negativeChange: false
-    }),4000)
+    }),3000)
   }
 
 
