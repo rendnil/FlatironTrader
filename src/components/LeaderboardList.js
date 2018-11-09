@@ -1,5 +1,5 @@
 import React from "react"
-import {List, Grid} from "semantic-ui-react"
+import {Table, Grid, Icon} from "semantic-ui-react"
 import LeaderboardListRow from "./LeaderboardListRow"
 import { connect } from 'react-redux'
 import PortfolioVal from "../parsers/PortfolioVal"
@@ -15,14 +15,28 @@ class LeaderboardList extends React.Component {
 
       <Grid centered>
         <Grid.Row>
-          <Grid.Column width={6}>
-            <List verticalAlign='middle'>
-              {PortfolioVal.sortUsersByPnL(this.props.users, this.props.marketData).map((user)=>{
+          <Grid.Column width={10}>
+            <Table celled textAlign='center'>
+
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Rank</Table.HeaderCell>
+                  <Table.HeaderCell><Icon fitted color= "green" name="user circle" size="large"/></Table.HeaderCell>
+                  <Table.HeaderCell>PnL</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+
+
+
+
+              <Table.Body>
+              {PortfolioVal.sortUsersByPnL(this.props.users, this.props.marketData).map((user, idx)=>{
                 return (
-                  <LeaderboardListRow key={user.id} user={user}/>
+                  <LeaderboardListRow idx={idx} key={user.id} user={user}/>
                 )
               })}
-            </List>
+              </Table.Body>
+            </Table>
           </Grid.Column>
 
         </Grid.Row>

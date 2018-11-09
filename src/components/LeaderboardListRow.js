@@ -1,33 +1,19 @@
 import React from "react"
 
-import {Segment, List} from "semantic-ui-react"
+import {Table, Icon} from "semantic-ui-react"
 import PortfolioVal from "../parsers/PortfolioVal"
 
 
 
- const LeaderboardListRow = ({user}) =>{
+ const LeaderboardListRow = ({user, idx}) =>{
 
 
     return(
-        <List.Item>
-          <Segment >
-          <List.Content floated="left">
-            <List.Header>
-            {user.username}
-            </List.Header>
-          </List.Content>
-            <List.Content floated="right">
-
-              <List.Description>
-              PnL: {user.pnl.toLocaleString()}
-              </List.Description>
-              <List.Header>
-
-              </List.Header>
-
-            </List.Content>
-          </Segment>
-      </List.Item>
+      <Table.Row>
+        {idx ===0? <Table.Cell><Icon fitted color="yellow" name="trophy"/></Table.Cell>:<Table.Cell>{idx+1}</Table.Cell>}
+        <Table.Cell>{user.username}</Table.Cell>
+        <Table.Cell>{user.pnl.toLocaleString()}</Table.Cell>
+      </Table.Row>
     )
 }
 
