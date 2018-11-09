@@ -33,7 +33,7 @@ class SignUp extends React.Component{
   render(){
     return(
       <div>
-        <Container style={{textAlign: "center", width: "50%", marginTop:"10%"}}>
+        <Container style={{textAlign: "center", width: "50%", marginTop:"30%"}}>
           <Form onSubmit={this.handleSubmit}>
           <Header size="large">Sign Up</Header>
           <Form.Field>

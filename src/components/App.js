@@ -11,14 +11,14 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+      <React.Fragment>
 
         {/*<Home /> */}
 
           {this.props.currentUser.username? <Home />:<Landing />}
 
 
-      </div>
+      </React.Fragment>
     );
   }
 }
