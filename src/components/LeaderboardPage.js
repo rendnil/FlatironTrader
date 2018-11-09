@@ -2,6 +2,7 @@ import React from "react"
 import LeaderboardList from "./LeaderboardList"
 import {Container} from "semantic-ui-react"
 import { connect } from 'react-redux'
+import MarketDataTicker from "./MarketDataTicker"
 
 
 class LeaderboardPage extends React.Component{
@@ -10,6 +11,7 @@ class LeaderboardPage extends React.Component{
     return(
 
         <Container textAlign="center">
+          <MarketDataTicker marketData={this.props.marketData}/>
           <LeaderboardList users={this.props.users}
           marketData={this.props.marketData} />
         </Container>
