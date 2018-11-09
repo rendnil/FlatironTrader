@@ -11,10 +11,11 @@ import PortfolioVal from "../parsers/PortfolioVal"
     return(
         <List.Item>
           <Segment >
+          <List.Content floated="left">
             <List.Header>
             {props.user.username}
             </List.Header>
-
+          </List.Content>
             <List.Content floated="right">
 
               <List.Description>
