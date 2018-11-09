@@ -1,6 +1,6 @@
 import React from "react"
 import {Line} from 'react-chartjs-2';
-import {Statistic,Header, Grid, Container,Segment} from 'semantic-ui-react'
+import {Header, Grid, Container,Segment} from 'semantic-ui-react'
 import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
 import ChartBuilder from "../parsers/ChartBuilder"
@@ -40,11 +40,6 @@ class ChartPage extends React.Component{
             <Grid.Column>
             <Segment textAlign="center">
               {<Line data={ChartBuilder.constructChartObj(this.props.btcHistoricalData,"Bitcoin",'deepskyblue')} />}
-
-              <Statistic size="mini">
-                <Statistic.Label>Live Price</Statistic.Label>
-                <Statistic.Value>40,509</Statistic.Value>
-              </Statistic>
             </Segment>
             </Grid.Column>
 

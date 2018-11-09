@@ -11,7 +11,7 @@ import {Segment, List, Image} from "semantic-ui-react"
           <Segment >
             <List.Header>
               <Image avatar src={article.imageurl}/>
-              <a href={article.url} target="_blank">
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
                 {article.title}
               </a>
             </List.Header>
