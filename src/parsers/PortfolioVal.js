@@ -8,7 +8,7 @@ export default class PortfolioVal {
   static calcTradeLevelPnL(trades, marketData){
     let pnl
     let tradesWithPnL = []
-      
+
       trades.forEach((trade)=>{
         marketData.forEach((asset)=>{
           //check if the market data corresponds to the correct asset
@@ -32,12 +32,25 @@ export default class PortfolioVal {
     if (this.calcTradeLevelPnL(trades, marketData)){
 
     //sum the pnls for each trade
-    return this.calcTradeLevelPnL(trades, marketData).reduce((acc,cv)=>{
-      return (acc + cv.pnl)
-    },0)
-  }
+      return this.calcTradeLevelPnL(trades, marketData).reduce((acc,cv)=>{
+        return (acc + cv.pnl)
+      },0)
+    }
   }
 
+  //get all user objects with pnl attribute
+  static getAllUsersWithPnL(users, marketData){
+    return users.map((user)=>{
+      return  {...user, pnl:this.calcPortfolioPnL(user.trades, marketData)}
+    })
+  }
+
+  //sort the users by pnl in descending order
+  static sortUsersByPnL(users, marketData){
+    return this.getAllUsersWithPnL(users, marketData).sort((user1, user2)=>{
+      return user2.pnl - user1.pnl
+    })
+  }
 
 
 

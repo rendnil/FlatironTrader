@@ -5,7 +5,7 @@ import PortfolioVal from "../parsers/PortfolioVal"
 
 
 
- const LeaderboardListRow = (props) =>{
+ const LeaderboardListRow = ({user}) =>{
 
 
     return(
@@ -13,13 +13,13 @@ import PortfolioVal from "../parsers/PortfolioVal"
           <Segment >
           <List.Content floated="left">
             <List.Header>
-            {props.user.username}
+            {user.username}
             </List.Header>
           </List.Content>
             <List.Content floated="right">
 
               <List.Description>
-              PnL: {PortfolioVal.calcPortfolioPnL(props.user.trades, props.marketData).toLocaleString()}
+              PnL: {user.pnl.toLocaleString()}
               </List.Description>
               <List.Header>
 

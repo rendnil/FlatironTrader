@@ -6,44 +6,26 @@ import PortfolioVal from "../parsers/PortfolioVal"
 
 class LeaderboardList extends React.Component {
 
-  getUsersWithPnL(){
-    return this.props.users.map((user)=>{
-      return  {...user, pnl:PortfolioVal.calcPortfolioPnL(user.trades, this.props.marketData)}
-    })
-  }
-
-  sortUsersByPnL(){
-    return this.getUsersWithPnL().sort((user1, user2)=>{
-      return user2.pnl - user1.pnl
-    })
-  }
-
-
   render(){
-    console.log(this.sortUsersByPnL());
-    console.log("leaderboard props", this.props);
 
-    const listStyle = {
-      width: "50%"
-    }
+    console.log("leaderboard props", this.props);
 
     return(
 
 
       <Grid centered>
-      <Grid.Row>
-      <Grid.Column width={6}>
-      <List verticalAlign='middle'>
-        {this.sortUsersByPnL().map((user)=>{
-          return (
-            <LeaderboardListRow key={user.id} user={user}
-            marketData={this.props.marketData}/>
-          )
-        })}
-      </List>
-      </Grid.Column>
+        <Grid.Row>
+          <Grid.Column width={6}>
+            <List verticalAlign='middle'>
+              {PortfolioVal.sortUsersByPnL(this.props.users, this.props.marketData).map((user)=>{
+                return (
+                  <LeaderboardListRow key={user.id} user={user}/>
+                )
+              })}
+            </List>
+          </Grid.Column>
 
-      </Grid.Row>
+        </Grid.Row>
       </Grid>
 
     )
