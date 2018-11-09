@@ -2,7 +2,10 @@ import React from "react"
 import {Grid, Segment, Statistic} from "semantic-ui-react"
 
 class MarketDataTickerDetail extends React.Component{
-
+  constructor(props){
+    super(props)
+    this.interval = null
+  }
   state = {
     dataColor: "black"
   }
@@ -28,8 +31,14 @@ class MarketDataTickerDetail extends React.Component{
     }
   }
 
+  componentWillUnmount() {
+    //clear intervals upon unmounting
+    clearInterval(this.interval)
+
+  }
+
   revertColor(){
-    setTimeout(()=>this.setState({
+    this.interval = setTimeout(()=>this.setState({
       dataColor: "black"
     }),4000)
   }

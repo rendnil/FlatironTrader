@@ -5,6 +5,12 @@ import {selectAssetAction} from "../redux/actions/selectAssetAction"
 
 class TradeTableRow extends React.Component{
 
+  constructor(props){
+    super(props)
+
+    this.interval = null
+  }
+
   state={
     cellsSelected: false,
     priceChange: false,
@@ -51,8 +57,14 @@ class TradeTableRow extends React.Component{
     }
   }
 
+  componentWillUnmount() {
+    //clear intervals upon unmounting
+    clearInterval(this.interval)
+
+  }
+
   revertColor(){
-    setTimeout(()=>this.setState({
+    this.interval = setTimeout(()=>this.setState({
       positiveChange: false,
       negativeChange: false
     }),4000)
