@@ -1,5 +1,5 @@
 
-const defaultState= [
+const defaultState = [
   {symbol: "BTC", name:"Bitcoin", livePrice: "Loading"},
   {symbol: "ETH", name:"Ethereum", livePrice: "Loading"},
   {symbol: "BCH", name:"Bitcoin Cash", livePrice: "Loading"},
@@ -10,7 +10,8 @@ const defaultState= [
 
 
 export default function (state = defaultState, action){
-  let newState = []
+
+
   switch(action.type){
 
     case "BITCOIN_PRICE_UPDATE":
@@ -23,7 +24,7 @@ export default function (state = defaultState, action){
        })
 
 
-      break
+      
     case "ETHEREUM_PRICE_UPDATE":
     return state.map((asset)=>{
       if (asset.symbol === "ETH"){

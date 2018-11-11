@@ -1,7 +1,7 @@
 import React from "react"
 
 import {Table, Icon} from "semantic-ui-react"
-import PortfolioVal from "../parsers/PortfolioVal"
+
 
 
 

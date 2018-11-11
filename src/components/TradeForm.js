@@ -20,8 +20,21 @@ class TradeForm extends React.Component{
 
   handleBuy =  () => {
     //userId, symbol, buy, price, quantity
+    //debugger
+    // if (this.state.quantity < 0){
+    //   console.log("error on quantity")
+    //   }else{
+    //     this.props.createNewTrade(this.props.currentUser.id,
+    //       this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, parseFloat(this.state.quantity))
+    //   }
+    //
+    //
     this.props.createNewTrade(this.props.currentUser.id,
-      this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, this.state.quantity)
+          this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, parseFloat(this.state.quantity))
+       
+
+
+
   }
 
   handleSell =  () => {
@@ -52,7 +65,7 @@ class TradeForm extends React.Component{
 
 
         <Button onClick={this.handleBuy} size="large" color="green">Buy</Button>
-  
+
         <Button onClick={this.handleSell} size = "large" color="red">Sell</Button>
       </Form.Group>
     )

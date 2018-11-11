@@ -1,5 +1,5 @@
 import React from "react"
-import { connect } from 'react-redux'
+
 import {Container, Table} from "semantic-ui-react"
 
 import TradeTableRow from "./TradeTableRow"
@@ -9,7 +9,7 @@ class TradeTable extends React.Component{
 
 
   render(){
-    console.log("render trade table", this.props);
+    //console.log("render trade table", this.props);
 
 
     const headerStyle = {

@@ -94,7 +94,7 @@ class TradeTableRow extends React.Component{
   }
 
   render(){
-    console.log("render trade table row");
+  //  console.log("render trade table row");
 
 
     const textStyle = {

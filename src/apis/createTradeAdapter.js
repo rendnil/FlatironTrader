@@ -19,7 +19,7 @@ export default class createTradeAdapter{
         }
       })
     })//end fetch
-    .then(r => r.json())
+    
   }
 }
 

@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Header, Form, Button, Checkbox, Message } from 'semantic-ui-react'
+import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
 import {loginAction} from "../redux/actions/loginAction"
 import { connect } from 'react-redux'
 

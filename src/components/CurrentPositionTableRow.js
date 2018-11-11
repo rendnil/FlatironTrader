@@ -1,6 +1,6 @@
 import React from "react"
 import {Container, Table} from "semantic-ui-react"
-import { connect } from 'react-redux'
+
 import {selectAssetAction} from "../redux/actions/selectAssetAction"
 
 class CurrentPositionTableRow extends React.Component{
