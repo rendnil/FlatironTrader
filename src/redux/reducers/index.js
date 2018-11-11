@@ -10,6 +10,7 @@ import bitcoinReducer from './bitcoinReducer'
 import historicalDataReducer from './historicalDataReducer'
 import baseMarketDataReducer from './baseMarketDataReducer'
 import usersReducer from './usersReducer'
+import errorReducer from './errorReducer'
 
 
 
@@ -24,5 +25,6 @@ export default combineReducers({
   bitcoin: bitcoinReducer,
   historicalData: historicalDataReducer,
   baseMarketData: baseMarketDataReducer,
-  users: usersReducer
+  users: usersReducer,
+  errors: errorReducer
 })

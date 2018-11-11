@@ -31,7 +31,7 @@ class TradeForm extends React.Component{
     //
     this.props.createNewTrade(this.props.currentUser.id,
           this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, parseFloat(this.state.quantity))
-       
+
 
 
 
@@ -81,6 +81,7 @@ class TradeForm extends React.Component{
         {this.props.selectedAsset? this.selectedAssetFormRender(): this.blankFormRender()}
 
       </Form>
+      {this.props.errors? <h1>{this.props.errors}</h1>: null}
 
       </Container>
     )
@@ -89,7 +90,8 @@ class TradeForm extends React.Component{
 
 const mapStateToProps = (state) => {
   return {selectedAsset: state.selectedAsset,
-  currentUser:state.currentUser
+  currentUser:state.currentUser,
+  errors: state.errors.errors
 }
 }
 

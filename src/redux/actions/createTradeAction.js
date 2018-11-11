@@ -29,8 +29,10 @@ export function createNewTrade(userId, symbol, buy, price, quantity){
 
     .catch(
       response => response.json()
-      .then(error => dispatch({type: "FAILED_TRADE", payload: error.message})
-    )
+      .then(error => {
+        
+        dispatch({type: "FAILED_TRADE", payload: error.error})}
+    ))
 
 }
 }
