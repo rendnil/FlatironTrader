@@ -23,7 +23,7 @@ class LeaderboardList extends React.Component {
                 <Table.Row>
                   <Table.HeaderCell>Rank</Table.HeaderCell>
                   <Table.HeaderCell><Icon fitted color= "green" name="user circle" size="large"/></Table.HeaderCell>
-                  <Table.HeaderCell>PnL</Table.HeaderCell>
+                  <Table.HeaderCell>Portfolio Value</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
 

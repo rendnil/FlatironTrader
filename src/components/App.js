@@ -13,9 +13,9 @@ class App extends Component {
     return (
       <React.Fragment>
 
-        {/*<Home /> */}
+        <Home />
 
-          {this.props.currentUser.username? <Home />:<Landing />}
+          {/*this.props.currentUser.username? <Home />:<Landing />*/}
 
 
       </React.Fragment>

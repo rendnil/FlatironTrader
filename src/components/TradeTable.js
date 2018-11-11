@@ -9,7 +9,7 @@ class TradeTable extends React.Component{
 
 
   render(){
-    //console.log("trade table", this.props);
+    console.log("render trade table", this.props);
 
 
     const headerStyle = {
@@ -17,6 +17,7 @@ class TradeTable extends React.Component{
     }
 
     return(
+
       <div>
         <Container>
           <Table celled selectable>

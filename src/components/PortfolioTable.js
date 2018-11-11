@@ -39,7 +39,7 @@ class PortfolioTable extends React.Component{
           <Table celled selectable>
           <Table.Header>
           <Table.Row>
-            <Table.HeaderCell colSpan={6} textAlign="right" > Total PnL:{this.calcPortfolioPnL().toLocaleString()}  </Table.HeaderCell>
+            <Table.HeaderCell colSpan={6} textAlign="right" > Total:{this.calcPortfolioPnL().toLocaleString()}  </Table.HeaderCell>
           </Table.Row>
         <Table.Row>
           <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>

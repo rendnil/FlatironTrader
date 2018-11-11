@@ -52,11 +52,7 @@ class TradeForm extends React.Component{
 
 
         <Button onClick={this.handleBuy} size="large" color="green">Buy</Button>
-    {/*<Button.Content visible>Buy</Button.Content>
-    <Button.Content hidden>
-      <Icon name='arrow right' />
-    </Button.Content>
-  </Button>*/}
+  
         <Button onClick={this.handleSell} size = "large" color="red">Sell</Button>
       </Form.Group>
     )

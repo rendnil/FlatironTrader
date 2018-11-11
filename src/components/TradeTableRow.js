@@ -59,7 +59,7 @@ class TradeTableRow extends React.Component{
 
   componentWillUnmount() {
     //clear intervals upon unmounting
-    clearInterval(this.interval)
+    clearTimeout(this.interval)
 
   }
 
@@ -94,6 +94,7 @@ class TradeTableRow extends React.Component{
   }
 
   render(){
+    console.log("render trade table row");
 
 
     const textStyle = {

@@ -44,7 +44,8 @@ if (symbolDataSet){
           fill: false,
           pointBorderColor: color,
           backgroundColor: color,
-          data:dataSet.dataValues
+          data:dataSet.dataValues,
+          pointRadius: 1
         }
       ]
     }

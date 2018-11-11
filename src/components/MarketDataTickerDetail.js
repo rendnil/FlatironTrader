@@ -33,7 +33,7 @@ class MarketDataTickerDetail extends React.Component{
 
   componentWillUnmount() {
     //clear intervals upon unmounting
-    clearInterval(this.interval)
+    clearTimeout(this.interval)
 
   }
 
