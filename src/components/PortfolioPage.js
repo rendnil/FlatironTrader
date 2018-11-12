@@ -4,6 +4,7 @@ import PortfolioTable from "./PortfolioTable"
 import {Container, Table} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import MarketDataTicker from "./MarketDataTicker"
+import withAuth from "../hocs/withAuth"
 
 class PortfolioPage extends React.Component{
   render(){
@@ -21,4 +22,4 @@ class PortfolioPage extends React.Component{
   }
 }
 
-export default PortfolioPage
+export default withAuth(PortfolioPage)
