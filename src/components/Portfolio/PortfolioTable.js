@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
-import {Container, Table, Segment} from "semantic-ui-react"
+import {Container, Table, Segment, Header} from "semantic-ui-react"
 import PortfolioVal from "../../parsers/PortfolioVal"
 
 import PortfolioTableRow from "./PortfolioTableRow"
@@ -35,8 +35,8 @@ class PortfolioTable extends React.Component{
       <div>
         <Container>
         <Segment>
-        <h2>All Trades </h2>
-          <Table celled selectable>
+        <Header as="h2" attached="top">All Trades </Header>
+          <Table celled selectable attached>
           <Table.Header>
           <Table.Row>
             <Table.HeaderCell colSpan={6} textAlign="right" > Total:{this.calcPortfolioPnL().toLocaleString()} USD </Table.HeaderCell>

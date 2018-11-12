@@ -15,7 +15,6 @@ class NewsPage extends React.Component{
       <React.Fragment>
         <Container>
           <MarketDataTicker />
-          <h2>Latest News</h2>
           <NewsPageList />
         </Container>
       </React.Fragment>

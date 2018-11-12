@@ -11,7 +11,6 @@ class CurrentPosition extends React.Component{
 
       return(
         <Segment>
-          <h2>Current Position</h2>
           <CurrentPositionTable marketData={this.props.marketData} trades={this.props.currentUser.trades} positions={this.props.currentUser.positions}/>
         </Segment>
       )

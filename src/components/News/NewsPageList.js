@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
-import {Container, List, Image} from "semantic-ui-react"
+import {Container, List, Image, Header, Icon} from "semantic-ui-react"
 import NewsPageListRow from "./NewsPageListRow"
 import {fetchNews} from "../../redux/actions/newsAction"
 
@@ -19,6 +19,8 @@ class NewsPageList extends React.Component{
     if (this.props.news){
 
       return(
+        <React.Fragment>
+        <Header as="h2" textAlign="center" >Latest News </Header>
         <List animated verticalAlign='middle'>
         {this.props.news.map((article, idx)=>{
           return <NewsPageListRow
@@ -26,6 +28,7 @@ class NewsPageList extends React.Component{
           article = {article}/>
         })}
         </List>
+        </React.Fragment>
 
       )
     }else{
