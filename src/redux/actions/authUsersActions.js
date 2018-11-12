@@ -67,7 +67,7 @@
 
 
 
-    export const signUpUser = (username, email, password) =>{
+  export const signUpUser = (username, email, password) =>{
       return (dispatch) => {
         dispatch(authenticatingUser())
 

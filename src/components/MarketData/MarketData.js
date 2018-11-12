@@ -42,9 +42,6 @@ class MarketData extends React.Component {
 
   this.props.fetchBaseMarketData()
   this.props.fetchUsers()
-
-
-
   }
 
 
@@ -53,14 +50,11 @@ class MarketData extends React.Component {
   componentWillUnmount() {
     //disconect the socket connection
     socket.close()
-
   }
 
   render(){
 
     console.log("rendered");
-
-
     return(
       <React.Fragment>
 

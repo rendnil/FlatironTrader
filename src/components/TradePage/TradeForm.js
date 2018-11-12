@@ -3,6 +3,12 @@ import {Container, Form, Button, Icon, Message} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import {createNewTrade} from "../../redux/actions/createTradeAction"
 
+const buttonStyle = {
+    position:"relative",
+    marginTop:"24px",
+    height:"60%"
+  }
+
 class TradeForm extends React.Component{
 
   state={
@@ -38,8 +44,9 @@ class TradeForm extends React.Component{
         <Form.Input label='Asset Name' value='Select Asset' width={4} />
         <Form.Input type="number"label='Quantity' value={1}  width={4} />
         <Form.Input label='USD Price' value="Select Asset" placeholder='Select Asset' width={5} />
-        <Button size="large" color="green">Buy</Button>
-        <Button size = "large" color="red">Sell</Button>
+        <br/>
+        <Button style={buttonStyle} color="green">Buy</Button>
+        <Button style={buttonStyle} color="red">Sell</Button>
       </Form.Group>
     )
   }
@@ -52,9 +59,9 @@ class TradeForm extends React.Component{
         <Form.Input label='USD Price' value={this.props.selectedAsset.livePrice} placeholder='Select Asset' width={5} />
 
 
-        <Button onClick={this.handleBuy} size="large" color="green">Buy</Button>
+        <Button onClick={this.handleBuy} style={buttonStyle} color="green">Buy</Button>
 
-        <Button onClick={this.handleSell} size = "large" color="red">Sell</Button>
+        <Button onClick={this.handleSell} style={buttonStyle} color="red">Sell</Button>
       </Form.Group>
     )
   }

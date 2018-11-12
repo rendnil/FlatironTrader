@@ -17,8 +17,6 @@ class LeaderboardPage extends React.Component{
 
     )
   }
-
-
 }
 
 

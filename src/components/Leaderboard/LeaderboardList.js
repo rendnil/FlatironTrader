@@ -8,7 +8,7 @@ class LeaderboardList extends React.Component {
 
   render(){
 
-    console.log("leaderboard props", this.props);
+    // console.log("leaderboard props", this.props);
 
 
     return(
@@ -41,17 +41,12 @@ class LeaderboardList extends React.Component {
 
     )
   }
-
-
-
-
 }
 
 const mapStateToProps = (state) => {
   return{
     users: state.users,
     marketData: state.marketData
-
   }
 }
 
