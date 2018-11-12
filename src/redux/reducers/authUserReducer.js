@@ -42,6 +42,10 @@ export default function (state = defaultState, action){
     case "CREATE_NEW_TRADE":
         return {...state, user:action.payload.user}
 
+    case "SIGN_OUT":
+        localStorage.removeItem("jwt")
+        return defaultState
+
     default:
       return state
 

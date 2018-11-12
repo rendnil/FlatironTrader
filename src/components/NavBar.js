@@ -1,8 +1,15 @@
 import React from "react"
 import {NavLink } from 'react-router-dom';
 import {Container, Header, Menu, Icon, Image, Button} from "semantic-ui-react"
+import { connect } from 'react-redux'
+import {signOut} from "../redux/actions/signOutAction"
 
 const NavBar = (props) => {
+
+  const handleSignOut = () => {
+    props.signOut()
+  }
+
 
   return(
     <div>
@@ -51,7 +58,7 @@ const NavBar = (props) => {
 
     <Menu.Menu position='right'>
         <Menu.Item>
-          <Button color="red">Sign Out</Button>
+          <Button onClick={handleSignOut} color="red">Sign Out</Button>
         </Menu.Item>
     </Menu.Menu>
 
@@ -68,5 +75,11 @@ const NavBar = (props) => {
 
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: ()=>dispatch(signOut())
+  }
+}
 
-export default NavBar
+
+export default connect(null, mapDispatchToProps)(NavBar)
