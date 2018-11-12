@@ -3,9 +3,9 @@ import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 
-import {loginUser} from "../redux/actions/authUsersActions"
-import { Redirect } from 'react-router'
-import withAuth from '../hocs/withAuth'
+import {loginUser} from "../../redux/actions/authUsersActions"
+
+
 
 class Login extends React.Component{
 

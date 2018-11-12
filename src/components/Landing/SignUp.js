@@ -3,7 +3,7 @@ import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 
-import {signUpUser} from "../redux/actions/authUsersActions"
+import {signUpUser} from "../../redux/actions/authUsersActions"
 import { Redirect } from 'react-router'
 
 class SignUp extends React.Component{

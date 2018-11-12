@@ -1,7 +1,7 @@
 import React from "react"
 import TradeTable from "./TradeTable"
 import TradeForm from "./TradeForm"
-import LastTradeContainer from "../LastTradeContainer"
+import LastTradeContainer from "./LastTradeContainer"
 import CurrentPosition from "../CurrentPosition/CurrentPosition"
 import {Container, Table} from "semantic-ui-react"
 import { connect } from 'react-redux'

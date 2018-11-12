@@ -6,8 +6,7 @@ import PortfolioPage from "./Portfolio/PortfolioPage"
 import NewsPage from "./News/NewsPage"
 import ChartPage from "./ChartPage"
 import LeaderboardPage from "./Leaderboard/LeaderboardPage"
-
-import Landing from "./Landing"
+import Landing from "./Landing/Landing"
 
 class App extends React.Component {
 
@@ -27,8 +26,6 @@ class App extends React.Component {
             <Route exact path = "/leaderboard" render = {()=> <LeaderboardPage/>}/>
           </React.Fragment>
         </Router>
-
-
       </div>
     )
   }
