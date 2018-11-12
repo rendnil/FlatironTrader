@@ -26,11 +26,11 @@ class SignUp extends React.Component{
   }
 
 
-  loginError = () => {
+  signUpError = () => {
     return(<Message
           negative
           header='Error'
-          content='Invalid username, email, and/or password'/>)
+          content={'Invalid username, email, and/or password'}/>)
   }
 
   render(){
@@ -52,7 +52,7 @@ class SignUp extends React.Component{
 
 
           <Button color="blue" type='submit'>Submit</Button>
-          {this.props.currentUser === "Invalid sign up attempt"? this.loginError():null }
+          {this.props.failedSignUp? this.signUpError():null }
         </Form>
 
         </Container>
@@ -63,13 +63,15 @@ class SignUp extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-          currentUser: state.currentUser
-    }
+      authenticatingUser: state.authUser.authenticatingUser,
+      failedSignUp: state.authUser.failedSignUp,
+      error: state.authUser.error
+      }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+
     signupAction: (username, email, password) => dispatch(signUpUser(username,email, password))
   }
 }

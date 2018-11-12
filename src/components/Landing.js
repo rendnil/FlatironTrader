@@ -4,11 +4,13 @@ import SignUp from "./SignUp"
 import {Grid, Container, Segment} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
+import withAuth from '../hocs/withAuth'
+
 const BackgroundImageURL = "https://images.unsplash.com/photo-1534256009774-91785b13a331?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e6445acf4ac7731027730ad0bea39fb4&auto=format&fit=crop&w=500&q=60"
 
-
 const style={
-  backgroundImage:`url(${BackgroundImageURL})`,
+  // backgroundImage:`url(${BackgroundImageURL})`,
+  backgroundColor: "blue",
   backgroundRepeat: "no-repeat",
   backgroundSize:"cover",
   width: "100%",
@@ -18,10 +20,11 @@ class Landing extends React.Component{
 
 
   render(){
-    return this.props.loggedIn? (  <Redirect to="/news" />):
+    console.log("landing", this.props)
+    return this.props.loggedIn? ( <Redirect to="/news" />):
 
     (
-      <div style={style}>
+      <div >
       <Container >
         <Grid columns={2}>
         <Grid.Row >
@@ -54,4 +57,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default Landing
+export default connect(mapStateToProps)(Landing)

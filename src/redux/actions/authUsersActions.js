@@ -101,6 +101,6 @@
           dispatch(setCurrentUser(JSONResponse.user))
         })
 
-         .catch(response => response.json().then(e => dispatch({ type: 'FAILED_LOGIN', payload: e.message })))
+         .catch(response => response.json().then(e => dispatch({ type: 'FAILED_SIGNUP', payload: e.message })))
       }
     }//end sign up user

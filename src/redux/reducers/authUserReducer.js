@@ -3,7 +3,8 @@ const defaultState = {
   loggedIn: false,
   authenticatingUser: false,
   failedLogin: false,
-  error: null
+  error: null,
+  failedSignUp: false
 
 }
 
@@ -28,6 +29,14 @@ export default function (state = defaultState, action){
           failedLogin: true,
           error: action.payload,
           authenticatingUser: false
+          }
+
+    case 'FAILED_SIGNUP': //for error handling
+      return {
+        ...state,
+        failedSignUp: true,
+        error: action.payload,
+        authenticatingUser: false
           }
 
     default:

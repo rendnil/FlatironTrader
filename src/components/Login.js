@@ -25,7 +25,6 @@ class Login extends React.Component{
     //this.props.loginAction(this.state.username, this.state.password)
     this.props.loginUser(this.state.username, this.state.password)
 
-
   }
 
 
@@ -37,9 +36,7 @@ class Login extends React.Component{
   }
 
   render(){
-    return this.props.loggedIn? (  <Redirect to="/news" />):
-
-    (
+    return (
       <div>
         <Container style={{textAlign: "center", width: "50%", marginTop:"35%"}}>
           <Form onSubmit={this.handleSubmit}>
@@ -67,8 +64,7 @@ const mapStateToProps = (state) => {
   return {
     authenticatingUser: state.authUser.authenticatingUser,
     failedLogin: state.authUser.failedLogin,
-    error: state.authUser.error,
-    loggedIn: state.authUser.loggedIn,
+    error: state.authUser.error
     }
 }
 
