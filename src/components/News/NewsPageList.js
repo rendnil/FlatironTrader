@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from 'react-redux'
 import {Container, List, Image} from "semantic-ui-react"
 import NewsPageListRow from "./NewsPageListRow"
-import {fetchNews} from "../redux/actions/newsAction"
+import {fetchNews} from "../../redux/actions/newsAction"
 
 
 class NewsPageList extends React.Component{

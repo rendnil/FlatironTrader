@@ -1,8 +1,8 @@
 import React from "react"
 import NewsPageList from "./NewsPageList"
 import {Container} from "semantic-ui-react"
-import MarketDataTicker from "./MarketDataTicker"
-import withAuth from "../hocs/withAuth"
+import MarketDataTicker from "../MarketData/MarketDataTicker"
+import withAuth from "../../hocs/withAuth"
 
 import { connect } from 'react-redux'
 

@@ -2,7 +2,7 @@ import React from "react"
 import LeaderboardList from "./LeaderboardList"
 import {Container} from "semantic-ui-react"
 
-import MarketDataTicker from "./MarketDataTicker"
+import MarketDataTicker from "../MarketData/MarketDataTicker"
 
 
 class LeaderboardPage extends React.Component{

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import MarketData from "./components/MarketData"
+import MarketData from "./components/MarketData/MarketData"
 
 import { Provider } from 'react-redux';
 import store from "./redux/store"

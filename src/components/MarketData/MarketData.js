@@ -1,11 +1,11 @@
 import React from "react"
 
-import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
+import {fetchHistoricalData} from "../../redux/actions/historicalDataAction"
 
 import { connect } from 'react-redux'
-import {fetchMarketData} from "../redux/actions/marketDataAction"
-import {fetchBaseMarketData} from "../redux/actions/baseMarketDataAction"
-import {fetchUsers} from "../redux/actions/usersAction"
+import {fetchMarketData} from "../../redux/actions/marketDataAction"
+import {fetchBaseMarketData} from "../../redux/actions/baseMarketDataAction"
+import {fetchUsers} from "../../redux/actions/usersAction"
 
 import io from 'socket.io-client';
 

@@ -1,10 +1,10 @@
 import React from "react"
-import CurrentPosition from "./CurrentPosition"
+import CurrentPosition from "../CurrentPosition/CurrentPosition"
 import PortfolioTable from "./PortfolioTable"
 import {Container, Table} from "semantic-ui-react"
 import { connect } from 'react-redux'
-import MarketDataTicker from "./MarketDataTicker"
-import withAuth from "../hocs/withAuth"
+import MarketDataTicker from "../MarketData/MarketDataTicker"
+import withAuth from "../../hocs/withAuth"
 
 class PortfolioPage extends React.Component{
   render(){

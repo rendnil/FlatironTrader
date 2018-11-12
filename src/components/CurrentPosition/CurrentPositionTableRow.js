@@ -1,7 +1,7 @@
 import React from "react"
 import {Container, Table} from "semantic-ui-react"
 
-import {selectAssetAction} from "../redux/actions/selectAssetAction"
+import {selectAssetAction} from "../../redux/actions/selectAssetAction"
 
 class CurrentPositionTableRow extends React.Component{
 

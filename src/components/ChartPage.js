@@ -4,7 +4,7 @@ import {Header, Grid, Container,Segment} from 'semantic-ui-react'
 import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
 import ChartBuilder from "../parsers/ChartBuilder"
-import MarketDataTicker from "./MarketDataTicker"
+import MarketDataTicker from "./MarketData/MarketDataTicker"
 
 const startDateCode = 1483315200 ///Jan 1 2017
 

@@ -1,7 +1,7 @@
 import React from "react"
 import {Container, Form, Button, Icon, Message} from "semantic-ui-react"
 import { connect } from 'react-redux'
-import {createNewTrade} from "../redux/actions/createTradeAction"
+import {createNewTrade} from "../../redux/actions/createTradeAction"
 
 class TradeForm extends React.Component{
 

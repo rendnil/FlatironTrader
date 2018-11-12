@@ -1,7 +1,7 @@
 import React from "react"
 import {Table} from "semantic-ui-react"
 import CurrentPositionTableRow from "./CurrentPositionTableRow"
-import PortfolioVal from "../parsers/PortfolioVal"
+import PortfolioVal from "../../parsers/PortfolioVal"
 
 
 class CurrentPositionTable extends React.Component{

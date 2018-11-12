@@ -2,7 +2,7 @@ import React from "react"
 import {Table, Grid, Icon} from "semantic-ui-react"
 import LeaderboardListRow from "./LeaderboardListRow"
 import { connect } from 'react-redux'
-import PortfolioVal from "../parsers/PortfolioVal"
+import PortfolioVal from "../../parsers/PortfolioVal"
 
 class LeaderboardList extends React.Component {
 

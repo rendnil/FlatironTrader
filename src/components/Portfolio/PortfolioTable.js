@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from 'react-redux'
 import {Container, Table, Segment} from "semantic-ui-react"
-import PortfolioVal from "../parsers/PortfolioVal"
+import PortfolioVal from "../../parsers/PortfolioVal"
 
 import PortfolioTableRow from "./PortfolioTableRow"
 
