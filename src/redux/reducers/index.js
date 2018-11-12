@@ -23,7 +23,6 @@ export default combineReducers({
   userTrades: tradeReducer,
   newTrades: newTradeReducer,
   news: newsReducer,
-  bitcoin: bitcoinReducer,
   historicalData: historicalDataReducer,
   baseMarketData: baseMarketDataReducer,
   users: usersReducer,

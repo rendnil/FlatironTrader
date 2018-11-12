@@ -4,12 +4,13 @@ import {Segment} from "semantic-ui-react"
 import CurrentPositionTable from "./CurrentPositionTable"
 
 
+
 class CurrentPosition extends React.Component{
 
 
 
   render(){
-  //  console.log("current position", this.props);
+  console.log("current position", this.props);
     // if(this.props.marketData.iexData){
 
       // console.log("props", this.props);
@@ -38,8 +39,8 @@ class CurrentPosition extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  return {userTrades:state.userTrades,
-          currentUser: state.currentUser,
+  return {
+          currentUser: state.authUser.user,
           marketData: state.marketData
   }
 }

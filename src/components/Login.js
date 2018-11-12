@@ -22,7 +22,7 @@ class Login extends React.Component{
   }
 
   handleSubmit = () => {
-    //this.props.loginAction(this.state.username, this.state.password)
+    
     this.props.loginUser(this.state.username, this.state.password)
 
   }
@@ -70,7 +70,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginAction: (username, password) => dispatch(loginAction(username,password)),
+
     loginUser: (username, password) => dispatch(loginUser(username,password))
   }
 }

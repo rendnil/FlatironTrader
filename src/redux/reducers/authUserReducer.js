@@ -39,6 +39,9 @@ export default function (state = defaultState, action){
         authenticatingUser: false
           }
 
+    case "CREATE_NEW_TRADE":
+        return {...state, user:action.payload.user}
+
     default:
       return state
 

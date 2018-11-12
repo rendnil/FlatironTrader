@@ -72,7 +72,7 @@ class PortfolioTable extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  return {userTrades:state.currentUser.trades,
+  return {userTrades:state.authUser.user.trades,
           marketData: state.marketData
 
   }

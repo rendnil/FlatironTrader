@@ -1,4 +1,4 @@
-// 
+//
 // // /need to remove this
 // const defaultState = {
 //   id: 1,
@@ -296,9 +296,9 @@ export default function (state = defaultState, action){
 
         return "Invalid sign up attempt"
 
-    case "CREATE_NEW_TRADE":
-
-      return {...state, positions:action.payload.user.positions, trades:action.payload.user.trades}
+    // case "CREATE_NEW_TRADE":
+    //
+    //   return {...state, positions:action.payload.user.positions, trades:action.payload.user.trades}
 
 
     default:

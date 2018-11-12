@@ -5,6 +5,7 @@ import LastTradeContainer from "./LastTradeContainer"
 import CurrentPosition from "./CurrentPosition"
 import {Container, Table} from "semantic-ui-react"
 import { connect } from 'react-redux'
+import withAuth from "../hocs/withAuth"
 
 
 class TradePage extends React.Component{
@@ -28,11 +29,9 @@ class TradePage extends React.Component{
 const mapStateToProps = (state) => {
   return {
           marketData: state.marketData,
-          currentUser:state.currentUser,
-          baseMarketData: state.baseMarketData,
-
+          baseMarketData: state.baseMarketData
 
           }
 }
 
-export default connect(mapStateToProps)(TradePage)
+export default withAuth(connect(mapStateToProps)(TradePage))

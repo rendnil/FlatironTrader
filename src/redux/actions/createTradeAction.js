@@ -12,6 +12,7 @@ export function createNewTrade(userId, symbol, buy, price, quantity){
     return createTradeAdapter.postNewTrade(userId, symbol, buy, price, quantity)
 
       .then(response =>{
+        console.log("here's the response", response)
         if (response.ok){
           return response.json()
         }else{
@@ -30,7 +31,7 @@ export function createNewTrade(userId, symbol, buy, price, quantity){
     .catch(
       response => response.json()
       .then(error => {
-        
+
         dispatch({type: "FAILED_TRADE", payload: error.error})}
     ))
 
