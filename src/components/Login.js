@@ -1,6 +1,6 @@
 import React from "react"
 import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
-import {loginAction} from "../redux/actions/loginAction"
+
 import { connect } from 'react-redux'
 
 import {loginUser} from "../redux/actions/authUsersActions"
@@ -22,7 +22,7 @@ class Login extends React.Component{
   }
 
   handleSubmit = () => {
-    
+
     this.props.loginUser(this.state.username, this.state.password)
 
   }

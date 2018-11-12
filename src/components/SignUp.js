@@ -1,6 +1,6 @@
 import React from "react"
 import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
-import {signupAction} from "../redux/actions/signupAction"
+
 import { connect } from 'react-redux'
 
 import {signUpUser} from "../redux/actions/authUsersActions"
