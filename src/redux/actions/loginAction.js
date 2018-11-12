@@ -21,13 +21,14 @@ export function loginAction(username, password){
           })
     .then(r =>r.json())
     .then(data=> {
+      console.log("this is what we get back from server", data)
 
-      
       //debugger
       if (data.message ==="Invalid username or password"){
 
         dispatch({type: "NOT_VALID"})
       }else{
+        // debugger
         dispatch({type: "LOGIN_USER", payload:data})
       }
 

@@ -1,5 +1,5 @@
 import React from "react"
-import {Container, Form, Button, Icon} from "semantic-ui-react"
+import {Container, Form, Button, Icon, Message} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import {createNewTrade} from "../redux/actions/createTradeAction"
 
@@ -81,7 +81,7 @@ class TradeForm extends React.Component{
         {this.props.selectedAsset? this.selectedAssetFormRender(): this.blankFormRender()}
 
       </Form>
-      {this.props.errors? <h1>{this.props.errors}</h1>: null}
+      {this.props.errors? <Message error>{this.props.errors}</Message>: null}
 
       </Container>
     )

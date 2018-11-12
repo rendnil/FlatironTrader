@@ -3,6 +3,10 @@ import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
 import {loginAction} from "../redux/actions/loginAction"
 import { connect } from 'react-redux'
 
+import {loginUser} from "../redux/actions/authUsersActions"
+import { Redirect } from 'react-router'
+import withAuth from '../hocs/withAuth'
+
 class Login extends React.Component{
 
   state = {
@@ -18,7 +22,10 @@ class Login extends React.Component{
   }
 
   handleSubmit = () => {
-    this.props.loginAction(this.state.username, this.state.password)
+    //this.props.loginAction(this.state.username, this.state.password)
+    this.props.loginUser(this.state.username, this.state.password)
+
+
   }
 
 
@@ -30,7 +37,9 @@ class Login extends React.Component{
   }
 
   render(){
-    return(
+    return this.props.loggedIn? (  <Redirect to="/news" />):
+
+    (
       <div>
         <Container style={{textAlign: "center", width: "50%", marginTop:"35%"}}>
           <Form onSubmit={this.handleSubmit}>
@@ -45,8 +54,8 @@ class Login extends React.Component{
 
 
           <Button color="green" type='submit'>Submit</Button>
-          {this.props.currentUser === "Invalid login attempt"? this.loginError():null }
         </Form>
+        {this.props.failedLogin ? this.loginError() : null}
 
         </Container>
       </div>
@@ -56,13 +65,17 @@ class Login extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-          currentUser: state.currentUser
+    authenticatingUser: state.authUser.authenticatingUser,
+    failedLogin: state.authUser.failedLogin,
+    error: state.authUser.error,
+    loggedIn: state.authUser.loggedIn,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginAction: (username, password) => dispatch(loginAction(username,password))
+    loginAction: (username, password) => dispatch(loginAction(username,password)),
+    loginUser: (username, password) => dispatch(loginUser(username,password))
   }
 }
 

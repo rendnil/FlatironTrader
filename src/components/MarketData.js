@@ -41,6 +41,7 @@ class MarketData extends React.Component {
   this.props.fetchHistoricalData("BCH")
 
   this.props.fetchBaseMarketData()
+  this.props.fetchUsers()
 
 
 
@@ -56,7 +57,7 @@ class MarketData extends React.Component {
   }
 
   render(){
-    
+
     console.log("rendered");
 
 

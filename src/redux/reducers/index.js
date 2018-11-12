@@ -11,6 +11,7 @@ import historicalDataReducer from './historicalDataReducer'
 import baseMarketDataReducer from './baseMarketDataReducer'
 import usersReducer from './usersReducer'
 import errorReducer from './errorReducer'
+import authUserReducer from './authUserReducer'
 
 
 
@@ -26,5 +27,6 @@ export default combineReducers({
   historicalData: historicalDataReducer,
   baseMarketData: baseMarketDataReducer,
   users: usersReducer,
-  errors: errorReducer
+  errors: errorReducer,
+  authUser: authUserReducer
 })

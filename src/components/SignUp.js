@@ -3,6 +3,9 @@ import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
 import {signupAction} from "../redux/actions/signupAction"
 import { connect } from 'react-redux'
 
+import {signUpUser} from "../redux/actions/authUsersActions"
+import { Redirect } from 'react-router'
+
 class SignUp extends React.Component{
 
   state = {
@@ -66,7 +69,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signupAction: (username, email, password) => dispatch(signupAction(username,email, password))
+    
+    signupAction: (username, email, password) => dispatch(signUpUser(username,email, password))
   }
 }
 
