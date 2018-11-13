@@ -5,6 +5,17 @@ import { connect } from 'react-redux'
 
 
 class MarketDataTicker extends React.Component{
+
+  getBaseMarketData(asset){
+    
+    return this.props.baseMarketData.find((data)=>{
+      return data.symbol === asset.symbol
+    })
+
+  }
+
+
+
   render(){
     return(
       <Grid textAlign="center">
@@ -13,6 +24,7 @@ class MarketDataTicker extends React.Component{
             return <MarketDataTickerDetail
                     key = {asset.symbol}
                     asset = {asset}
+                    baseAssetData = {this.getBaseMarketData(asset)}
             />
           })}
 
@@ -26,7 +38,8 @@ class MarketDataTicker extends React.Component{
 }
 const mapStateToProps = (state) => {
   return{
-    marketData: state.marketData
+    marketData: state.marketData,
+    baseMarketData: state.baseMarketData
   }
 }
 

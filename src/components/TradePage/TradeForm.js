@@ -64,7 +64,7 @@ class TradeForm extends React.Component{
     return(
       <Message positive>
         <Message.Header>Executed Trade</Message.Header>
-          <p>{`${direction} ${this.props.messages.quantity} ${this.props.messages.asset.name} @ $${this.props.messages.price}`}</p>
+          <p>{`${direction} ${this.props.messages.quantity} ${this.props.messages.asset.name} (${this.props.messages.asset.symbol}) @ $${this.props.messages.price}`}</p>
       </Message>
     )
   }
