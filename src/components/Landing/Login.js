@@ -38,7 +38,7 @@ class Login extends React.Component{
   render(){
     return (
       <div>
-        <Container style={{textAlign: "center", width: "50%", marginTop:"35%"}}>
+        <Container style={{textAlign: "center", width: "50%", marginTop:"20%"}}>
           <Form onSubmit={this.handleSubmit}>
           <Header size="large">Login</Header>
           <Form.Field>
