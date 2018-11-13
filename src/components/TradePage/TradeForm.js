@@ -12,7 +12,21 @@ const buttonStyle = {
 class TradeForm extends React.Component{
 
   state={
-    quantity: 1
+    quantity: 1,
+    newTrade:false
+  }
+
+  componentDidUpdate(previousProps){
+    if(previousProps.messages !== this.props.messages){
+      this.setState({
+        newTrade:true
+      },()=>setTimeout(()=>this.setState({newTrade:false}),5000))
+
+      
+
+    }
+
+
   }
 
 
@@ -36,6 +50,10 @@ class TradeForm extends React.Component{
 
     this.props.createNewTrade(this.props.currentUser.id,
       this.props.selectedAsset.symbol, false, this.props.selectedAsset.livePrice, this.state.quantity)
+  }
+
+  handleTradeMessage = () => {
+    return
   }
 
   blankFormRender(){
@@ -77,6 +95,7 @@ class TradeForm extends React.Component{
 
       </Form>
       {this.props.errors? <Message error>{this.props.errors}</Message>: null}
+      {this.state.newTrade? <Message info>New Trade {this.props.messages.price}</Message>: null}
 
       </Container>
     )
@@ -86,7 +105,8 @@ class TradeForm extends React.Component{
 const mapStateToProps = (state) => {
   return {selectedAsset: state.selectedAsset,
   currentUser:state.authUser.user,
-  errors: state.errors.errors
+  errors: state.errors.errors,
+  messages: state.messages
 }
 }
 
