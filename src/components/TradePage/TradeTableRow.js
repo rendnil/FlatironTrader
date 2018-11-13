@@ -74,9 +74,9 @@ class TradeTableRow extends React.Component{
 
 
   handleClick = (event) => {
-    this.setState({
-      cellsSelected: !this.state.cellsSelected
-    })
+    //this.setState({
+    //  cellsSelected: !this.state.cellsSelected
+    //})
     this.props.selectAssetAction(this.props.asset)
   }
 

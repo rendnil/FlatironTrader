@@ -22,7 +22,7 @@ class TradeForm extends React.Component{
         newTrade:true
       },()=>setTimeout(()=>this.setState({newTrade:false}),5000))
 
-      
+
 
     }
 
@@ -52,8 +52,21 @@ class TradeForm extends React.Component{
       this.props.selectedAsset.symbol, false, this.props.selectedAsset.livePrice, this.state.quantity)
   }
 
-  handleTradeMessage = () => {
-    return
+  renderTradeMessage = () => {
+    let direction
+    console.log("messages", this.props.messages)
+    if (this.props.messages.buy) {
+      direction = "Buy"
+    }else{
+      direction = "Sell"
+    }
+
+    return(
+      <Message positive>
+        <Message.Header>Executed Trade</Message.Header>
+          <p>{`${direction} ${this.props.messages.quantity} ${this.props.messages.asset.name} @ $${this.props.messages.price}`}</p>
+      </Message>
+    )
   }
 
   blankFormRender(){
@@ -95,7 +108,7 @@ class TradeForm extends React.Component{
 
       </Form>
       {this.props.errors? <Message error>{this.props.errors}</Message>: null}
-      {this.state.newTrade? <Message info>New Trade {this.props.messages.price}</Message>: null}
+      {this.state.newTrade? this.renderTradeMessage(): null}
 
       </Container>
     )
