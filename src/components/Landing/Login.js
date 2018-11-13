@@ -40,7 +40,7 @@ class Login extends React.Component{
       <div>
         <Container style={{textAlign: "center", width: "50%", marginTop:"20%"}}>
           <Form onSubmit={this.handleSubmit}>
-          <Header size="large">Login</Header>
+          <Header size="large">Log In</Header>
           <Form.Field>
             <input name="username" onChange={this.handleChange} value = {this.state.username} placeholder='Username' />
           </Form.Field>

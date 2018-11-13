@@ -8,7 +8,7 @@ class CurrentPositionTable extends React.Component{
 
 
   calcPortfolioPnL(){
-    console.log("market data", this.props.marketData);
+    
     return PortfolioVal.calcPortfolioPnL(this.props.trades, this.props.marketData)
   }
 

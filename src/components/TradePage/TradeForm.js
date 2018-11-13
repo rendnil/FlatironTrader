@@ -69,8 +69,22 @@ class TradeForm extends React.Component{
     )
   }
 
+  instructionsRender(){
+    return(
+      <Message warning>
+        <Message.Header>Trading Instructions</Message.Header>
+        <Message.List>
+          <Message.Item>Click on an asset from the above table </Message.Item>
+          <Message.Item>Enter the desired quantity</Message.Item>
+          <Message.Item>Press "Buy" or "Sell" to execute the trade</Message.Item>
+        </Message.List>
+      </Message>
+    )
+  }
+
   blankFormRender(){
     return(
+
       <Form.Group>
         <Form.Input label='Asset Name' value='Select Asset' width={4} />
         <Form.Input type="number"label='Quantity' value={1}  width={4} />
@@ -103,6 +117,7 @@ class TradeForm extends React.Component{
     console.log(this.props);
     return(
       <Container>
+        {this.props.selectedAsset? null: this.instructionsRender()}
       <Form>
         {this.props.selectedAsset? this.selectedAssetFormRender(): this.blankFormRender()}
 
