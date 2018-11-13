@@ -25,7 +25,7 @@ class CurrentPositionTable extends React.Component{
           <Table celled selectable attached>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell colSpan={4} textAlign="right" >Total Portfolio Value: {Math.round(this.calcPortfolioPnL()).toLocaleString()} USD </Table.HeaderCell>
+                <Table.HeaderCell colSpan={4} textAlign="right" >Total Portfolio Value: {(this.calcPortfolioPnL()).toLocaleString()} USD </Table.HeaderCell>
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>

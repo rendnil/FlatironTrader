@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
-import {Container, Table, Segment} from "semantic-ui-react"
+import {Container, Table, Segment, Header} from "semantic-ui-react"
 import LastTradeTableRow from "./LastTradeTableRow"
 
 class LastTradeContainer extends React.Component{
@@ -28,8 +28,8 @@ class LastTradeContainer extends React.Component{
 
         </div>*/
         <Segment>
-        <h2>Executed Trades</h2>
-        <Table celled selectable>
+        <Header as="h2" attached="top">Recently Executed Trades</Header>
+        <Table celled attached selectable>
           <Table.Header>
 
             <Table.Row>
