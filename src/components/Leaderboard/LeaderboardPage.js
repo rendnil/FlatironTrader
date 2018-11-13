@@ -1,6 +1,7 @@
 import React from "react"
 import LeaderboardList from "./LeaderboardList"
 import {Container} from "semantic-ui-react"
+import withAuth from "../../hocs/withAuth"
 
 import MarketDataTicker from "../MarketData/MarketDataTicker"
 
@@ -20,4 +21,4 @@ class LeaderboardPage extends React.Component{
 }
 
 
-export default LeaderboardPage
+export default withAuth(LeaderboardPage)

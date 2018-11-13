@@ -5,6 +5,7 @@ import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
 import ChartBuilder from "../parsers/ChartBuilder"
 import MarketDataTicker from "./MarketData/MarketDataTicker"
+import withAuth from "../hocs/withAuth"
 
 const startDateCode = 1483315200 ///Jan 1 2017
 
@@ -92,4 +93,4 @@ const mapDispatchToProps = (dispatch) => {
     fetchHistoricalData: (symbol) => dispatch(fetchHistoricalData(symbol)),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ChartPage)
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(ChartPage))
