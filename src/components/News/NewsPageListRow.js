@@ -4,10 +4,10 @@ import {Segment, List, Image} from "semantic-ui-react"
 
 
  const NewsPageListRow = ({article}) =>{
-  
+
 
     const parseArticle = (article) => {
-      return article.replace(/&#8217;|[&#8230;]|/g, "")
+      return article.replace(/&#8217;|[&#8230;]/g, "")
 
     }
 

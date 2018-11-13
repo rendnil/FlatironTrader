@@ -20,13 +20,8 @@ class TradeForm extends React.Component{
     if(previousProps.messages !== this.props.messages){
       this.setState({
         newTrade:true
-      },()=>setTimeout(()=>this.setState({newTrade:false}),5000))
-
-
-
+      },()=>setTimeout(()=>this.setState({newTrade:false}),3000))
     }
-
-
   }
 
 
@@ -40,16 +35,18 @@ class TradeForm extends React.Component{
 
   handleBuy =  () => {
     //userId, symbol, buy, price, quantity
-
+    if (this.props.selectedAsset.livePrice !== "Loading"){
     this.props.createNewTrade(this.props.currentUser.id,
           this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, parseFloat(this.state.quantity))
+    }
   }
 
   handleSell =  () => {
     //userId, symbol, buy, price, quantity
-
+    if (this.props.selectedAsset.livePrice !== "Loading"){
     this.props.createNewTrade(this.props.currentUser.id,
       this.props.selectedAsset.symbol, false, this.props.selectedAsset.livePrice, this.state.quantity)
+    }  
   }
 
   renderTradeMessage = () => {
