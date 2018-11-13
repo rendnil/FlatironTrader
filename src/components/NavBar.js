@@ -3,6 +3,7 @@ import {NavLink } from 'react-router-dom';
 import {Container, Header, Menu, Icon, Image, Button} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import {signOut} from "../redux/actions/signOutAction"
+import withAuth from "../hocs/withAuth"
 
 const NavBar = (props) => {
 
@@ -82,4 +83,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(NavBar)
+export default withAuth(connect(null, mapDispatchToProps)(NavBar))

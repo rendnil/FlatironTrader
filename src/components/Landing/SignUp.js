@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Header, Form, Button, Message } from 'semantic-ui-react'
+import { Container, Header, Form, Button, Message, Segment } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 
@@ -36,6 +36,7 @@ class SignUp extends React.Component{
   render(){
     return(
       <div>
+      
         <Container style={{textAlign: "center", width: "50%", marginTop:"15%"}}>
           <Form onSubmit={this.handleSubmit}>
           <Header size="large">Sign Up</Header>
@@ -54,8 +55,8 @@ class SignUp extends React.Component{
           <Button color="blue" type='submit'>Submit</Button>
           {this.props.failedSignUp? this.signUpError():null }
         </Form>
-
         </Container>
+
       </div>
     )
   }
