@@ -20,19 +20,16 @@ class Landing extends React.Component{
 
 
   render(){
-    console.log("landing", this.props)
+
     return this.props.loggedIn? ( <Redirect to="/news" />):
 
     (
       <div >
       <Container >
-      <div>
-
-      <Header style={{ marginTop:"10%"}} as='h1' color="teal"textAlign='center'>
-      <Icon name='btc' />Flatiron Trader
-   </Header>
-
-      </div>
+        <div>
+          <Header style={{ marginTop:"10%"}} as='h1' color="teal"textAlign='center'>
+            <Icon name='btc' />Flatiron Trader</Header>
+        </div>
 
 
         <Grid columns={2}>

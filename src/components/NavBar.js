@@ -59,7 +59,10 @@ const NavBar = (props) => {
 
     <Menu.Menu position='right'>
         <Menu.Item>
-          <Button onClick={handleSignOut} color="red">Sign Out</Button>
+          <Button onClick={handleSignOut} basic color="orange">
+            <Icon name="sign out" />
+          Sign Out
+          </Button>
         </Menu.Item>
     </Menu.Menu>
 

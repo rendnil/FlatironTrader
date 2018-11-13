@@ -9,8 +9,7 @@ import { connect } from 'react-redux'
 
 class NewsPage extends React.Component{
   render(){
-    console.log("render news");
-    console.log(this.props.state);
+
     return(
       <React.Fragment>
         <Container>
