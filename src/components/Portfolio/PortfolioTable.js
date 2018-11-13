@@ -35,8 +35,8 @@ class PortfolioTable extends React.Component{
       <div>
         <Container>
         <Segment>
-        <Header as="h2" attached="top">All Trades </Header>
-          <Table compact="very" selectable attached>
+        <Header as="h2" >All Trades </Header>
+          <Table compact="very" selectable>
           <Table.Header>
           <Table.Row>
             {/*<Table.HeaderCell colSpan={6} textAlign="right" > Total:{this.calcPortfolioPnL().toLocaleString()} USD </Table.HeaderCell>*/}

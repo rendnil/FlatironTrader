@@ -28,8 +28,8 @@ class LastTradeContainer extends React.Component{
 
         </div>*/
         <Segment>
-        <Header as="h2" attached="top">Recent Trades</Header>
-        <Table compact="very" attached selectable>
+        <Header as="h2">Recent Trades</Header>
+        <Table compact="very" selectable>
           <Table.Header>
 
             <Table.Row>
