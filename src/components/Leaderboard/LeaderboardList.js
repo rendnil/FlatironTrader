@@ -17,7 +17,7 @@ class LeaderboardList extends React.Component {
       <Grid centered>
         <Grid.Row>
           <Grid.Column width={10}>
-            <Table compact celled textAlign='center'>
+            <Table compact="very" celled textAlign='center'>
 
               <Table.Header>
                 <Table.Row>
