@@ -21,8 +21,8 @@ class CurrentPositionTable extends React.Component{
 
       return(
           <React.Fragment>
-          <Header as="h2" attached="top">Current Position </Header>
-          <Table celled selectable attached>
+          <Header as="h2" attached="top">Outright Position </Header>
+          <Table compact="very" celled attached>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell colSpan={4} textAlign="right" >Total Portfolio Value: {(this.calcPortfolioPnL()).toLocaleString()} USD </Table.HeaderCell>

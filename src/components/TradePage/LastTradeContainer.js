@@ -29,7 +29,7 @@ class LastTradeContainer extends React.Component{
         </div>*/
         <Segment>
         <Header as="h2" attached="top">Recently Executed Trades</Header>
-        <Table celled attached selectable>
+        <Table compact="very" celled attached selectable>
           <Table.Header>
 
             <Table.Row>
