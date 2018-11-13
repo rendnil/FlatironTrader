@@ -14,13 +14,13 @@ class NewsPageList extends React.Component{
 
 
   render(){
-    console.log("news",this.props.news)
+    console.log(this.props.news);
 
     if (this.props.news){
 
       return(
         <React.Fragment>
-        <Header as="h2" textAlign="center" >Latest News </Header>
+        {/*<Header as="h2" textAlign="center" >Latest News </Header>*/}
         <List animated verticalAlign='middle'>
         {this.props.news.map((article, idx)=>{
           return <NewsPageListRow

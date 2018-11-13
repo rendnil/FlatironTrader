@@ -16,7 +16,7 @@ class CurrentPositionTableRow extends React.Component{
         <Table.Row>
           <Table.Cell style={textStyle}>{this.props.position.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.position.net_position}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.position.weighted_price.toLocaleString()}</Table.Cell>
+          <Table.Cell style={textStyle}>{this.props.position.weighted_price.toLocaleString("en", {maximumFractionDigits: 2})}</Table.Cell>
         </Table.Row>
       )
     }

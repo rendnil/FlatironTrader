@@ -29,11 +29,11 @@ class LastTradeContainer extends React.Component{
         </div>*/
         <Segment>
         <Header as="h2" attached="top">Recent Trades</Header>
-        <Table compact="very" celled attached selectable>
+        <Table compact="very" attached selectable>
           <Table.Header>
 
             <Table.Row>
-              <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
+              <Table.HeaderCell style={headerStyle}>Symbol</Table.HeaderCell>
               <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>
               <Table.HeaderCell style={headerStyle}>Buy/Sell</Table.HeaderCell>
               <Table.HeaderCell style={headerStyle}>Price</Table.HeaderCell>

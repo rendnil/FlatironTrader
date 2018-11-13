@@ -46,14 +46,14 @@ class MarketDataTickerDetail extends React.Component{
 
 
   render(){
-    console.log(this.props.baseAssetData);
+
     return(
       <Grid.Column>
         <Segment>
           <Statistic color={this.state.dataColor} size="mini">
             <Statistic.Label>{this.props.asset.symbol}</Statistic.Label>
             {/*this.props.asset.livePrice === "Loading"? (<Statistic.Value>{(this.props.baseAssetData.openDay).toLocaleString()}</Statistic.Value>) :(<Statistic.Value>{(this.props.asset.livePrice).toLocaleString()}</Statistic.Value>)*/}
-            <Statistic.Value>{(this.props.asset.livePrice).toLocaleString()}</Statistic.Value>
+            <Statistic.Value>{(this.props.asset.livePrice).toLocaleString("en", {maximumFractionDigits: 2})}</Statistic.Value>
           </Statistic>
         </Segment>
       </Grid.Column>

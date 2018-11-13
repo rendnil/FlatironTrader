@@ -8,6 +8,7 @@ class CurrentPositionTable extends React.Component{
 
 
   calcPortfolioPnL(){
+    console.log("market data", this.props.marketData);
     return PortfolioVal.calcPortfolioPnL(this.props.trades, this.props.marketData)
   }
 
@@ -22,13 +23,13 @@ class CurrentPositionTable extends React.Component{
       return(
           <React.Fragment>
           <Header as="h2" attached="top">Outright Position </Header>
-          <Table compact="very" celled attached>
+          <Table compact="very" attached>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell colSpan={4} textAlign="right" >Total Portfolio Value: {(this.calcPortfolioPnL()).toLocaleString()} USD </Table.HeaderCell>
+                <Table.HeaderCell colSpan={4} textAlign="right" >Total Portfolio Value: {(this.calcPortfolioPnL()).toLocaleString("en", {maximumFractionDigits: 2})} USD </Table.HeaderCell>
               </Table.Row>
               <Table.Row>
-                <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
+                <Table.HeaderCell style={headerStyle}>Symbol</Table.HeaderCell>
                 <Table.HeaderCell style={headerStyle}>Net Position</Table.HeaderCell>
                 <Table.HeaderCell style={headerStyle}>Weighted Price</Table.HeaderCell>
 

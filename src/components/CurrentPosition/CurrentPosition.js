@@ -11,7 +11,11 @@ class CurrentPosition extends React.Component{
 
       return(
         <Segment>
-          <CurrentPositionTable marketData={this.props.marketData} trades={this.props.currentUser.trades} positions={this.props.currentUser.positions}/>
+          <CurrentPositionTable
+          baseMarketData = {this.props.baseMarketData}
+          marketData={this.props.marketData}
+          trades={this.props.currentUser.trades}
+          positions={this.props.currentUser.positions}/>
         </Segment>
       )
 
@@ -21,7 +25,8 @@ class CurrentPosition extends React.Component{
 const mapStateToProps = (state) => {
   return {
           currentUser: state.authUser.user,
-          marketData: state.marketData
+          marketData: state.marketData,
+          baseMarketData: state.baseMarketData
   }
 }
 
