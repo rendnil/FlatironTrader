@@ -8,9 +8,6 @@ class LeaderboardList extends React.Component {
 
   render(){
 
-    // console.log("leaderboard props", this.props);
-
-
     return(
 
 
@@ -30,7 +27,7 @@ class LeaderboardList extends React.Component {
                 <Table.Body>
                   {PortfolioVal.sortUsersByPnL(this.props.users, this.props.marketData).map((user, idx)=>{
                     return (
-                      <LeaderboardListRow idx={idx} key={user.id} user={user}/>
+                      <LeaderboardListRow idx={idx} key={user.id} user={user} currentUser={this.props.currentUser}/>
                     )
                   })}
                 </Table.Body>
@@ -46,7 +43,8 @@ class LeaderboardList extends React.Component {
 const mapStateToProps = (state) => {
   return{
     users: state.users,
-    marketData: state.marketData
+    marketData: state.marketData,
+    currentUser:state.authUser.user
   }
 }
 
