@@ -16,12 +16,9 @@ const style={
   width: "100%",
   height:"100%"
 }
-class Landing extends React.Component{
+const Landing = (props) =>{
 
-
-  render(){
-
-    return this.props.loggedIn? ( <Redirect to="/news" />):
+    return props.loggedIn? ( <Redirect to="/news" />):
 
     (
       <div >
@@ -45,10 +42,8 @@ class Landing extends React.Component{
         </Grid>
       </Container>
       </div>
-
-
     )
-  }
+
 
 }
 
