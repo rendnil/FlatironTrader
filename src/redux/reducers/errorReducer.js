@@ -6,13 +6,13 @@ export default function (state = {}, action){
       return {errors: false}
 
     case "FAILED_TRADE":
-    
+
       return {errors: action.payload}
 
 
     default:
 
-    return state
+      return state
   }
 
 

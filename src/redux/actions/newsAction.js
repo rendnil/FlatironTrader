@@ -9,9 +9,5 @@ export function fetchNews(){
 
     return NewsAdapter.getNews()
     .then(data => dispatch({type: "FETCH_NEWS", payload: data}))
-
-
   }
-
-
 }

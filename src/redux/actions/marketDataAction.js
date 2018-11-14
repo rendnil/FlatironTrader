@@ -10,7 +10,7 @@
 export function fetchMarketData(message){
 //check asset symbol and whether is a buy or a sell
   let price
-  //console.log("in the action", message)
+  
   let parsedMessage = message.split("~")
 
   if (parsedMessage[2]==="BTC" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){

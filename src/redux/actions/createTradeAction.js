@@ -12,7 +12,7 @@ export function createNewTrade(userId, symbol, buy, price, quantity){
     return createTradeAdapter.postNewTrade(userId, symbol, buy, price, quantity)
 
       .then(response =>{
-        console.log("here's the response", response)
+
         if (response.ok){
           return response.json()
         }else{
@@ -21,7 +21,7 @@ export function createNewTrade(userId, symbol, buy, price, quantity){
       })
 
      .then(data => {
-       console.log("this what we get back",data)
+       
 
       dispatch({type: "CREATE_NEW_TRADE",
 

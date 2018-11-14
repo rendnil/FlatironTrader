@@ -11,7 +11,7 @@ export function fetchBaseMarketData(symbol){
     return CryptoDataAdapter.getBaseMarketData()
 
      .then(data => {
-       console.log("in the action ", data);
+       
        dispatch({type: `FETCH_BASE_MARKET_DATA`,
 
                 payload: data.RAW})
