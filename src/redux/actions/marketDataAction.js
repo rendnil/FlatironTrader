@@ -16,7 +16,7 @@ export function fetchMarketData(message){
   const flag = parsedMessage[4]
   const unknownTransaction = "4"
   const marketPrice = parsedMessage[5]
-
+  
   if (symbol==="BTC" && (flag!== unknownTransaction)){
     price = marketPrice
 
@@ -42,6 +42,6 @@ export function fetchMarketData(message){
 
     return {type: "LITECOIN_PRICE_UPDATE", payload:price}
   }else{
-    return {type:"NOTHING"}
+    return {type: "NOTHING"}
   }
 }

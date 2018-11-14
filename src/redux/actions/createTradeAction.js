@@ -1,7 +1,5 @@
 import createTradeAdapter from "../../apis/createTradeAdapter"
 
-
-
 export function createNewTrade(userId, symbol, buy, price, quantity){
 
   return (dispatch) =>{
@@ -21,7 +19,7 @@ export function createNewTrade(userId, symbol, buy, price, quantity){
       })
 
      .then(data => {
-       
+
 
       dispatch({type: "CREATE_NEW_TRADE",
 

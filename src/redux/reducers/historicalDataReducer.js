@@ -12,17 +12,12 @@ export default function (state = {}, action){
         return {...state, "BCH":action.payload}
 
     case "FETCH_LTC_DATA":
-          
         return {...state, "LTC":action.payload}
 
     case "FETCH_XRP_DATA":
         return {...state, "XRP":action.payload}
 
     default:
-
-    return state
+      return state
   }
-
-
-
 }

@@ -11,12 +11,8 @@ export default function (state = [], action){
     case "CREATE_NEW_TRADE":
         let otherUsers = state.filter((user)=> (user.id !== action.payload.user.id))
           return [...otherUsers, action.payload.user]
-          
+
     default:
-
-    return state
+      return state
   }
-
-
-
 }

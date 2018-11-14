@@ -5,7 +5,6 @@ const defaultState = {
   failedLogin: false,
   error: null,
   failedSignUp: false
-
 }
 
 
@@ -50,8 +49,4 @@ export default function (state = defaultState, action){
       return state
 
   }
-
-
-
-
 }

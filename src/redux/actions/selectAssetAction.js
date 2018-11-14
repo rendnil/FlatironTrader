@@ -1,5 +1,3 @@
-export function selectAssetAction(asset){
-  
-
+export function selectAssetAction(asset){  
   return {type:"SELECT_ASSET", payload: asset}
 }
