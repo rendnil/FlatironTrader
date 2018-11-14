@@ -22,26 +22,26 @@ export function fetchMarketData(message){
 
     return {type: "BITCOIN_PRICE_UPDATE", payload:price}
 
-  }else if (parsedMessage[2]==="ETH" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
-    price = parsedMessage[5]
+  }else if (symbol==="ETH" && (flag!== unknownTransaction)){
+    price = marketPrice
 
     return {type: "ETHEREUM_PRICE_UPDATE", payload:price}
 
-  }else if (parsedMessage[2]==="BCH" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
-    price = parsedMessage[5]
+  }else if (symbol==="BCH" && (flag!== unknownTransaction)){
+    price = marketPrice
 
     return {type: "BITCOINCASH_PRICE_UPDATE", payload:price}
 
-  }else if (parsedMessage[2]==="XRP" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
-    price = parsedMessage[5]
+  }else if (symbol==="XRP" && (flag!== unknownTransaction)){
+    price = marketPrice
 
     return {type: "RIPPLE_PRICE_UPDATE", payload:price}
 
-  }else if (parsedMessage[2]==="LTC" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
-    price = parsedMessage[5]
+  }else if (symbol==="LTC" && (flag!== unknownTransaction)){
+    price = marketPrice
 
     return {type: "LITECOIN_PRICE_UPDATE", payload:price}
   }else{
-    return {type:"ahhh"}
+    return {type:"NOTHING"}
   }
 }
