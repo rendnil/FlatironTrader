@@ -10,11 +10,15 @@
 export function fetchMarketData(message){
 //check asset symbol and whether is a buy or a sell
   let price
-  
-  let parsedMessage = message.split("~")
 
-  if (parsedMessage[2]==="BTC" && (parsedMessage[4]==="2" || parsedMessage[4]==="1")){
-    price = parsedMessage[5]
+  let parsedMessage = message.split("~")
+  const symbol = parsedMessage[2]
+  const flag = parsedMessage[4]
+  const unknownTransaction = "4"
+  const marketPrice = parsedMessage[5]
+
+  if (symbol==="BTC" && (flag!== unknownTransaction)){
+    price = marketPrice
 
     return {type: "BITCOIN_PRICE_UPDATE", payload:price}
 
