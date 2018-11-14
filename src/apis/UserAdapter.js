@@ -36,5 +36,22 @@ export default class UserAdapter{
     })
   }
 
+  static signUpUser(username, email, password){
+    return fetch(`${API_ENDPOINT}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "Accept": 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          email: email,
+          password: password
+        }
+      })
+    }) //end fetch
+  }
+
 
 }

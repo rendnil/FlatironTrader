@@ -57,21 +57,8 @@ import UserAdapter from "../../apis/UserAdapter"
       return (dispatch) => {
         dispatch(authenticatingUser())
 
+        UserAdapter.signUpUser(username, email, password)
 
-        fetch("http://localhost:3001/api/v1/users", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            "Accept": 'application/json'
-          },
-          body: JSON.stringify({
-            user: {
-              username: username,
-              email: email,
-              password: password
-            }
-          })
-        }) //end fetch
         .then(response => {
           if (response.ok) {
             return response.json()
