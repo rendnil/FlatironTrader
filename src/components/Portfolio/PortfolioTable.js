@@ -28,14 +28,14 @@ class PortfolioTable extends React.Component{
 
 
   render(){
-    //console.log("did I mutate this", this.props);
+    
 
 
     const headerStyle = {
       textAlign: "center"
     }
 
-    console.log(this.sortByDate(this.props.userTrades));
+
 
     return(
       <div>
