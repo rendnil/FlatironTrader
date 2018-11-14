@@ -30,7 +30,6 @@ const mapStateToProps = (state) => {
   return {
           marketData: state.marketData,
           baseMarketData: state.baseMarketData
-
           }
 }
 

@@ -1,5 +1,5 @@
 import React from "react"
-import {Container, Form, Button, Icon, Message} from "semantic-ui-react"
+import {Container, Form, Button, Icon, Message, Popup} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import {createNewTrade} from "../../redux/actions/createTradeAction"
 
@@ -46,7 +46,7 @@ class TradeForm extends React.Component{
     if (this.props.selectedAsset.livePrice !== "Loading"){
     this.props.createNewTrade(this.props.currentUser.id,
       this.props.selectedAsset.symbol, false, this.props.selectedAsset.livePrice, this.state.quantity)
-    }  
+    }
   }
 
   renderTradeMessage = () => {
@@ -121,6 +121,9 @@ class TradeForm extends React.Component{
       </Form>
       {this.props.errors? <Message error>{this.props.errors}</Message>: null}
       {this.state.newTrade? this.renderTradeMessage(): null}
+
+        {this.props.selectedAsset? <Popup trigger={<Button color="orange" icon='question' />} content={this.instructionsRender()} />: null}
+
 
       </Container>
     )
