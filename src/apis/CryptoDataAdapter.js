@@ -18,7 +18,4 @@ export default class CryptoDataAdapter{
     return fetch(BASE_MARKET_DATA_ENDPOINT)
     .then(r => r.json())
   }
-
-
-
 }
