@@ -27,8 +27,9 @@ import {Segment, List, Image} from "semantic-ui-react"
               <List.Description>
                 {(parseArticle(article.body))}
               </List.Description>
+              <br />
               <List.Header>
-                Source: {article.source}
+                SOURCE: {article.source}
               </List.Header>
             </List.Content>
           </Segment>

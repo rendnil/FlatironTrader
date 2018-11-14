@@ -11,7 +11,7 @@ class PortfolioTable extends React.Component{
 /////////////////////////
 ///these are suitable for full portfolio valuation
     calcTradePnL(trades, marketData){
-      return PortfolioVal.calcTradeLevelPnL(this.props.userTrades, this.props.marketData)
+      return PortfolioVal.calcTradeLevelPnL(this.sortByDate(trades), marketData)
     }
 
     calcPortfolioPnL(){
@@ -20,7 +20,11 @@ class PortfolioTable extends React.Component{
 
 //////////////////////////////////////////////////////
 
-
+  sortByDate(trades){
+    return trades.sort((t1, t2)=>{
+      return Date.parse(t2.created_at)-Date.parse(t1.created_at)
+    })
+  }
 
 
   render(){
@@ -30,6 +34,8 @@ class PortfolioTable extends React.Component{
     const headerStyle = {
       textAlign: "center"
     }
+
+    console.log(this.sortByDate(this.props.userTrades));
 
     return(
       <div>
@@ -42,6 +48,8 @@ class PortfolioTable extends React.Component{
             {/*<Table.HeaderCell colSpan={6} textAlign="right" > Total:{this.calcPortfolioPnL().toLocaleString()} USD </Table.HeaderCell>*/}
           </Table.Row>
         <Table.Row>
+        <Table.HeaderCell style={headerStyle}>Date</Table.HeaderCell>
+        <Table.HeaderCell style={headerStyle}>Time</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>
           <Table.HeaderCell style={headerStyle}>Buy/Sell</Table.HeaderCell>
@@ -52,7 +60,7 @@ class PortfolioTable extends React.Component{
           </Table.Header>
 
         <Table.Body>
-        {this.calcTradePnL().map((trade, idx)=> {
+        {this.calcTradePnL(this.props.userTrades, this.props.marketData).map((trade, idx)=> {
           return <PortfolioTableRow
           key={idx}
           trade = {trade} />

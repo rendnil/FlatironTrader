@@ -39,6 +39,7 @@ class TradeForm extends React.Component{
     this.props.createNewTrade(this.props.currentUser.id,
           this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, parseFloat(this.state.quantity))
     }
+    this.setState({quantity:1})
   }
 
   handleSell =  () => {

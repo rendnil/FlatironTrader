@@ -43,7 +43,7 @@ class LastTradeContainer extends React.Component{
 
       <Table.Body>
 
-      {this.props.newTrades.map((trade,idx)=>{
+      {this.props.newTrades.reverse().map((trade,idx)=>{
         return <LastTradeTableRow key={idx} trade={trade}/>
       })}
       </Table.Body>

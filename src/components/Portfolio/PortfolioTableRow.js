@@ -9,8 +9,19 @@ class PortfolioTableRow extends React.Component{
     return trade.buy? "Buy" : "Sell"
   }
 
-  render(){
+   dateFormat(rawDate){
+    let fullDate = new Date(rawDate)
 
+    return `${fullDate.getMonth()+1}/${fullDate.getDate()}/${fullDate.getFullYear()}`
+  }
+
+    timeFormat(rawDate){
+      let fullDate = new Date(rawDate)
+
+      return `${fullDate.getHours()}:${fullDate.getMinutes()}:${fullDate.getSeconds()}`
+    }
+
+  render(){
 
     const textStyle = {
       textAlign: "center",
@@ -22,6 +33,8 @@ class PortfolioTableRow extends React.Component{
       return(
 
         <Table.Row>
+        <Table.Cell style={textStyle}>{this.dateFormat(Date.parse(this.props.trade.created_at))}</Table.Cell>
+        <Table.Cell style={textStyle}>{this.timeFormat(Date.parse(this.props.trade.created_at))}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.trade.asset.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{this.props.trade.asset.name}</Table.Cell>
           <Table.Cell style={textStyle}>{this.determineBuyOrSell(this.props.trade)}</Table.Cell>
