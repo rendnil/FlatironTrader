@@ -1,22 +1,12 @@
+import UserAdapter from "../../apis/UserAdapter"
+
 
   export const loginUser = (username, password) =>{
     return (dispatch) => {
       dispatch(authenticatingUser())
 
+      UserAdapter.loginUser(username, password)
 
-      fetch("http://localhost:3001/api/v1/login", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          "Accept": 'application/json'
-        },
-        body: JSON.stringify({
-          user: {
-            username: username,
-            password: password
-          }
-        })
-      }) //end fetch
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -41,12 +31,8 @@
     return (dispatch) => {
       dispatch(authenticatingUser()) //tells the app we are fetching
 
-      fetch(`http://localhost:3001/api/v1/profile`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`
-        }
-      })
+
+      UserAdapter.fetchCurrentUser()
         .then(response => response.json())
         .then((JSONResponse) => dispatch(setCurrentUser(JSONResponse.user)))
     }
