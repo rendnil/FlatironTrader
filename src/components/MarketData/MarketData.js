@@ -21,7 +21,7 @@ class MarketData extends React.Component {
 
 
   componentDidMount(){
-
+    //wss://streamer.cryptocompare.com
    socket = io.connect('https://streamer.cryptocompare.com/');
 
   //Format: {SubscriptionId}~{ExchangeName}~{FromSymbol}~{ToSymbol}

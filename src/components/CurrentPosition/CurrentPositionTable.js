@@ -1,5 +1,5 @@
 import React from "react"
-import {Table, Header} from "semantic-ui-react"
+import {Table, Header, Label} from "semantic-ui-react"
 import CurrentPositionTableRow from "./CurrentPositionTableRow"
 import PortfolioVal from "../../parsers/PortfolioVal"
 
@@ -21,7 +21,15 @@ const CurrentPositionTable = (props) =>{
       return(
           <React.Fragment>
             <Header floated="left"as="h2"  >Outright Position</Header>
-            <Header floated="right" as = "h2" textAlign="right" >Portfolio Value:   {(calcPortfolioPnL()).toLocaleString("en", {maximumFractionDigits: 2})} USD </Header>
+            <Header floated="right" as = "h2" textAlign="right" >
+
+            Portfolio Value:
+            <Label size="big" color='blue' >
+            ${(calcPortfolioPnL()).toLocaleString("en", {maximumFractionDigits: 2})}
+            </Label>
+
+
+            </Header>
 
             <Table compact="very" >
               <Table.Header >
