@@ -14,7 +14,7 @@ class NewsPageList extends React.Component{
 
 
   render(){
-    console.log(this.props.news);
+    
 
     if (this.props.news){
 

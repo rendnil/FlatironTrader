@@ -25,7 +25,7 @@ const CurrentPositionTable = (props) =>{
 
             Portfolio Value:
             <Label size="big" color='blue' >
-            ${(calcPortfolioPnL()).toLocaleString("en", {maximumFractionDigits: 2})}
+            {(calcPortfolioPnL()).toLocaleString("en", {maximumFractionDigits: 2})} USD
             </Label>
 
 

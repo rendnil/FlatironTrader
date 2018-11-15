@@ -112,7 +112,7 @@ class TradeForm extends React.Component{
 
 
   render(){
-    console.log(this.props);
+    
     return(
       <Container>
         {this.props.selectedAsset? null: this.instructionsRender()}

@@ -17,8 +17,7 @@ class LastTradeTableRow extends React.Component{
     }
 
 
-      //console.log(this.props);
-      console.log("last trade row", this.props);
+      
       return(
 
         <Table.Row>
