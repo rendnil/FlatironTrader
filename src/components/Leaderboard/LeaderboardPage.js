@@ -6,18 +6,14 @@ import withAuth from "../../hocs/withAuth"
 import MarketDataTicker from "../MarketData/MarketDataTicker"
 
 
-class LeaderboardPage extends React.Component{
+const LeaderboardPage = () =>{
 
-  render(){
     return(
-
         <Container textAlign="center">
           <MarketDataTicker/>
           <LeaderboardList />
         </Container>
-
     )
-  }
 }
 
 

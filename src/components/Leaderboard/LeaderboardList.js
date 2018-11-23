@@ -4,13 +4,9 @@ import LeaderboardListRow from "./LeaderboardListRow"
 import { connect } from 'react-redux'
 import PortfolioVal from "../../parsers/PortfolioVal"
 
-class LeaderboardList extends React.Component {
-
-  render(){
+const LeaderboardList = (props) => {
 
     return(
-
-
       <Grid centered>
         <Grid.Row>
           <Grid.Column width={10}>
@@ -25,9 +21,9 @@ class LeaderboardList extends React.Component {
               </Table.Header>
 
                 <Table.Body>
-                  {PortfolioVal.sortUsersByPnL(this.props.users, this.props.marketData).map((user, idx)=>{
+                  {PortfolioVal.sortUsersByPnL(props.users, props.marketData).map((user, idx)=>{
                     return (
-                      <LeaderboardListRow idx={idx} key={user.id} user={user} currentUser={this.props.currentUser}/>
+                      <LeaderboardListRow idx={idx} key={user.id} user={user} currentUser={props.currentUser}/>
                     )
                   })}
                 </Table.Body>
@@ -37,7 +33,7 @@ class LeaderboardList extends React.Component {
       </Grid>
 
     )
-  }
+
 }
 
 const mapStateToProps = (state) => {
