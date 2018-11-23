@@ -43,11 +43,8 @@ class MarketData extends React.Component {
 
   render(){
 
-    console.log("rendered");
     return(
       <React.Fragment>
-
-
       </React.Fragment>
     )
   }
@@ -62,7 +59,6 @@ const mapDispatchToProps = (dispatch) => {
     fetchHistoricalData: (symbol) => dispatch(fetchHistoricalData(symbol)),
     fetchBaseMarketData: ()=> dispatch(fetchBaseMarketData()),
     fetchUsers: ()=> dispatch(fetchUsers())
-
   }
 }
 
