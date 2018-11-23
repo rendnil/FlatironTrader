@@ -17,6 +17,3 @@ export default class SocketAdapter{
 
   }
 }
-
-/// api params
-// params.require(:trade).permit(:user_id, :symbol, :buy, :price, :quantity)

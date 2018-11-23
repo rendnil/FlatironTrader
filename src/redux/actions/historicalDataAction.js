@@ -1,20 +1,21 @@
 import CryptoDataAdapter from "../../apis/CryptoDataAdapter"
 
+const cryptoSymbols = ["BTC", "ETH", "LTC", "XRP", "BCH"]
 
-
-export function fetchHistoricalData(symbol){
+export function fetchHistoricalData(){
 
   return (dispatch) =>{
 
     dispatch({type: "about to fetch historical data"})
 
-    return CryptoDataAdapter.getHistoricalPriceData(symbol)
+    cryptoSymbols.forEach((symbol)=>{
 
-     .then(data => {
-       
-       dispatch({type: `FETCH_${symbol}_DATA`,
+      return (CryptoDataAdapter.getHistoricalPriceData(symbol)
 
-                payload: data.Data})
-     })
+        .then(data => {
+          dispatch({type: `FETCH_${symbol}_DATA`, payload: data.Data})
+          })
+      )
+    })
   }
 }

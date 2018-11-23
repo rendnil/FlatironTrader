@@ -28,12 +28,7 @@ class MarketData extends React.Component {
     this.socket.on("m", this.handleMessage)
 
     ///fetch historical data only once instead of on each "Chart Page render"
-    this.props.fetchHistoricalData("BTC")
-    this.props.fetchHistoricalData("ETH")
-    this.props.fetchHistoricalData("LTC")
-    this.props.fetchHistoricalData("XRP")
-    this.props.fetchHistoricalData("BCH")
-
+    this.props.fetchHistoricalData()
     this.props.fetchBaseMarketData()
     this.props.fetchUsers()
   }
