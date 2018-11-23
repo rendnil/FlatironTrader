@@ -19,9 +19,9 @@ export default class createTradeAdapter{
         }
       })
     })//end fetch
-    
+
   }
 }
 
-
+/// api params
 // params.require(:trade).permit(:user_id, :symbol, :buy, :price, :quantity)
