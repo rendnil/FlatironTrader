@@ -20,7 +20,7 @@ const PortfolioTable = (props) =>{
   const headerStyle = {
       textAlign: "center"
     }
-    
+
     return(
       <div>
         <Container>
@@ -60,7 +60,6 @@ const PortfolioTable = (props) =>{
 const mapStateToProps = (state) => {
   return {userTrades:state.authUser.user.trades,
           marketData: state.marketData
-
   }
 }
 
