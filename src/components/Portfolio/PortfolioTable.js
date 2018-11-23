@@ -28,7 +28,6 @@ class PortfolioTable extends React.Component{
 
 
   render(){
-    
 
 
     const headerStyle = {

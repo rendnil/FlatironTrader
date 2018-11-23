@@ -14,7 +14,7 @@ class LastTradeContainer extends React.Component{
     const headerStyle = {
       textAlign: "center"
     }
-    console.log("last trade", this.props);
+    
 
     if (this.props.newTrades.length >0){
       let lastThreeTrades = this.props.newTrades.slice(this.props.newTrades.length-3, this.props.newTrades.length)
