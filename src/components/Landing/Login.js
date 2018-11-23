@@ -22,9 +22,7 @@ class Login extends React.Component{
   }
 
   handleSubmit = () => {
-
     this.props.loginUser(this.state.username, this.state.password)
-
   }
 
 
@@ -48,8 +46,6 @@ class Login extends React.Component{
             <input type="password" name="password" onChange={this.handleChange} value = {this.state.password} placeholder='Password' />
           </Form.Field>
 
-
-
           <Button color="green" type='submit'>Submit</Button>
         </Form>
         {this.props.failedLogin ? this.loginError() : null}
@@ -70,7 +66,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
     loginUser: (username, password) => dispatch(loginUser(username,password))
   }
 }

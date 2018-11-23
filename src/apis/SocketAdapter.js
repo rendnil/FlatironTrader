@@ -14,6 +14,5 @@ export default class SocketAdapter{
     let socket = io.connect(SOCKET_ENDPOINT)
     socket.emit('SubAdd', { subs: subscriptions })
     return socket
-
   }
 }

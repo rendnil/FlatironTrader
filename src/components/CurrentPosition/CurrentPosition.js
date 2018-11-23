@@ -26,4 +26,3 @@ import CurrentPositionTable from "./CurrentPositionTable"
   }
 
 export default connect(mapStateToProps)(CurrentPosition)
-//
