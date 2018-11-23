@@ -11,32 +11,20 @@ class NewsPageList extends React.Component{
     this.props.fetchNews()
   }
 
-
-
   render(){
-    
-
-    if (this.props.news){
-
-      return(
+    return (!this.props.news? null :
+      (
         <React.Fragment>
-        {/*<Header as="h2" textAlign="center" >Latest News </Header>*/}
-        <List animated verticalAlign='middle'>
-        {this.props.news.map((article, idx)=>{
-          return <NewsPageListRow
-          key= {idx}
-          article = {article}/>
-        })}
-        </List>
+          <List animated verticalAlign='middle'>
+          {this.props.news.map((article, idx)=>{
+            return <NewsPageListRow
+            key= {idx}
+            article = {article}/>
+          })}
+          </List>
         </React.Fragment>
-
-      )
-    }else{
-      return null
-    }
-
+      ))
   }
-
 }
 
 const mapStateToProps = (state) => {
@@ -46,7 +34,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
      fetchNews: () => dispatch(fetchNews())
-
   }
 }
 
