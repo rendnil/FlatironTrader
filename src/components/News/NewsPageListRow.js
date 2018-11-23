@@ -5,15 +5,12 @@ import {Segment, List, Image} from "semantic-ui-react"
 
  const NewsPageListRow = ({article}) =>{
 
-
+   //remove unicode characters
     const parseArticle = (article) => {
       return article.replace(/&#8217;|[&#8230;]/g, "")
-
     }
 
-
     return(
-
         <List.Item>
           <Segment >
             <List.Header>
