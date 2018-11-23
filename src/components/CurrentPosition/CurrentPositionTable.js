@@ -23,7 +23,7 @@ const CurrentPositionTable = (props) =>{
             <Header floated="left"as="h2"  >Outright Position</Header>
             <Header floated="right" as = "h2" textAlign="right" >
 
-            Portfolio Value:
+            PnL:
             <Label size="big" color='blue' >
             {(calcPortfolioPnL()).toLocaleString("en", {maximumFractionDigits: 2})} USD
             </Label>
@@ -31,13 +31,13 @@ const CurrentPositionTable = (props) =>{
 
             </Header>
 
-            <Table compact="very" >
+            <Table celled compact="very" >
               <Table.Header >
 
                 <Table.Row >
                   <Table.HeaderCell style={headerStyle}>Symbol</Table.HeaderCell>
                   <Table.HeaderCell style={headerStyle}>Net Position</Table.HeaderCell>
-                  <Table.HeaderCell style={headerStyle}>Weighted Price</Table.HeaderCell>
+
 
                 </Table.Row>
               </Table.Header>

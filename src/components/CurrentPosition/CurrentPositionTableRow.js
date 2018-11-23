@@ -13,7 +13,7 @@ const CurrentPositionTableRow = (props) =>{
         <Table.Row>
           <Table.Cell style={textStyle}>{props.position.symbol}</Table.Cell>
           <Table.Cell style={textStyle}>{props.position.net_position}</Table.Cell>
-          <Table.Cell style={textStyle}>{props.position.weighted_price.toLocaleString("en", {maximumFractionDigits: 2})}</Table.Cell>
+          
         </Table.Row>
       )
 
