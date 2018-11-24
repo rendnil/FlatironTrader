@@ -1,36 +1,21 @@
 import React from "react"
 import {Container, Table} from "semantic-ui-react"
 
-class LastTradeTableRow extends React.Component{
+const LastTradeTableRow = ({trade}) =>{
 
-
-  determineBuyOrSell(trade){
+  const determineBuyOrSell = (trade) =>{
     return trade.buy? "Buy" : "Sell"
   }
 
-  render(){
+  return(
+    <Table.Row>
+      <Table.Cell>{trade.asset.symbol}</Table.Cell>
+      <Table.Cell>{trade.asset.name}</Table.Cell>
+      <Table.Cell>{determineBuyOrSell(trade)}</Table.Cell>
+      <Table.Cell>{trade.price}</Table.Cell>
+      <Table.Cell>{trade.quantity}</Table.Cell>
+    </Table.Row>
+  )
+}
 
-
-    const textStyle = {
-      textAlign: "center",
-
-    }
-
-
-      
-      return(
-
-        <Table.Row>
-          <Table.Cell style={textStyle}>{this.props.trade.asset.symbol}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.trade.asset.name}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.determineBuyOrSell(this.props.trade)}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.trade.price}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.trade.quantity}</Table.Cell>
-
-        </Table.Row>
-
-        )
-    }
-  }
-
-  export default LastTradeTableRow
+export default LastTradeTableRow
