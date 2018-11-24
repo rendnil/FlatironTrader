@@ -1,53 +1,40 @@
 import React from "react"
 import { connect } from 'react-redux'
-import {Container, Table, Segment, Header} from "semantic-ui-react"
+import {Table, Segment, Header} from "semantic-ui-react"
 import LastTradeTableRow from "./LastTradeTableRow"
 
-class LastTradeContainer extends React.Component{
+const LastTradeContainer = (props) =>{
 
-  determineBuyOrSell(trade){
+  const determineBuyOrSell = (trade) =>{
     return trade.buy? "Buy":"Sell"
   }
 
+  const headerStyle = {
+    textAlign: "center"
+  }
 
-  render(){
-    const headerStyle = {
-      textAlign: "center"
-    }
-    
+    if (props.newTrades.length >0){
 
-    if (this.props.newTrades.length >0){
-      let lastThreeTrades = this.props.newTrades.slice(this.props.newTrades.length-3, this.props.newTrades.length)
       return(
-        /*<div>
-        <h3>Executed Trades</h3>
-        {this.props.newTrades.reverse().map((trade)=>{
-
-          return (<p> {trade.asset.name} {trade.price} {trade.quantity}</p>)
-        })}
-
-        </div>*/
         <Segment>
-        <Header as="h2">Recent Trades</Header>
-        <Table compact="very" selectable>
-          <Table.Header>
+          <Header as="h2">Recent Trades</Header>
+          <Table style={headerStyle} compact="very" selectable>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Symbol</Table.HeaderCell>
+                <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell>Buy/Sell</Table.HeaderCell>
+                <Table.HeaderCell>Price</Table.HeaderCell>
+                <Table.HeaderCell>Quantity</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
 
-            <Table.Row>
-              <Table.HeaderCell style={headerStyle}>Symbol</Table.HeaderCell>
-              <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>
-              <Table.HeaderCell style={headerStyle}>Buy/Sell</Table.HeaderCell>
-              <Table.HeaderCell style={headerStyle}>Price</Table.HeaderCell>
-              <Table.HeaderCell style={headerStyle}>Quantity</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-      <Table.Body>
-
-      {this.props.newTrades.reverse().map((trade,idx)=>{
-        return <LastTradeTableRow key={idx} trade={trade}/>
-      })}
-      </Table.Body>
-        </Table>
+            <Table.Body>
+            {props.newTrades.reverse().map((trade,idx)=>{
+              return <LastTradeTableRow key={idx} trade={trade}/>
+            })}
+            </Table.Body>
+          </Table>
         </Segment>
       )
 
@@ -55,7 +42,7 @@ class LastTradeContainer extends React.Component{
       return null
     }
 
-  }
+
 }
 
 const mapStateToProps = (state) => {
