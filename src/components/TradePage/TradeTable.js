@@ -1,54 +1,40 @@
 import React from "react"
-
 import {Container, Table} from "semantic-ui-react"
-
 import TradeTableRow from "./TradeTableRow"
 
 
-class TradeTable extends React.Component{
+const TradeTable = (props) =>{
 
+  const headerStyle = {
+    textAlign: "center"
+  }
 
-  render(){
-    //console.log("render trade table", this.props);
-
-
-    const headerStyle = {
-      textAlign: "center"
-    }
-
-    return(
-
-      <div>
-        <Container>
-          <Table celled selectable>
-
-          <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell style={headerStyle} >Symbol</Table.HeaderCell>
-          <Table.HeaderCell style={headerStyle}>Name</Table.HeaderCell>
-          <Table.HeaderCell style={headerStyle}>Price (USD)</Table.HeaderCell>
-          <Table.HeaderCell style={headerStyle}>% Change</Table.HeaderCell>
-        </Table.Row>
-          </Table.Header>
+  return(
+    <Container>
+      <Table celled selectable style={headerStyle}>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Symbol</Table.HeaderCell>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Price (USD)</Table.HeaderCell>
+            <Table.HeaderCell>% Change</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
 
         <Table.Body>
-        {this.props.marketData.map((asset)=>{
-          return (
-            <TradeTableRow key={asset.name}
-            asset={asset}
-            baseMarketData = {this.props.baseMarketData}
-            />
-          )
-        })}
-
+          {props.marketData.map((asset)=>{
+            return (
+              <TradeTableRow key={asset.name}
+              asset={asset}
+              baseMarketData = {props.baseMarketData}
+              />
+            )
+          })}
         </Table.Body>
-          </Table>
-        </Container>
-      </div>
-    )
-  }
+      </Table>
+    </Container>
+  )
 }
 
 
-
-export default (TradeTable)
+export default TradeTable

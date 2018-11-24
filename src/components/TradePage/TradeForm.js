@@ -11,7 +11,7 @@ const buttonStyle = {
 
 class TradeForm extends React.Component{
 
-  state={
+  state = {
     quantity: 1,
     newTrade:false
   }
@@ -52,7 +52,6 @@ class TradeForm extends React.Component{
 
   renderTradeMessage = () => {
     let direction
-    console.log("messages", this.props.messages)
     if (this.props.messages.buy) {
       direction = "Buy"
     }else{
@@ -101,9 +100,7 @@ class TradeForm extends React.Component{
         <Form.Input onChange={this.handleQuantityChange} type="number"label='Quantity' value={this.state.quantity} placeholder='Enter Quantity' width={4} />
         <Form.Input label='USD Price' value={this.props.selectedAsset.livePrice} placeholder='Select Asset' width={5} />
 
-
         <Button onClick={this.handleBuy} style={buttonStyle} color="green">Buy</Button>
-
         <Button onClick={this.handleSell} style={buttonStyle} color="red">Sell</Button>
       </Form.Group>
     )
@@ -112,20 +109,17 @@ class TradeForm extends React.Component{
 
 
   render(){
-    
+
     return(
       <Container>
-        {this.props.selectedAsset? null: this.instructionsRender()}
-      <Form>
-        {this.props.selectedAsset? this.selectedAssetFormRender(): this.blankFormRender()}
+          {this.props.selectedAsset? null: this.instructionsRender()}
+        <Form>
+          {this.props.selectedAsset? this.selectedAssetFormRender(): this.blankFormRender()}
+        </Form>
 
-      </Form>
-      {this.props.errors? <Message error>{this.props.errors}</Message>: null}
-      {this.state.newTrade? this.renderTradeMessage(): null}
-
+        {this.props.errors? <Message error>{this.props.errors}</Message>: null}
+        {this.state.newTrade? this.renderTradeMessage(): null}
         {this.props.selectedAsset? <Popup trigger={<Button color="orange" icon='question' />} content={this.instructionsRender()} />: null}
-
-
       </Container>
     )
   }

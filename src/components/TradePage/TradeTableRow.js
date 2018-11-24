@@ -7,39 +7,19 @@ class TradeTableRow extends React.Component{
 
   constructor(props){
     super(props)
-
     this.interval = null
   }
 
-  state={
+  state = {
     cellsSelected: false,
     priceChange: false,
     positiveChange: false,
     negativeChange: false
-
   }
-
-  // componentDidUpdate(previousProps){
-  //   ///check for price changes and make the cell active
-  //   if (previousProps.asset.livePrice !== this.props.asset.livePrice){
-  //
-  //
-  //     this.setState({
-  //       priceChange: true
-  //     })
-  //
-  //     setTimeout(()=>this.setState({
-  //       priceChange: false
-  //     }),1000)
-  //
-  //
-  //   }
-  // }
 
   componentDidUpdate(previousProps){
     ///check for price changes and make the cell active
     if (previousProps.asset.livePrice < this.props.asset.livePrice){
-
 
       this.setState({
         positiveChange: true
@@ -70,13 +50,7 @@ class TradeTableRow extends React.Component{
     }),3000)
   }
 
-
-
-
   handleClick = (event) => {
-    //this.setState({
-    //  cellsSelected: !this.state.cellsSelected
-    //})
     this.props.selectAssetAction(this.props.asset)
   }
 
@@ -94,27 +68,14 @@ class TradeTableRow extends React.Component{
   }
 
   render(){
-  //  console.log("render trade table row");
-
-
-    const textStyle = {
-      textAlign: "center",
-
-    }
-
-
-
-    //console.log("trade table row",this.props);
-
-      return(
-        <Table.Row active={this.state.cellsSelected} onClick={this.handleClick}>
-          <Table.Cell style={textStyle}>{this.props.asset.symbol}</Table.Cell>
-          <Table.Cell style={textStyle}>{this.props.asset.name}</Table.Cell>
-          <Table.Cell positive={this.state.positiveChange} negative={this.state.negativeChange} style={textStyle}>{this.props.asset.livePrice}</Table.Cell>
-          <Table.Cell style={textStyle} >{(this.calcPercentChange()*100).toLocaleString()}%</Table.Cell>
-          </Table.Row>
-
-        )
+    return(
+      <Table.Row active={this.state.cellsSelected} onClick={this.handleClick}>
+        <Table.Cell>{this.props.asset.symbol}</Table.Cell>
+        <Table.Cell>{this.props.asset.name}</Table.Cell>
+        <Table.Cell positive={this.state.positiveChange} negative={this.state.negativeChange}>{this.props.asset.livePrice}</Table.Cell>
+        <Table.Cell >{(this.calcPercentChange()*100).toLocaleString()}%</Table.Cell>
+      </Table.Row>
+      )
     }
   }
 
