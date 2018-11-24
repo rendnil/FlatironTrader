@@ -7,29 +7,11 @@ import ChartBuilder from "../parsers/ChartBuilder"
 import MarketDataTicker from "./MarketData/MarketDataTicker"
 import withAuth from "../hocs/withAuth"
 
-const startDateCode = 1483315200 ///Jan 1 2017
-
-
-class ChartPage extends React.Component{
-
-  state = {
-    rawData:[ ],
-    dataLabels: [],
-    dataValues: [ ]
-  }
-
-    componentDidMount(){
-
-    }
-
-
-
+const ChartPage = (props) =>{
 
     ///need to make sure everything is loaded
-  render(){
-    if (this.props.bchHistoricalData&&this.props.btcHistoricalData&&this.props.ltcHistoricalData&&this.props.ethHistoricalData&&this.props.xrpHistoricalData){
-    
 
+    if (props.bchHistoricalData&&props.btcHistoricalData&&props.ltcHistoricalData&&props.ethHistoricalData&&props.xrpHistoricalData){
 
     return(
       <Container>
@@ -40,13 +22,13 @@ class ChartPage extends React.Component{
 
             <Grid.Column>
             <Segment textAlign="center">
-              {<Line data={ChartBuilder.constructChartObj(this.props.btcHistoricalData,"Bitcoin",'deepskyblue')} />}
+              {<Line data={ChartBuilder.constructChartObj(props.btcHistoricalData,"Bitcoin",'deepskyblue')} />}
             </Segment>
             </Grid.Column>
 
             <Grid.Column>
             <Segment>
-              {<Line data={ChartBuilder.constructChartObj(this.props.ethHistoricalData,"Ethereum",'violet')} />}
+              {<Line data={ChartBuilder.constructChartObj(props.ethHistoricalData,"Ethereum",'violet')} />}
             </Segment>
             </Grid.Column>
           </Grid.Row>
@@ -54,17 +36,17 @@ class ChartPage extends React.Component{
         <Grid.Row columns={3}>
           <Grid.Column>
           <Segment>
-            {<Line data={ChartBuilder.constructChartObj(this.props.bchHistoricalData,"Bitcoin Cash",'goldenrod')} />}
+            {<Line data={ChartBuilder.constructChartObj(props.bchHistoricalData,"Bitcoin Cash",'goldenrod')} />}
           </Segment>
           </Grid.Column>
           <Grid.Column>
           <Segment>
-            {<Line data={ChartBuilder.constructChartObj(this.props.ltcHistoricalData,"Litecoin",'palegreen')} />}
+            {<Line data={ChartBuilder.constructChartObj(props.ltcHistoricalData,"Litecoin",'palegreen')} />}
           </Segment>
           </Grid.Column>
           <Grid.Column>
           <Segment>
-            {<Line data={ChartBuilder.constructChartObj(this.props.xrpHistoricalData,"Ripple",'rgba(75,192,192,1)')} />}
+            {<Line data={ChartBuilder.constructChartObj(props.xrpHistoricalData,"Ripple",'rgba(75,192,192,1)')} />}
           </Segment>
           </Grid.Column>
         </Grid.Row>
@@ -74,8 +56,8 @@ class ChartPage extends React.Component{
   }
   else{
     return null
-}
-}
+  }
+
 }
 
 const mapStateToProps = (state) => {
