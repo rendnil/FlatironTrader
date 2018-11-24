@@ -1,5 +1,5 @@
 import React from "react"
-import {List, Grid} from "semantic-ui-react"
+import {Grid} from "semantic-ui-react"
 import MarketDataTickerDetail from "./MarketDataTickerDetail"
 import { connect } from 'react-redux'
 

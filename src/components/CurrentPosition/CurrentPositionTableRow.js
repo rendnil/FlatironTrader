@@ -1,7 +1,5 @@
 import React from "react"
-import {Container, Table} from "semantic-ui-react"
-
-import {selectAssetAction} from "../../redux/actions/selectAssetAction"
+import {Table} from "semantic-ui-react"
 
 const CurrentPositionTableRow = (props) =>{
 

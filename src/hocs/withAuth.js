@@ -1,11 +1,7 @@
-
-
 import React from "react"
-
 import {connect} from "react-redux"
 import {Redirect} from "react-router"
 import {Loader} from "semantic-ui-react"
-
 import { fetchCurrentUser } from '../redux/actions/authUsersActions'
 
 
@@ -30,7 +26,7 @@ const withAuth = (WrappedComponent) => {
 
         }else{
             //not authorized
-            //redirect to the login route 
+            //redirect to the login route
              return <Redirect to ="/login" />
         }
       }

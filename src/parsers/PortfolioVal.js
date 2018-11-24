@@ -51,8 +51,4 @@ export default class PortfolioVal {
       return user2.pnl - user1.pnl
     })
   }
-
-
-
-
 }// end class

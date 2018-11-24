@@ -1,5 +1,5 @@
 import React from "react"
-import {Container, Form, Button, Icon, Message, Popup} from "semantic-ui-react"
+import {Container, Form, Button, Message, Popup} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import {createNewTrade} from "../../redux/actions/createTradeAction"
 

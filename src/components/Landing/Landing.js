@@ -1,10 +1,10 @@
 import React from "react"
 import Login from "./Login"
 import SignUp from "./SignUp"
-import {Grid, Container, Segment, Header, Icon} from "semantic-ui-react"
+import {Grid, Container, Header, Icon} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
-import withAuth from '../../hocs/withAuth'
+
 
 
 const Landing = (props) =>{

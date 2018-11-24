@@ -1,7 +1,4 @@
-
-const HISTORICAL_PRICE_DATA_ENDPOINT = "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&allData=true"
 const DATA_LIMIT = 500
-
 const BASE_MARKET_DATA_ENDPOINT = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BCH,LTC,XRP&tsyms=USD"
 
 export default class CryptoDataAdapter{

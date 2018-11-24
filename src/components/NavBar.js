@@ -1,6 +1,6 @@
 import React from "react"
 import {NavLink } from 'react-router-dom';
-import {Container, Header, Menu, Icon, Image, Button} from "semantic-ui-react"
+import {Menu, Icon, Button} from "semantic-ui-react"
 import { connect } from 'react-redux'
 import {signOut} from "../redux/actions/signOutAction"
 import withAuth from "../hocs/withAuth"
@@ -11,72 +11,58 @@ const NavBar = (props) => {
     props.signOut()
   }
 
-
   return(
-    <div>
     <Menu>
-
       <Menu.Item header>
         <Icon name="btc" size="large" color="teal" style={{ marginRight: '1.5em' }} />
         <NavLink to = "/">
-
         Flatiron Trader
         </NavLink>
        </Menu.Item>
 
-    <Menu.Item>
-      <NavLink  to = "/"
-      style={{textDecoration: "none"}}>
-      News
-      </NavLink>
-    </Menu.Item>
+      <Menu.Item>
+        <NavLink  to = "/"
+        style={{textDecoration: "none"}}>
+        News
+        </NavLink>
+      </Menu.Item>
 
-    <Menu.Item>
-      <NavLink  to = "/charts"
-      style={{textDecoration: "none"}}>
-      Charts
-      </NavLink>
-    </Menu.Item>
+      <Menu.Item>
+        <NavLink  to = "/charts"
+        style={{textDecoration: "none"}}>
+        Charts
+        </NavLink>
+      </Menu.Item>
 
-    <Menu.Item>
-      <NavLink  to = "/trade"
-      style={{textDecoration: "none"}}>
-      Trade
-      </NavLink>
-    </Menu.Item>
+      <Menu.Item>
+        <NavLink  to = "/trade"
+        style={{textDecoration: "none"}}>
+        Trade
+        </NavLink>
+      </Menu.Item>
 
-    <Menu.Item>
-      <NavLink to = "/portfolio">
-      Portfolio
-      </NavLink>
-    </Menu.Item>
+      <Menu.Item>
+        <NavLink to = "/portfolio">
+        Portfolio
+        </NavLink>
+      </Menu.Item>
 
-    <Menu.Item>
-      <NavLink to = "/leaderboard">
-      Leaderboard
-      </NavLink>
-    </Menu.Item>
+      <Menu.Item>
+        <NavLink to = "/leaderboard">
+        Leaderboard
+        </NavLink>
+      </Menu.Item>
 
-    <Menu.Menu position='right'>
-        <Menu.Item>
-          <Button size="tiny" onClick={handleSignOut} basic color="orange">
-            <Icon name="sign out" />
-          Sign Out
-          </Button>
-        </Menu.Item>
-    </Menu.Menu>
-
-
-
-
-
-
-
-      </Menu>
-    </div>
+      <Menu.Menu position='right'>
+          <Menu.Item>
+            <Button size="tiny" onClick={handleSignOut} basic color="orange">
+              <Icon name="sign out" />
+            Sign Out
+            </Button>
+          </Menu.Item>
+      </Menu.Menu>
+    </Menu>
   )
-
-
 }
 
 const mapDispatchToProps = (dispatch) => {

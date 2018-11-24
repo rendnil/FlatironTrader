@@ -5,10 +5,6 @@ import LastTradeTableRow from "./LastTradeTableRow"
 
 const LastTradeContainer = (props) =>{
 
-  const determineBuyOrSell = (trade) =>{
-    return trade.buy? "Buy":"Sell"
-  }
-
   const headerStyle = {
     textAlign: "center"
   }

@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
-import {Container, List, Image, Header, Icon} from "semantic-ui-react"
+import {List} from "semantic-ui-react"
 import NewsPageListRow from "./NewsPageListRow"
 import {fetchNews} from "../../redux/actions/newsAction"
 

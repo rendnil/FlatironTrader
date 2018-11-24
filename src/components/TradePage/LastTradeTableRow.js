@@ -1,5 +1,5 @@
 import React from "react"
-import {Container, Table} from "semantic-ui-react"
+import {Table} from "semantic-ui-react"
 
 const LastTradeTableRow = ({trade}) =>{
 

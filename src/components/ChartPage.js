@@ -1,6 +1,6 @@
 import React from "react"
 import {Line} from 'react-chartjs-2';
-import {Header, Grid, Container,Segment} from 'semantic-ui-react'
+import {Grid, Container,Segment} from 'semantic-ui-react'
 import {fetchHistoricalData} from "../redux/actions/historicalDataAction"
 import { connect } from 'react-redux'
 import ChartBuilder from "../parsers/ChartBuilder"
@@ -16,38 +16,37 @@ const ChartPage = (props) =>{
     return(
       <Container>
         <MarketDataTicker />
+
         <Grid>
           <Grid.Row columns={2}>
-
-
             <Grid.Column>
-            <Segment textAlign="center">
-              {<Line data={ChartBuilder.constructChartObj(props.btcHistoricalData,"Bitcoin",'deepskyblue')} />}
-            </Segment>
+              <Segment textAlign="center">
+                {<Line data={ChartBuilder.constructChartObj(props.btcHistoricalData,"Bitcoin",'deepskyblue')} />}
+              </Segment>
             </Grid.Column>
 
             <Grid.Column>
-            <Segment>
-              {<Line data={ChartBuilder.constructChartObj(props.ethHistoricalData,"Ethereum",'violet')} />}
-            </Segment>
+              <Segment>
+                {<Line data={ChartBuilder.constructChartObj(props.ethHistoricalData,"Ethereum",'violet')} />}
+              </Segment>
             </Grid.Column>
           </Grid.Row>
 
         <Grid.Row columns={3}>
           <Grid.Column>
-          <Segment>
-            {<Line data={ChartBuilder.constructChartObj(props.bchHistoricalData,"Bitcoin Cash",'goldenrod')} />}
-          </Segment>
+            <Segment>
+              {<Line data={ChartBuilder.constructChartObj(props.bchHistoricalData,"Bitcoin Cash",'goldenrod')} />}
+            </Segment>
           </Grid.Column>
           <Grid.Column>
-          <Segment>
-            {<Line data={ChartBuilder.constructChartObj(props.ltcHistoricalData,"Litecoin",'palegreen')} />}
-          </Segment>
+            <Segment>
+              {<Line data={ChartBuilder.constructChartObj(props.ltcHistoricalData,"Litecoin",'palegreen')} />}
+            </Segment>
           </Grid.Column>
           <Grid.Column>
-          <Segment>
-            {<Line data={ChartBuilder.constructChartObj(props.xrpHistoricalData,"Ripple",'rgba(75,192,192,1)')} />}
-          </Segment>
+            <Segment>
+              {<Line data={ChartBuilder.constructChartObj(props.xrpHistoricalData,"Ripple",'rgba(75,192,192,1)')} />}
+            </Segment>
           </Grid.Column>
         </Grid.Row>
       </Grid>
