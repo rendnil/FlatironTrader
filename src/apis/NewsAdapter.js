@@ -1,3 +1,5 @@
+//adapter for fetching the latest cryptocurrency news articles 
+
 const MARKET_NEWS_ENDPOINT = "https://min-api.cryptocompare.com/data/v2/news/?lang=EN"
 
 

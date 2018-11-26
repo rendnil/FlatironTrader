@@ -1,3 +1,5 @@
+//adapter to post new trades to db 
+
 const CREATE_TRADE_API_ENDPOINT = "http://localhost:3001/api/v1/trades"
 
 export default class createTradeAdapter{
