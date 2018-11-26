@@ -37,9 +37,7 @@ const LeaderboardList = (props) => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-
     )
-
 }
 
 const mapStateToProps = (state) => {

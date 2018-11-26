@@ -52,8 +52,9 @@ class MarketDataTickerDetail extends React.Component{
         <Segment>
           <Statistic color={this.state.dataColor} size="mini">
             <Statistic.Label>{this.props.asset.symbol}</Statistic.Label>
-
-            <Statistic.Value>{(this.props.asset.livePrice).toLocaleString("en", {maximumFractionDigits: 2})}</Statistic.Value>
+            <Statistic.Value>
+              {(this.props.asset.livePrice).toLocaleString("en", {maximumFractionDigits: 2})}
+            </Statistic.Value>
           </Statistic>
         </Segment>
       </Grid.Column>

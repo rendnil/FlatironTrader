@@ -1,12 +1,12 @@
+//component for fetching market data
+//this component does not render anything
+
 import React from "react"
-
 import {fetchHistoricalData} from "../../redux/actions/historicalDataAction"
-
 import { connect } from 'react-redux'
 import {fetchMarketData} from "../../redux/actions/marketDataAction"
 import {fetchBaseMarketData} from "../../redux/actions/baseMarketDataAction"
 import {fetchUsers} from "../../redux/actions/usersAction"
-
 import SocketAdapter from "../../apis/SocketAdapter"
 
 
@@ -17,6 +17,7 @@ class MarketData extends React.Component {
     this.socket = null
   }
 
+  //dispatch the message when the socket sends over an updated price
   handleMessage = (message)=>{
     this.props.fetchMarketData(message)
   }
@@ -43,6 +44,7 @@ class MarketData extends React.Component {
 
   render(){
 
+    //don't display anything
     return(
       <React.Fragment>
       </React.Fragment>

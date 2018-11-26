@@ -1,3 +1,5 @@
+//component for displaying the market data tickers 
+
 import React from "react"
 import {Grid} from "semantic-ui-react"
 import MarketDataTickerDetail from "./MarketDataTickerDetail"
