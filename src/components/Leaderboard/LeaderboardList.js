@@ -1,3 +1,5 @@
+//table for leaderboard
+
 import React from "react"
 import {Table, Grid, Icon} from "semantic-ui-react"
 import LeaderboardListRow from "./LeaderboardListRow"
@@ -12,14 +14,18 @@ const LeaderboardList = (props) => {
           <Grid.Column width={10}>
             <Table compact="very" celled textAlign='center'>
 
+            {/* table headers*/}
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Rank</Table.HeaderCell>
-                  <Table.HeaderCell><Icon fitted color= "violet" name="user circle" size="large"/></Table.HeaderCell>
-                  <Table.HeaderCell>Portfolio Value</Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <Icon fitted color= "violet" name="user circle" size="large"/>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>PnL</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
 
+              {/* sort the users by pnl is descending order*/}
                 <Table.Body>
                   {PortfolioVal.sortUsersByPnL(props.users, props.marketData).map((user, idx)=>{
                     return (
