@@ -1,3 +1,5 @@
+//current position table format
+
 import React from "react"
 import {Table, Header, Label} from "semantic-ui-react"
 import CurrentPositionTableRow from "./CurrentPositionTableRow"
@@ -6,6 +8,7 @@ import PortfolioVal from "../../parsers/PortfolioVal"
 
 const CurrentPositionTable = (props) =>{
 
+  //calculate the pnl for the entire portfolio of user trades
   const calcPortfolioPnL = () => {
     return PortfolioVal.calcPortfolioPnL(props.trades, props.marketData)
   }
@@ -17,8 +20,10 @@ const CurrentPositionTable = (props) =>{
 
       return(
           <React.Fragment>
+
             <Header floated="left"as="h2"  >Outright Position</Header>
 
+            {/* display the pnl for the portfolio */}
             <Header floated="right" as = "h2" textAlign="right" >
             PnL:
               <Label size="big" color='blue' >
@@ -26,12 +31,13 @@ const CurrentPositionTable = (props) =>{
               </Label>
             </Header>
 
-            <Table celled compact="very" >
+            {/*table to house position rows */}
+            <Table style={headerStyle} celled compact="very" >
               <Table.Header >
 
                 <Table.Row >
-                  <Table.HeaderCell style={headerStyle}>Symbol</Table.HeaderCell>
-                  <Table.HeaderCell style={headerStyle}>Net Position</Table.HeaderCell>
+                  <Table.HeaderCell>Symbol</Table.HeaderCell>
+                  <Table.HeaderCell>Net Position</Table.HeaderCell>
 
                 </Table.Row>
               </Table.Header>

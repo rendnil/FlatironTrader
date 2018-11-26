@@ -1,3 +1,5 @@
+//component to display a user's current positions 
+
 import React from "react"
 import { connect } from 'react-redux'
 import {Segment} from "semantic-ui-react"
