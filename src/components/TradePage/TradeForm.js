@@ -1,3 +1,5 @@
+//component for the trading form
+
 import React from "react"
 import {Container, Form, Button, Message, Popup} from "semantic-ui-react"
 import { connect } from 'react-redux'
@@ -17,7 +19,7 @@ class TradeForm extends React.Component{
   }
 
   //check to see if a trade has been executed and is in the messages
-  //this will display the successful trade message then remove the message from view after time out 
+  //this will display the successful trade message then remove the message from view after time out
   componentDidUpdate(previousProps){
     if(previousProps.messages !== this.props.messages){
       this.setState({

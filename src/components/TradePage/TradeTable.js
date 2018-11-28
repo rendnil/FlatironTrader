@@ -1,3 +1,5 @@
+//component for the table of assets w/ prices
+
 import React from "react"
 import {Container, Table} from "semantic-ui-react"
 import TradeTableRow from "./TradeTableRow"
@@ -5,13 +7,10 @@ import TradeTableRow from "./TradeTableRow"
 
 const TradeTable = (props) =>{
 
-  const headerStyle = {
-    textAlign: "center"
-  }
-
+  //render table w/ headers
   return(
     <Container>
-      <Table celled selectable style={headerStyle}>
+      <Table celled selectable textAlign="center">
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Symbol</Table.HeaderCell>

@@ -13,10 +13,6 @@ const CurrentPositionTable = (props) =>{
     return PortfolioVal.calcPortfolioPnL(props.trades, props.marketData)
   }
 
-  const headerStyle = {
-      textAlign: "center"
-  }
-
 
       return(
           <React.Fragment>
@@ -32,7 +28,7 @@ const CurrentPositionTable = (props) =>{
             </Header>
 
             {/*table to house position rows */}
-            <Table style={headerStyle} celled compact="very" >
+            <Table textAlign="center" celled compact="very" >
               <Table.Header >
 
                 <Table.Row >

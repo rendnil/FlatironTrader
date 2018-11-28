@@ -1,3 +1,5 @@
+//component for the trading page
+
 import React from "react"
 import TradeTable from "./TradeTable"
 import TradeForm from "./TradeForm"
@@ -27,6 +29,6 @@ const mapStateToProps = (state) => {
           marketData: state.marketData,
           baseMarketData: state.baseMarketData
           }
-}
+  }
 
 export default withAuth(connect(mapStateToProps)(TradePage))

@@ -7,16 +7,12 @@ import LastTradeTableRow from "./LastTradeTableRow"
 
 const LastTradeContainer = ({newTrades}) =>{
 
-  const headerStyle = {
-    textAlign: "center"
-  }
-
     if (newTrades.length >0){
       //generate the table for latest trades w/headers
       return(
         <Segment>
           <Header as="h2">Recent Trades</Header>
-          <Table style={headerStyle} compact="very" selectable>
+          <Table textAlign="center" compact="very" selectable>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Symbol</Table.HeaderCell>

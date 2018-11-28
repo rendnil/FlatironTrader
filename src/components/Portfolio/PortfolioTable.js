@@ -21,17 +21,13 @@ const PortfolioTable = (props) =>{
     return PortfolioVal.calcTradeLevelPnL(sortByDate(trades), marketData)
   }
 
-  const headerStyle = {
-      textAlign: "center"
-    }
-
     //render the table and headers
     return(
       <div>
         <Container>
           <Segment>
           <Header as="h2" >All Trades </Header>
-            <Table compact="very" selectable style={headerStyle}>
+            <Table textAlign="center" compact="very" selectable>
 
               <Table.Header>
                 <Table.Row>

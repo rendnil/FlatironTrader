@@ -1,3 +1,5 @@
+//component for each asset in the table
+
 import React from "react"
 import {Table} from "semantic-ui-react"
 import { connect } from 'react-redux'
@@ -19,19 +21,15 @@ class TradeTableRow extends React.Component{
 
   componentDidUpdate(previousProps){
     ///check for price changes and make the cell active
+
+    //if the price has increased show green cell
     if (previousProps.asset.livePrice < this.props.asset.livePrice){
-
-      this.setState({
-        positiveChange: true
-      })
-
+      this.setState({positiveChange: true})
       this.revertColor()
 
-
+    //if the price has decreased show red cell
     }else if (previousProps.asset.livePrice > this.props.asset.livePrice) {
-      this.setState({
-        negativeChange: true
-      })
+      this.setState({negativeChange: true})
     this.revertColor()
 
     }
@@ -43,6 +41,7 @@ class TradeTableRow extends React.Component{
 
   }
 
+  //revert the color of the price cell on timeout
   revertColor(){
     this.interval = setTimeout(()=>this.setState({
       positiveChange: false,
@@ -50,19 +49,24 @@ class TradeTableRow extends React.Component{
     }),3000)
   }
 
+  //when a user selects an asset from the table
   handleClick = (event) => {
     this.props.selectAssetAction(this.props.asset)
   }
 
+  //determine the percent change in the price on the day
   calcPercentChange(){
 
     if(this.props.baseMarketData.length>0){
+      //find the right base asset data for this symbol
       let baseAssetData = this.props.baseMarketData.find((data)=>{
-
         return data.symbol === this.props.asset.symbol
       })
 
+      //calculate percentage change
       let percentChange = (this.props.asset.livePrice-baseAssetData.open24hours)/baseAssetData.open24hours
+
+      //return formatted change
       return percentChange.toFixed(4)
     }
   }
