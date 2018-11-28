@@ -16,6 +16,8 @@ class TradeForm extends React.Component{
     newTrade:false
   }
 
+  //check to see if a trade has been executed and is in the messages
+  //this will display the successful trade message then remove the message from view after time out 
   componentDidUpdate(previousProps){
     if(previousProps.messages !== this.props.messages){
       this.setState({
@@ -24,7 +26,7 @@ class TradeForm extends React.Component{
     }
   }
 
-
+  //handle user changing the quantity in the form
   handleQuantityChange = (event) => {
     this.setState({
       quantity: event.target.value
@@ -32,9 +34,10 @@ class TradeForm extends React.Component{
   }
 
 
-
+  //user executes a buy
   handleBuy =  () => {
     //userId, symbol, buy, price, quantity
+    //check that there is actual pricing data
     if (this.props.selectedAsset.livePrice !== "Loading"){
     this.props.createNewTrade(this.props.currentUser.id,
           this.props.selectedAsset.symbol, true, this.props.selectedAsset.livePrice, parseFloat(this.state.quantity))
@@ -42,14 +45,17 @@ class TradeForm extends React.Component{
     this.setState({quantity:1})
   }
 
+  //user executes a sell
   handleSell =  () => {
     //userId, symbol, buy, price, quantity
+    //check that there is actual pricing data
     if (this.props.selectedAsset.livePrice !== "Loading"){
     this.props.createNewTrade(this.props.currentUser.id,
       this.props.selectedAsset.symbol, false, this.props.selectedAsset.livePrice, this.state.quantity)
     }
   }
 
+  //display message after trade is executed
   renderTradeMessage = () => {
     let direction
     if (this.props.messages.buy) {
@@ -58,6 +64,7 @@ class TradeForm extends React.Component{
       direction = "Sell"
     }
 
+    //message to be displayed
     return(
       <Message positive>
         <Message.Header>Executed Trade</Message.Header>
@@ -66,6 +73,7 @@ class TradeForm extends React.Component{
     )
   }
 
+  //display the trading instructions
   instructionsRender(){
     return(
       <Message warning>
@@ -79,9 +87,10 @@ class TradeForm extends React.Component{
     )
   }
 
+  //the blank form that the user sees before an asset is selected
+  //no event listeners
   blankFormRender(){
     return(
-
       <Form.Group>
         <Form.Input label='Asset Name' value='Select Asset' width={4} />
         <Form.Input type="number"label='Quantity' value={1}  width={4} />
@@ -93,6 +102,7 @@ class TradeForm extends React.Component{
     )
   }
 
+  //the activated form that a user views after selecting an asset
   selectedAssetFormRender(){
     return(
       <Form.Group>
@@ -107,18 +117,25 @@ class TradeForm extends React.Component{
   }
 
 
-
+  //full rendering for this component
   render(){
 
     return(
       <Container>
+          {/*render the initial trading instructions if the user has not selected an asset ever */}
           {this.props.selectedAsset? null: this.instructionsRender()}
         <Form>
+          {/*render the blank trading form if the user has not selected an asset */}
           {this.props.selectedAsset? this.selectedAssetFormRender(): this.blankFormRender()}
         </Form>
 
+        {/*render the error message if the trade was not executed*/}
         {this.props.errors? <Message error>{this.props.errors}</Message>: null}
+
+        {/*render the successful trade message if trade was executed properly */}
         {this.state.newTrade? this.renderTradeMessage(): null}
+
+        {/*render the instruction pop up if the user has selected an asset before */}
         {this.props.selectedAsset? <Popup trigger={<Button color="orange" icon='question' />} content={this.instructionsRender()} />: null}
       </Container>
     )
@@ -126,11 +143,12 @@ class TradeForm extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-  return {selectedAsset: state.selectedAsset,
-  currentUser:state.authUser.user,
-  errors: state.errors.errors,
-  messages: state.messages
-}
+  return {
+    selectedAsset: state.selectedAsset,
+    currentUser:state.authUser.user,
+    errors: state.errors.errors,
+    messages: state.messages
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -1,3 +1,5 @@
+//component for each row of latest trade table 
+
 import React from "react"
 import {Table} from "semantic-ui-react"
 

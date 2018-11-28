@@ -1,16 +1,18 @@
+//generate list of latest trades for the session
+
 import React from "react"
 import { connect } from 'react-redux'
 import {Table, Segment, Header} from "semantic-ui-react"
 import LastTradeTableRow from "./LastTradeTableRow"
 
-const LastTradeContainer = (props) =>{
+const LastTradeContainer = ({newTrades}) =>{
 
   const headerStyle = {
     textAlign: "center"
   }
 
-    if (props.newTrades.length >0){
-
+    if (newTrades.length >0){
+      //generate the table for latest trades w/headers
       return(
         <Segment>
           <Header as="h2">Recent Trades</Header>
@@ -26,9 +28,9 @@ const LastTradeContainer = (props) =>{
             </Table.Header>
 
             <Table.Body>
-            {props.newTrades.reverse().map((trade,idx)=>{
-              return <LastTradeTableRow key={idx} trade={trade}/>
-            })}
+              {newTrades.reverse().map((trade,idx)=>{
+                return <LastTradeTableRow key={idx} trade={trade}/>
+              })}
             </Table.Body>
           </Table>
         </Segment>
