@@ -1,10 +1,11 @@
 ///class used to value portfolio
-
+//PnL = (change in price) * quantity
 
 export default class PortfolioVal {
 
 
 ///calculate the pnl for each trade
+//used as a helper function throughout the class methods
   static calcTradeLevelPnL(trades, marketData){
     let pnl
     let tradesWithPnL = []
@@ -20,6 +21,8 @@ export default class PortfolioVal {
           }else{
             pnl = (asset.livePrice - trade.price)*(-trade.quantity)
           }
+          //add the updated trade object to the array
+          //now the pnl attribute for that trade object has been updated
           tradesWithPnL.push({...trade, pnl:pnl})
         }
       })
@@ -29,6 +32,7 @@ export default class PortfolioVal {
   }
 //calculate the pnl for the entire portfolio
   static calcPortfolioPnL(trades, marketData){
+    //check that there are trades
     if (this.calcTradeLevelPnL(trades, marketData)){
 
     //sum the pnls for each trade
@@ -39,6 +43,7 @@ export default class PortfolioVal {
   }
 
   //get all user objects with pnl attribute
+  //updates the pnl attribute for the user objects 
   static getAllUsersWithPnL(users, marketData){
     return users.map((user)=>{
       return  {...user, pnl:this.calcPortfolioPnL(user.trades, marketData)}
