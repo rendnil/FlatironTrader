@@ -12,7 +12,10 @@ export default function (state = defaultState, action){
 
 
   switch(action.type){
-
+    //for each of the cases:
+    //iterate through the state and update only the livePrice for
+    //the appropriate asset
+    //return a new state array with updated price
     case "BITCOIN_PRICE_UPDATE":
        return state.map((asset)=>{
          if (asset.symbol === "BTC"){

@@ -1,3 +1,5 @@
+
+
 import CryptoDataAdapter from "../../apis/CryptoDataAdapter"
 
 export function fetchBaseMarketData(symbol){
