@@ -1,4 +1,4 @@
-//component for displaying the market data tickers 
+//component for displaying the market data tickers
 
 import React from "react"
 import {Grid} from "semantic-ui-react"
@@ -8,12 +8,14 @@ import { connect } from 'react-redux'
 
 const MarketDataTicker = (props) =>{
 
+  //method to generate the initial market prices for the start of day
   const getBaseMarketData = (asset) =>{
     return props.baseMarketData.find((data)=>{
       return data.symbol === asset.symbol
     })
   }
 
+  //generate the row of tickers
     return(
       <Grid textAlign="center">
         <Grid.Row columns={5}>

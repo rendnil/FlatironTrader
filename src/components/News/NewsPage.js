@@ -1,3 +1,5 @@
+//component for news page 
+
 import React from "react"
 import NewsPageList from "./NewsPageList"
 import {Container} from "semantic-ui-react"

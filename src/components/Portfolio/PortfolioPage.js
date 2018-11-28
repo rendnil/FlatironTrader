@@ -1,3 +1,5 @@
+//component for the portfolio page of application
+
 import React from "react"
 import CurrentPosition from "../CurrentPosition/CurrentPosition"
 import PortfolioTable from "./PortfolioTable"

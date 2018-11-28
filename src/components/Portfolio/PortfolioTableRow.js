@@ -1,3 +1,5 @@
+//component for each row in the portfolio table
+
 import React from "react"
 import {Table} from "semantic-ui-react"
 import DateBuilder from "../../parsers/DateBuilder"
@@ -5,14 +7,17 @@ import DateBuilder from "../../parsers/DateBuilder"
 
 const PortfolioTableRow = ({trade}) =>{
 
+  //determine whether trade was a buy/sell
   const determineBuyOrSell = (trade) =>{
     return trade.buy? "Buy" : "Sell"
   }
 
+  //transform the date to readable format
   const dateFormat = (rawDate) => {
     return DateBuilder.dateFormat(Date.parse(rawDate))
   }
 
+  //transform the time to readable format 
   const timeFormat = (rawDate) =>{
     return DateBuilder.timeFormat(Date.parse(rawDate))
   }

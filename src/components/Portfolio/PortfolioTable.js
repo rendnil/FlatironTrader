@@ -1,3 +1,5 @@
+//component to display the full list of user trades
+
 import React from "react"
 import { connect } from 'react-redux'
 import {Container, Table, Segment, Header} from "semantic-ui-react"
@@ -7,12 +9,14 @@ import PortfolioTableRow from "./PortfolioTableRow"
 
 const PortfolioTable = (props) =>{
 
+  //sort the trades with latest first
   const sortByDate = (trades) =>{
     return trades.sort((t1, t2)=>{
       return Date.parse(t2.created_at)-Date.parse(t1.created_at)
     })
   }
 
+//calculate the profit/loss for each individual trade
   const calcTradePnL = (trades, marketData) =>{
     return PortfolioVal.calcTradeLevelPnL(sortByDate(trades), marketData)
   }
@@ -21,6 +25,7 @@ const PortfolioTable = (props) =>{
       textAlign: "center"
     }
 
+    //render the table and headers
     return(
       <div>
         <Container>
@@ -42,12 +47,12 @@ const PortfolioTable = (props) =>{
               </Table.Header>
 
               <Table.Body>
-              {calcTradePnL(props.userTrades, props.marketData).map((trade, idx)=> {
-                return <PortfolioTableRow
-                key={idx}
-                trade = {trade} />
-                })
-              }
+                {calcTradePnL(props.userTrades, props.marketData).map((trade, idx)=> {
+                  return <PortfolioTableRow
+                  key={idx}
+                  trade = {trade} />
+                  })
+                }
               </Table.Body>
             </Table>
           </Segment>

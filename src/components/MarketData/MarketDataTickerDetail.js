@@ -37,6 +37,7 @@ class MarketDataTickerDetail extends React.Component{
 
   }
 
+  //revert color back to black 
   revertColor(){
     this.interval = setTimeout(()=>this.setState({
       dataColor: "black"

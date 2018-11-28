@@ -1,5 +1,6 @@
-import React from "react"
+//component for individual news article
 
+import React from "react"
 import {Segment, List, Image} from "semantic-ui-react"
 
 
@@ -10,6 +11,7 @@ import {Segment, List, Image} from "semantic-ui-react"
       return article.replace(/&#8217;|[&#8230;]/g, "")
     }
 
+    //rendering different portions of the news article 
     return(
         <List.Item>
           <Segment >
