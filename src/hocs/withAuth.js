@@ -8,8 +8,9 @@ import { fetchCurrentUser } from '../redux/actions/authUsersActions'
 const withAuth = (WrappedComponent) => {
 
   class AuthorizedComponent extends React.Component{
+
+    //check if there's a token, if so then see who the user is
       componentDidMount(){
-        //if we get a token, see who the user is
         if (localStorage.getItem('jwt') && !this.props.loggedIn){
           this.props.fetchCurrentUser()
         }
@@ -20,13 +21,14 @@ const withAuth = (WrappedComponent) => {
         if (localStorage.getItem('jwt') && this.props.loggedIn) {
            return <WrappedComponent />
 
+        //display the loader if the user has a token, but is still being authenticated
         }else if (localStorage.getItem('jwt') && this.props.authenticatingUser) {
 
           return <Loader active inline="centered" />
 
+          //not authorized
+          //redirect to the login route
         }else{
-            //not authorized
-            //redirect to the login route
              return <Redirect to ="/login" />
         }
       }

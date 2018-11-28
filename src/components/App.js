@@ -10,7 +10,7 @@ import Landing from "./Landing/Landing"
 
 class App extends React.Component {
 
-
+  //router to show the different pages
   render(){
     return(
       <div>
@@ -30,9 +30,5 @@ class App extends React.Component {
     )
   }
 }
-
-
-
-
 
 export default (App)

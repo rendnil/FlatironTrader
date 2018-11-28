@@ -1,3 +1,5 @@
+//component for the charting page
+
 import React from "react"
 import {Line} from 'react-chartjs-2';
 import {Grid, Container,Segment} from 'semantic-ui-react'
@@ -13,6 +15,7 @@ const ChartPage = (props) =>{
 
     if (props.bchHistoricalData&&props.btcHistoricalData&&props.ltcHistoricalData&&props.ethHistoricalData&&props.xrpHistoricalData){
 
+    //generate the different charts
     return(
       <Container>
         <MarketDataTicker />

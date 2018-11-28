@@ -71,6 +71,7 @@ class TradeTableRow extends React.Component{
     }
   }
 
+  //render row
   render(){
     return(
       <Table.Row active={this.state.cellsSelected} onClick={this.handleClick}>
@@ -90,7 +91,5 @@ class TradeTableRow extends React.Component{
       }
     }
   }
-
-
 
 export default connect(null, mapDispatchToProps)(TradeTableRow)
