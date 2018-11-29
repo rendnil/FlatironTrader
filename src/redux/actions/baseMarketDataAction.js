@@ -1,5 +1,3 @@
-
-
 import CryptoDataAdapter from "../../apis/CryptoDataAdapter"
 
 export function fetchBaseMarketData(symbol){
@@ -13,7 +11,6 @@ export function fetchBaseMarketData(symbol){
      .then(data => {
 
        dispatch({type: `FETCH_BASE_MARKET_DATA`,
-
                 payload: data.RAW})
      })
   }
