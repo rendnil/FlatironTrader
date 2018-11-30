@@ -22,7 +22,6 @@ export default function (state = defaultState, action){
     case "ETHEREUM_PRICE_UPDATE":
       return createUpdatedPriceState(state, action, "ETH")
 
-
     case "BITCOINCASH_PRICE_UPDATE":
       return createUpdatedPriceState(state, action, "BCH")
 
