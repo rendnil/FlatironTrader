@@ -16,7 +16,7 @@ const TradeTable = (props) =>{
             <Table.HeaderCell>Symbol</Table.HeaderCell>
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Price (USD)</Table.HeaderCell>
-            <Table.HeaderCell>% Change</Table.HeaderCell>
+            <Table.HeaderCell>% Change (24hr)</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

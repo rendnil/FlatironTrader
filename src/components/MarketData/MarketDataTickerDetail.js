@@ -15,19 +15,12 @@ class MarketDataTickerDetail extends React.Component{
   componentDidUpdate(previousProps){
     ///check for price changes and make the cell active
     if (previousProps.asset.livePrice < this.props.asset.livePrice){
-      this.setState({
-        dataColor: "green"
-      })
-
+      this.setState({dataColor: "green"})
       this.revertColor()
 
-
     }else if (previousProps.asset.livePrice > this.props.asset.livePrice) {
-      this.setState({
-        dataColor: "red"
-      })
-    this.revertColor()
-
+      this.setState({dataColor: "red"})
+      this.revertColor()
     }
   }
 
@@ -37,14 +30,11 @@ class MarketDataTickerDetail extends React.Component{
 
   }
 
-  //revert color back to black 
+
+  //revert color back to black
   revertColor(){
-    this.interval = setTimeout(()=>this.setState({
-      dataColor: "black"
-    }),4000)
+    this.interval = setTimeout(()=>this.setState({dataColor: "black"}),4000)
   }
-
-
 
   render(){
 
