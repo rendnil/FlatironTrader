@@ -1,5 +1,5 @@
+//action creator for fetching current crypto market news
 import NewsAdapter from "../../apis/NewsAdapter"
-
 
 export function fetchNews(){
 
