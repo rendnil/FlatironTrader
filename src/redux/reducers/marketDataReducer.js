@@ -17,53 +17,36 @@ export default function (state = defaultState, action){
     //the appropriate asset
     //return a new state array with updated price
     case "BITCOIN_PRICE_UPDATE":
-       return state.map((asset)=>{
-         if (asset.symbol === "BTC"){
-           return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
-         }else{
-           return asset
-         }
-       })
+      return createUpdatedPriceState(state, action, "BTC")
 
     case "ETHEREUM_PRICE_UPDATE":
-      return state.map((asset)=>{
-        if (asset.symbol === "ETH"){
-          return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
-        }else{
-          return asset
-        }
-      })
+      return createUpdatedPriceState(state, action, "ETH")
 
 
     case "BITCOINCASH_PRICE_UPDATE":
-      return state.map((asset)=>{
-        if (asset.symbol === "BCH"){
-          return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
-        }else{
-          return asset
-        }
-      })
+      return createUpdatedPriceState(state, action, "BCH")
 
     case "RIPPLE_PRICE_UPDATE":
-      return state.map((asset)=>{
-        if (asset.symbol === "XRP"){
-          return {...asset, livePrice:parseFloat(action.payload).toFixed(3)}
-        }else{
-          return asset
-        }
-      })
+      return createUpdatedPriceState(state, action, "XRP")
 
     case "LITECOIN_PRICE_UPDATE":
-      return state.map((asset)=>{
-        if (asset.symbol === "LTC"){
-          return {...asset, livePrice:parseFloat(action.payload).toFixed(2)}
-        }else{
-          return asset
-        }
-      })
-
+      return createUpdatedPriceState(state, action, "LTC")
 
     default:
       return state
   }
+}
+
+//helper function for updating the live pricing state
+const createUpdatedPriceState = (state, action, assetSymbol) => {
+  //iterate over all assets in the state
+  return state.map((asset)=>{
+    //if this asset is the updated asset, then change the price to new live price
+    if (asset.symbol === assetSymbol){
+      return {...asset, livePrice:parseFloat(action.payload)}
+    //otherwise just keep the existing price
+    }else{
+      return asset
+    }
+  })
 }

@@ -1,7 +1,11 @@
+//reducer for historical price data
+
 export default function (state = {}, action){
 
   switch(action.type){
 
+    //check to see which asset has been fetched
+    //only update that asset's data in the state 
     case "FETCH_BTC_DATA":
       return {...state, "BTC":action.payload}
 
