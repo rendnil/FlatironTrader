@@ -1,6 +1,6 @@
-//adapter for fetching the latest cryptocurrency news articles 
+//adapter for fetching the latest cryptocurrency news articles
 
-const MARKET_NEWS_ENDPOINT = "https://min-api.cryptocompare.com/data/v2/news/?lang=EN"
+const MARKET_NEWS_ENDPOINT = `${process.env.REACT_APP_CRYPTO_DATA_API}/v2/news/?lang=EN`
 
 
 export default class NewsAdapter{

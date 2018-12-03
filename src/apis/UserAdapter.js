@@ -3,8 +3,7 @@
 //login
 //sign up
 
-const API_ENDPOINT = "http://localhost:3001/api/v1"
-
+const API_ENDPOINT = process.env.REACT_APP_BACKEND
 
 export default class UserAdapter{
 
@@ -41,7 +40,7 @@ export default class UserAdapter{
     })
   }
 
-  //sign up by creating a new user 
+  //sign up by creating a new user
   static signUpUser(username, email, password){
     return fetch(`${API_ENDPOINT}/users`, {
       method: 'POST',

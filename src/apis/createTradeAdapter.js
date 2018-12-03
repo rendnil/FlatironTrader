@@ -1,11 +1,11 @@
-//adapter to post new trades to db 
+//adapter to post new trades to db
 
-const CREATE_TRADE_API_ENDPOINT = "http://localhost:3001/api/v1/trades"
+const API_ENDPOINT = process.env.REACT_APP_BACKEND
 
 export default class createTradeAdapter{
   static postNewTrade(userId, symbol, buy, price, quantity){
 
-    return fetch(`${CREATE_TRADE_API_ENDPOINT}`,{
+    return fetch(`${API_ENDPOINT}/trades`,{
       method: "POST",
       headers:{
         "Accept": "application/json",
