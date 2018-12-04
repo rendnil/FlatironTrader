@@ -24,13 +24,13 @@ class TradeTableRow extends React.Component{
 
     //if the price has increased show green cell
     if (previousProps.asset.livePrice < this.props.asset.livePrice){
-      this.setState({positiveChange: true})
-      this.revertColor()
+      this.setState({positiveChange: true},()=>this.revertColor())
+
 
     //if the price has decreased show red cell
     }else if (previousProps.asset.livePrice > this.props.asset.livePrice) {
-      this.setState({negativeChange: true})
-    this.revertColor()
+      this.setState({negativeChange: true},()=>this.revertColor())
+
 
     }
   }
@@ -43,6 +43,8 @@ class TradeTableRow extends React.Component{
 
   //revert the color of the price cell on timeout
   revertColor(){
+    //first clear any timeouts
+    clearTimeout(this.interval)
     this.interval = setTimeout(()=>this.setState({
       positiveChange: false,
       negativeChange: false
