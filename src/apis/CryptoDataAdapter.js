@@ -8,7 +8,7 @@ export default class CryptoDataAdapter{
   //method to fetch historical price data
   static getHistoricalPriceData(symbol){
 
-  //limiting data to last 750 points
+  //limiting data to last 500 points
     let endPoint = `${process.env.REACT_APP_CRYPTO_DATA_API}/histoday?fsym=${symbol}&tsym=USD&limit=${DATA_LIMIT}`
     return fetch(endPoint)
     .then(r => r.json())

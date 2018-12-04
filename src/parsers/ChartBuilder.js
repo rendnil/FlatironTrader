@@ -1,7 +1,7 @@
 ///class used to  construct chart datasets for use with Chart.js
 import DateBuilder from "./DateBuilder"
 
-const startDateCode = 1525132800 ///May 1 2018
+const startDateCode = 1533081600 ///Aug 1 2018
 
 export default class ChartBuilder {
 
@@ -30,7 +30,7 @@ export default class ChartBuilder {
   //method for constructing the chart obj tht will be passed to
   //the Chart.js component
   static constructChartObj(symbolDataSet, label, color){
-    //first construct the data object 
+    //first construct the data object
     let dataSet = this.constructChartDataSet(symbolDataSet)
 
     return {
